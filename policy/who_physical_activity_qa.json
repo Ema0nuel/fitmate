@@ -1,0 +1,235 @@
+{
+  "metadata": {
+    "title": "WHO Physical Activity Guidelines and Status Report - Fine-Tuning Dataset",
+    "description": "Instruction-based Q&A pairs for fine-tuning a fitness chatbot using World Health Organization (WHO) evidence-based guidelines",
+    "format": "instruction-input-output (Hugging Face SFTTrainer compatible)",
+    "system_prompt": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based guidelines. Answer every question with the underlying reason or rationale. Spell out every acronym in full before using its abbreviated form on first mention.",
+    "dataset_stats": {
+      "total_pairs": 50,
+      "categories": {
+        "general_physical_activity": 8,
+        "children_and_adolescents": 8,
+        "adults": 7,
+        "older_adults": 5,
+        "pregnant_and_postpartum_women": 5,
+        "chronic_conditions": 4,
+        "disability": 4,
+        "global_status_and_economic_burden": 5,
+        "five_recommendations": 4
+      }
+    },
+    "sources": [
+      {
+        "id": "WHO_2020_Guidelines",
+        "title": "WHO Guidelines on Physical Activity and Sedentary Behaviour",
+        "year": 2020,
+        "publisher": "World Health Organization",
+        "isbn": "978-92-4-001512-8"
+      },
+      {
+        "id": "WHO_2022_Status_Report",
+        "title": "Global Status Report on Physical Activity 2022",
+        "year": 2022,
+        "publisher": "World Health Organization",
+        "isbn": "978-92-4-005915-3"
+      }
+    ]
+  },
+  "qa_pairs": [
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "What is physical activity?",
+      "output": "Physical activity is any bodily movement produced by skeletal muscles that requires energy expenditure. The reason this definition matters is that it covers all types of movement, not just exercise. It includes activity performed during work, domestic chores, transportation, and leisure time or sports. This broad definition means you can increase your physical activity level through many daily activities, not only through structured workouts."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "What is sedentary behaviour and why is it unhealthy?",
+      "output": "Sedentary behaviour is any waking behaviour characterized by an energy expenditure of 1.5 Metabolic Equivalents of Task (METs) or lower while sitting, reclining, or lying. Examples include desk-based office work, driving a car, and watching television. It is unhealthy because higher amounts of sedentary behaviour are linked to increased risks of death from all causes, death from cardiovascular disease, death from cancer, and higher incidence of cardiovascular disease, cancer, and Type 2 Diabetes. The rationale is that prolonged sitting reduces the body's ability to regulate blood sugar and blood pressure, and it lowers overall metabolic rate."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "How is physical inactivity defined and why is it dangerous?",
+      "output": "Physical inactivity is defined as not meeting the World Health Organization (WHO) Global Recommendations on Physical Activity for Health. It is dangerous because it is a leading contributor to global mortality. The WHO estimates that between four and five million deaths per year could be prevented if the global population was more active. The reason for this is that insufficient physical activity directly contributes to noncommunicable diseases (NCDs) such as cardiovascular disease, Type 2 Diabetes, and certain cancers, which are among the top causes of death worldwide."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "What does moderate-intensity physical activity mean?",
+      "output": "On an absolute scale, moderate-intensity physical activity means activity performed between 3 and less than 6 times the intensity of rest. On a scale relative to your personal capacity, it is usually a 5 or 6 on a scale of 0 to 10. Brisk walking is the most common example. The reason intensity classifications exist is to help you gauge whether you are working hard enough to get health benefits. At moderate intensity, your heart rate increases and you breathe harder but you can still talk, which is the 'talk test' guideline."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "What does vigorous-intensity physical activity mean?",
+      "output": "On an absolute scale, vigorous-intensity physical activity means activity performed at 6.0 or more Metabolic Equivalents of Task (METs). On a scale relative to your personal capacity, it is usually a 7 or 8 on a scale of 0 to 10. Examples include running, swimming laps, or cycling fast. The reason for distinguishing vigorous from moderate intensity is that vigorous activity delivers greater health benefits in less time. The WHO guidelines state that 75 to 150 minutes of vigorous activity per week provides the same substantial health benefits as 150 to 300 minutes of moderate activity."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "What is muscle-strengthening activity and why is it important?",
+      "output": "Muscle-strengthening activity is physical activity that increases skeletal muscle strength, power, endurance, and mass. Examples include strength training, resistance training, push-ups, sit-ups, and lifting weights. It is important because muscle mass naturally declines with age, and maintaining muscle strength helps with daily activities, boosts metabolism, improves bone density, and reduces the risk of falls and fractures, especially in older adults. The WHO recommends doing muscle-strengthening activities at moderate or greater intensity involving all major muscle groups on 2 or more days per week."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "What is multicomponent physical activity and who needs it most?",
+      "output": "Multicomponent physical activity combines aerobic exercise, muscle strengthening, and balance training into a single session. An example includes walking (aerobic), lifting weights (muscle strengthening), and standing on one foot while doing bicep curls (balance). Older adults need it most because it improves physical function and decreases the risk of falls or injury from falls. The WHO recommends older adults do varied multicomponent physical activity emphasizing functional balance and strength training at moderate or greater intensity on 3 or more days per week. The reason is that falls are a leading cause of injury and disability in older populations, and multicomponent training directly targets the muscle groups and neural pathways that prevent falls."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "What are the different domains of physical activity?",
+      "output": "The World Health Organization (WHO) defines physical activity across five domains: leisure-time (sports, exercise, recreational activities like dancing), occupation (work-related movement), education (school-based physical activity), household (cleaning, gardening, caring for children), and transportation (walking, cycling, wheeling to get from place to place). The reason these domains matter is that many people think only leisure-time exercise counts. Understanding all domains helps you see opportunities throughout your day to be more active, even without formal workouts."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "How much physical activity should children and adolescents aged 5 to 17 do each day?",
+      "output": "The World Health Organization (WHO) recommends that children and adolescents aged 5 to 17 do at least an average of 60 minutes per day of moderate-to-vigorous-intensity, mostly aerobic, physical activity across the week. This is a strong recommendation backed by moderate certainty evidence. The reason for 60 minutes is that this is the minimum dose shown in systematic reviews to produce meaningful improvements in physical fitness, cardiometabolic health, bone health, cognitive function, and mental health while reducing body fat. This amount of activity also builds habits that track into adulthood."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "How often should children and adolescents do vigorous and muscle-strengthening activities?",
+      "output": "The World Health Organization (WHO) recommends that children and adolescents incorporate vigorous-intensity aerobic activities, as well as activities that strengthen muscle and bone, at least 3 days per week. This is a strong recommendation with moderate certainty evidence. The reason for at least 3 days is that bone and muscle tissue need adequate recovery between high-intensity sessions, and research shows that spreading vigorous activity across at least 3 non-consecutive days per week produces the best gains in bone density, muscle strength, and cardiovascular fitness."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "What health benefits does physical activity provide for children and adolescents?",
+      "output": "The World Health Organization (WHO) guidelines identify the following benefits of physical activity for children and adolescents: improved physical fitness including cardiorespiratory fitness and muscular fitness, better cardiometabolic health including blood pressure, blood lipids, glucose levels and insulin resistance, stronger bone health, improved cognitive outcomes including academic performance and executive function, better mental health with reduced symptoms of depression, and reduced body fat or adiposity. The reason physical activity delivers such wide-ranging benefits is that it positively affects nearly every body system, from the cardiovascular and metabolic systems to the brain and musculoskeletal system."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "What sedentary behaviour limits should children and adolescents follow?",
+      "output": "The World Health Organization (WHO) recommends that children and adolescents should limit the amount of time spent being sedentary, particularly the amount of recreational screen time. Recreational screen time means time spent watching screens including television, computer, or mobile devices for entertainment purposes, excluding education or study. This is a strong recommendation with low certainty evidence. The reason for this recommendation is that higher sedentary behaviour in children and adolescents is associated with increased body fat, poorer cardiometabolic health, reduced fitness, worse behavioral conduct, and reduced sleep duration."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "What should I tell a child who is not meeting the physical activity recommendations?",
+      "output": "The World Health Organization (WHO) guidelines include good practice statements that say: doing some physical activity is better than doing none. If children and adolescents are not meeting the full recommendations, doing some physical activity will still benefit their health. They should start by doing small amounts of physical activity and gradually increase the frequency, intensity and duration over time. The reason this matters is that the biggest health gains come from moving from doing nothing to doing something. Even small increases above zero reduce health risks meaningfully. The goal is progress, not perfection."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "How much aerobic physical activity should adults aged 18 to 64 do per week?",
+      "output": "The World Health Organization (WHO) recommends that adults aged 18 to 64 do at least 150 to 300 minutes of moderate-intensity aerobic physical activity, or at least 75 to 150 minutes of vigorous-intensity aerobic physical activity, or an equivalent combination of both throughout the week for substantial health benefits. This is a strong recommendation with moderate certainty evidence. The reason for this specific range is that research consistently shows a dose-response relationship. At 150 minutes of moderate activity per week, the risk of death from all causes decreases significantly. Moving up to 300 minutes provides additional health benefits. The reason you can combine moderate and vigorous activity is that 1 minute of vigorous activity counts for roughly 2 minutes of moderate activity in terms of health impact."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "How often should adults do muscle-strengthening exercises?",
+      "output": "The World Health Organization (WHO) recommends that adults do muscle-strengthening activities at moderate or greater intensity that involve all major muscle groups on 2 or more days per week. Major muscle groups include the legs, back, abdomen, chest, shoulders, and arms. This is a strong recommendation with moderate certainty evidence. The reason for focusing on all major muscle groups is that muscle imbalances can lead to poor posture and injury. Working all major groups ensures balanced strength development. The reason for 2 or more days is that muscle tissue needs 48 hours between sessions to repair and grow stronger."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "Can adults do more than 300 minutes of moderate activity per week?",
+      "output": "Yes. The World Health Organization (WHO) states that adults may increase moderate-intensity aerobic physical activity to more than 300 minutes, or do more than 150 minutes of vigorous-intensity activity, or an equivalent combination for additional health benefits. This is a conditional recommendation with moderate certainty evidence. The reason is that the dose-response curve for physical activity continues upward beyond the minimum recommendation. More activity produces more health benefits, though the incremental gain per additional minute diminishes at very high levels."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "What diseases and conditions does physical activity help prevent in adults?",
+      "output": "The World Health Organization (WHO) guidelines state that physical activity in adults improves outcomes for all-cause mortality (death from any cause), cardiovascular disease mortality, high blood pressure or hypertension, several site-specific cancers including bladder, breast, colon, endometrial, esophageal adenocarcinoma, gastric, and kidney cancers, Type 2 Diabetes, mental health including reduced symptoms of anxiety and depression, cognitive health, and sleep quality. Measures of body fat or adiposity may also improve. The reason physical activity protects against so many diseases is that it improves cardiovascular function, regulates blood sugar and insulin, reduces inflammation, supports immune function, and positively affects brain chemistry."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "What should I do if I sit for long hours at work?",
+      "output": "The World Health Organization (WHO) recommends that adults who spend long hours sitting should limit total sedentary time and replace it with physical activity of any intensity, including light intensity. To help reduce the harmful effects of high levels of sedentary behaviour, you should aim to do more than the recommended minimum of 150 to 300 minutes of moderate-to-vigorous-intensity activity per week. The reason is that prolonged sitting causes metabolic changes, including reduced breakdown of blood fats and sugars, which increases disease risk even if you exercise. Breaking up sitting time with standing or walking every 30 to 60 minutes directly counteracts these effects."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "How much physical activity should older adults aged 65 and above do?",
+      "output": "The World Health Organization (WHO) recommends that older adults aged 65 and older do at least 150 to 300 minutes of moderate-intensity aerobic physical activity, or at least 75 to 150 minutes of vigorous-intensity activity, or an equivalent combination throughout the week. They should also do muscle-strengthening activities involving all major muscle groups on 2 or more days per week, AND do varied multicomponent physical activity emphasizing functional balance and strength training on 3 or more days per week. All are strong recommendations with moderate certainty evidence. The reason for the extra balance component is that older adults face increased risk of falls, which are a leading cause of hospitalization and loss of independence."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "Why do older adults need balance training in addition to aerobic and muscle-strengthening exercise?",
+      "output": "The World Health Organization (WHO) specifically recommends that older adults do varied multicomponent physical activity that emphasizes functional balance and strength training at moderate or greater intensity on 3 or more days per week. This recommendation exists because falls are one of the greatest health risks for older adults. Balance training directly improves the neuromuscular coordination and leg strength needed to prevent falls. The combination of aerobic, strength, and balance training provides the best protection against both chronic disease and acute injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "What are the health benefits of physical activity specific to older adults?",
+      "output": "In addition to the general benefits for all adults, physical activity in older adults helps prevent falls and falls-related injuries and slows declines in bone health and functional ability. The World Health Organization (WHO) guidelines confirm that older adults gain benefits in all-cause mortality, cardiovascular disease mortality, high blood pressure, site-specific cancers, Type 2 Diabetes, mental health, cognitive health, and sleep. The reason falls prevention is emphasized for this age group is that one in three adults aged 65 and older falls each year, and fall-related injuries are a major cause of reduced quality of life."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "What should an older adult with limited mobility do for physical activity?",
+      "output": "The World Health Organization (WHO) good practice statements say that older adults should be as physically active as their functional ability allows and adjust their level of effort relative to their level of fitness. Doing some physical activity is better than doing none. If they are not meeting the full recommendations, doing some activity will still bring health benefits. They should start by doing small amounts and gradually increase frequency, intensity and duration over time. The reason is that even modest increases in activity, such as short walks or seated exercises, improve cardiovascular health, maintain muscle mass, and reduce fall risk compared to complete inactivity."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "How much physical activity should pregnant women do?",
+      "output": "The World Health Organization (WHO) recommends that all pregnant and postpartum women without medical contraindications should do at least 150 minutes of moderate-intensity aerobic physical activity throughout the week. They should also incorporate a variety of aerobic and muscle-strengthening activities. Adding gentle stretching may also be beneficial. These are strong recommendations with moderate certainty evidence. The reason is that physical activity during pregnancy reduces the risk of pre-eclampsia, gestational hypertension, gestational diabetes, excessive weight gain, delivery complications, and postpartum depression, with no adverse effects on birth weight or risk of stillbirth."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "Can a woman who exercised vigorously before pregnancy continue during pregnancy?",
+      "output": "Yes. The World Health Organization (WHO) states that women who habitually engaged in vigorous-intensity aerobic activity before pregnancy can continue these activities during pregnancy and the postpartum period. This is a strong recommendation with moderate certainty evidence. The reason is that the body has adapted to higher intensity exercise, and maintaining fitness during pregnancy supports better pregnancy outcomes. However, the guidelines include safety precautions such as avoiding activities with high fall risk, contact sports, and supine position after the first trimester."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "What safety precautions should pregnant women follow when exercising?",
+      "output": "The World Health Organization (WHO) guidelines provide these safety considerations: avoid physical activity during excessive heat especially with high humidity, stay hydrated by drinking water before during and after activity, avoid contact sports and activities with high fall risk, avoid activities that limit oxygenation such as high altitude not normally lived at, avoid supine position after the first trimester, and for athletic competition seek supervision from a specialist healthcare provider. Pregnant women should also learn danger signs that require stopping activity and consulting a provider. They should return to activity gradually after delivery and consult a provider after Caesarean section."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "What are the benefits of physical activity during pregnancy and postpartum?",
+      "output": "The World Health Organization (WHO) lists these maternal and fetal health benefits of physical activity during pregnancy and postpartum: decreased risk of pre-eclampsia, gestational hypertension, gestational diabetes, excessive gestational weight gain, delivery complications, and postpartum depression. It also results in fewer newborn complications with no adverse effects on birth weight and no increase in risk of stillbirth. The reason physical activity is beneficial during pregnancy is that it improves cardiovascular function, helps regulate blood sugar and weight, reduces inflammation, and improves mood through endorphin release, all of which directly support a healthier pregnancy."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "How much physical activity should someone with a chronic condition like cancer, hypertension, or Type 2 Diabetes do?",
+      "output": "The World Health Organization (WHO) recommends that adults and older adults with chronic conditions including cancer survivors, hypertension, Type 2 Diabetes, and Human Immunodeficiency Virus (HIV) should do at least 150 to 300 minutes of moderate-intensity aerobic activity, or 75 to 150 minutes of vigorous-intensity activity, or an equivalent combination per week. They should also do muscle-strengthening activities on 2 or more days per week. Older adults with these conditions should additionally do multicomponent balance training on 3 or more days per week. These are strong recommendations with moderate certainty evidence. The reason is that for cancer survivors, activity improves survival rates and reduces cancer recurrence risk. For hypertension, it lowers blood pressure and cardiovascular mortality. For Type 2 Diabetes, it improves blood sugar control and reduces cardiovascular death. For HIV, it improves fitness and mental health without worsening the disease."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "Does someone with a chronic condition need a doctor's permission before starting to exercise?",
+      "output": "The World Health Organization (WHO) guidelines state that pre-exercise medical clearance is generally unnecessary for individuals without contraindications before beginning light or moderate intensity physical activity not exceeding the demands of brisk walking or everyday living. However, the guidelines also recommend that adults with chronic conditions may wish to consult a physical activity specialist or healthcare professional for advice on types and amounts of activity appropriate for their specific condition, limitations, medications, and treatment plan. The reason is that while moderate activity is safe for most people, certain conditions may require activity modifications, and professional guidance ensures both safety and effectiveness."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "How much physical activity should children living with disability do?",
+      "output": "The World Health Organization (WHO) recommends that children and adolescents aged 5 to 17 living with disability should do at least an average of 60 minutes per day of moderate-to-vigorous-intensity, mostly aerobic, physical activity across the week. Vigorous-intensity aerobic activities and those that strengthen muscle and bone should be incorporated at least 3 days per week. This is a strong recommendation with moderate certainty evidence. The reason is that children with disability receive the same important health benefits, plus additional benefits like improved cognition in conditions affecting cognitive function such as Attention Deficit Hyperactivity Disorder (ADHD) and improved physical function in intellectual disability."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "How much physical activity should adults living with disability do?",
+      "output": "The World Health Organization (WHO) recommends that adults living with disability should do at least 150 to 300 minutes of moderate-intensity aerobic physical activity, or 75 to 150 minutes of vigorous-intensity activity, or an equivalent combination per week. They should also do muscle-strengthening activities involving all major muscle groups on 2 or more days per week. For older adults with disability, varied multicomponent balance training on 3 or more days per week is also recommended. The reason is that additional benefits specific to disability include improved physical function in Multiple Sclerosis, improved walking and upper extremity function in spinal cord injury, improved cognition in Parkinson's Disease and stroke survivors, and improved quality of life across multiple conditions."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "Are there risks to exercise for people living with disability?",
+      "output": "The World Health Organization (WHO) states there are no major risks for children, adolescents, or adults living with disability engaging in physical activity when it is appropriate to the individual's current activity level, health status, and physical function, and when the health benefits outweigh the risks. People with disabilities may need to consult a healthcare professional or physical activity and disability specialist to determine the appropriate type and amount of activity for them. The reason is that activity should be tailored to the individual's specific limitations and abilities rather than following a one-size-fits-all approach."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "What percentage of adults and adolescents globally are physically inactive?",
+      "output": "According to the World Health Organization (WHO) Global Status Report on Physical Activity 2022, 81 percent of adolescents and 27.5 percent of adults globally do not meet the World Health Organization (WHO) recommended levels of physical activity. The reason this is concerning is that physical inactivity affects not only individual health over a lifetime, but also burdens families, health services, and society as a whole through preventable disease and increased healthcare costs."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "What is the economic cost of physical inactivity worldwide?",
+      "output": "According to the World Health Organization (WHO) Global Status Report on Physical Activity 2022, almost 500 million new cases of preventable Noncommunicable Diseases (NCDs) will occur between 2020 and 2030 if physical inactivity levels remain unchanged. This will incur treatment costs of just over 300 billion United States Dollars or around 27 billion United States Dollars annually. Nearly half of these cases (47 percent) will result from hypertension (high blood pressure), and 43 percent will result from depression. Three quarters of all cases will occur in lower and upper middle income countries, but 70 percent of the healthcare expenditure will occur in high income countries. The reason the cost is so high is that physical inactivity directly contributes to chronic diseases that require lifelong treatment and management."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "How has global implementation of the Global Action Plan on Physical Activity (GAPPA) progressed?",
+      "output": "The World Health Organization (WHO) Global Status Report on Physical Activity 2022 shows that overall global implementation of the Global Action Plan on Physical Activity (GAPPA) since its adoption 5 years ago has been slow and uneven, resulting in little progress towards increasing population levels of physical activity. Only 2 of the 29 GAPPA policy indicators show implementation by over three quarters of all countries: national surveillance of physical activity and national road safety design standards. For 18 of the 29 indicators, less than half of countries report implementation. The reason for this slow progress is an interconnected set of gaps across five areas: political will, technical capacity, financial resources, collaboration and capacity building, and data systems."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "How many countries have national physical activity policies and how many actually implement them?",
+      "output": "The number of countries reporting a national Noncommunicable Disease (NCD) policy that includes physical activity has increased since 2017 and 2019. However, 28 percent of countries report these policies exist but are not being implemented or operational as of 2021. Furthermore, less than 50 percent of countries report having a national NCD coordinating mechanism to support collaboration across different government sectors. The reason for this gap between policy and implementation is that having a policy on paper does not guarantee the funding, staffing, infrastructure, or political will needed to put it into practice."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "What is the first recommendation from the Global Status Report to increase physical activity?",
+      "output": "The World Health Organization (WHO) Global Status Report on Physical Activity 2022 recommends five actions. The first recommendation is to strengthen whole-of-government ownership and political leadership on physical activity. This means establishing and reinforcing leadership on physical activity within and across all relevant government departments at all levels, investing in advocacy for policy action, and increasing awareness of how physical activity policy contributes to national development and multiple Sustainable Development Goals (SDGs). The reason this is the first recommendation is that without high-level political commitment and cross-government coordination, physical activity remains siloed in the health sector instead of being integrated into transport, education, urban planning, and sport policy where the biggest population-level changes happen."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "What are the second and third recommendations from the Global Status Report?",
+      "output": "The World Health Organization (WHO) second recommendation is to integrate physical activity into relevant policies and support implementation with practical tools and guidance. This means reviewing national policies, regulations, and standards to strengthen inclusion of physical activity and developing implementation tools tailored to each country's culture and context. The third recommendation is to strengthen partnerships, engage communities, and build capacity in people. This means creating national coordinating mechanisms for physical activity that bring together multiple government and non-government stakeholders, and prioritizing opportunities for those who are least active including people with disabilities, older adults, and young people. The reason these two recommendations are paired is that policies without practical tools and partnerships without community engagement both fail to translate into real-world change."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "What are the fourth and fifth recommendations from the Global Status Report?",
+      "output": "The World Health Organization (WHO) fourth recommendation is to reinforce data systems, monitoring, and knowledge translation. This means strengthening national and subnational monitoring systems to track policy progress and investing in research capacity through government and non-government partnerships to design and evaluate policy implementation. The fifth recommendation is to secure sustainable funding and align with national policy commitments. This means reviewing current government budget allocations to physical activity policies and exploring innovative financing mechanisms, particularly within national COVID-19 recovery plans and development agendas. The reason these are the final recommendations is that data and funding are the enablers that make all other recommendations sustainable long term, and without them policy progress cannot be measured or maintained."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the World Health Organization (WHO) Guidelines on Physical Activity and Sedentary Behaviour. Answer with evidence and explain why.",
+      "input": "What is the main message of the Global Status Report on Physical Activity 2022?",
+      "output": "The main message of the World Health Organization (WHO) Global Status Report on Physical Activity 2022 is a call for stronger collective action in all countries to close the gap in policy implementation and to accelerate political action. As the world responds to the impact of the COVID-19 pandemic on physical and mental health, promoting physical activity can save lives, improve health, and support stronger more resilient health systems and communities. The reason this message is urgent is that the gap between having policies on paper and actually implementing them is widening, and the preventable disease burden from physical inactivity continues to grow."
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "metadata": {
+    "title": "WHO Healthy Diet Fact Sheet - Fine-Tuning Dataset",
+    "description": "Instruction-based Q&A pairs for fine-tuning a fitness chatbot using World Health Organization (WHO) evidence-based dietary guidance",
+    "format": "instruction-input-output (Hugging Face SFTTrainer compatible)",
+    "system_prompt": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer every question with the underlying reason or rationale. Spell out every acronym in full before using its abbreviated form on first mention.",
+    "dataset_stats": {
+      "total_pairs": 34,
+      "categories": {
+        "core_principles": 5,
+        "carbohydrates": 5,
+        "sugars": 5,
+        "fats": 5,
+        "protein": 4,
+        "salt_sodium_potassium": 4,
+        "micronutrients": 3,
+        "infants_and_young_children": 4,
+        "promoting_healthy_diets": 5,
+        "food_groups_and_practical_advice": 4
+      }
+    },
+    "sources": [
+      {
+        "id": "WHO_Healthy_Diet_FactSheet_2026",
+        "title": "Healthy Diet - Fact Sheet",
+        "year": 2026,
+        "publisher": "World Health Organization",
+        "url": "https://www.who.int/news-room/fact-sheets/detail/healthy-diet",
+        "last_updated": "2026-01-26"
+      }
+    ]
+  },
+  "qa_pairs": [
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "What is a healthy diet?",
+      "output": "A healthy diet is a pattern of eating that helps protect against malnutrition in all its forms, as well as a range of noncommunicable diseases (NCDs) and conditions. A diet must also be safe to be healthy, meaning free from microbial and chemical contaminants. It is built on four core principles: adequacy, which means meeting without exceeding micronutrient and macronutrient needs so deficiencies are prevented; balance, which means total energy intake is matched with energy expenditure with adequate balance across protein, fats, and carbohydrates; moderation, which means limiting intake of nutrients and foods that may be harmful to health; and diversity, which means including a wide variety of nutritious foods within and across food groups. A variety of minimally processed and unprocessed foods low in unhealthy fats, free sugars, and sodium are the foundation of any healthy diet. The reason these principles matter is that no single food provides all the nutrients the body needs, and excess of any nutrient can cause harm."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "Why is diet important for health?",
+      "output": "Diet plays a critical role in shaping the health and well-being of both individuals and populations. Consuming a healthy diet throughout the life course helps prevent malnutrition in all its forms as well as a range of noncommunicable diseases (NCDs) and conditions. However, changes in food production and food systems, rapid urbanization, and changing lifestyles have led to a shift in dietary patterns. People are now consuming more highly processed foods high in unhealthy fats, free sugars, and sodium, while many people do not eat enough fruits, vegetables, or dietary fibre. The reason diet matters so much is that these shifts directly increase the risk of diet-related noncommunicable diseases across populations."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "What are the four core principles of a healthy diet?",
+      "output": "The World Health Organization (WHO) defines four core principles. First, adequacy: the diet meets without exceeding micronutrient and macronutrient needs such that deficiencies are prevented. Second, balance: total energy intake is balanced with energy expenditure, with adequate balance across the three primary energy sources of protein, fats, and carbohydrates. Third, moderation: limited intake of nutrients, ingredients, and foods that may be detrimental to health. Fourth, diversity: inclusion of a wide variety of nutritious foods within and across food groups. The reason these principles exist is that they form the foundation of any healthy diet regardless of age, culture, or geography, even though the specific foods in a diet may vary."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "Does a healthy diet look the same for everyone?",
+      "output": "No. The exact make-up of a diversified, balanced, and healthy diet varies depending on individual characteristics such as age, gender, lifestyle, and degree of physical activity, as well as cultural context, locally available foods, and dietary customs. However, the basic principles of adequacy, balance, moderation, and diversity remain the same for everyone. The reason for this variation is that nutritional needs differ across life stages and cultural food systems differ across regions, but the biological requirements of the human body are universal."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "How much carbohydrate should I eat daily?",
+      "output": "The World Health Organization (WHO) recommends that carbohydrates make up approximately 45 to 75 percent of total daily energy intake for most people. Carbohydrates should come primarily from whole grains, vegetables, fruits, and pulses such as lentils, chickpeas, beans, and dried peas. Examples of whole grains include unprocessed maize, millet, oats, wheat, and brown rice. The reason carbohydrates should come from whole, unrefined sources is that refined carbohydrates strip away fibre and micronutrients, leading to rapid blood sugar spikes and reduced satiety. Whole grain carbohydrates also provide dietary fibre, which supports digestive health and reduces the risk of noncommunicable diseases."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "How many fruits and vegetables should I eat per day?",
+      "output": "The World Health Organization (WHO) recommends that everyone older than 10 years of age should aim for at least 400 grams of fruits and vegetables per day. For children aged 2 to 5, the recommendation is at least 250 grams, and for children aged 6 to 9, at least 350 grams. Fresh fruit and vegetables are the best choices, but frozen and canned options are also good provided they do not have added sugars or excess sodium. The reason this minimum exists is that fruits and vegetables are the primary source of vitamins, minerals, antioxidants, and dietary fibre, all of which are linked to reduced risk of heart disease, stroke, certain cancers, and obesity."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "How much dietary fibre should I consume daily?",
+      "output": "The World Health Organization (WHO) recommends that everyone older than 10 years of age should aim for a daily intake of at least 25 grams of naturally occurring dietary fibre as found in foods. For children aged 2 to 5, the minimum is 15 grams, and for children aged 6 to 9, at least 21 grams. Dietary fibre is found in whole grains, fruits, vegetables, and pulses. The reason fibre intake is emphasized is that dietary fibre helps regulate blood sugar, lowers cholesterol, maintains bowel health, and reduces the risk of obesity, Type 2 Diabetes, and cardiovascular disease."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "Is fruit juice healthy?",
+      "output": "While fruit juice can be consumed, most varieties including those without added sugars contain significant amounts of free sugars. The World Health Organization (WHO) recommends limiting free sugars to less than 10 percent of total daily energy intake. The reason fruit juice is flagged is that when fruit is juiced, the dietary fibre is removed and the natural sugars become concentrated, causing a faster blood sugar response compared to eating whole fruit. Whole fruit is always the better choice because the fibre slows sugar absorption and promotes satiety."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "What foods are good sources of carbohydrates?",
+      "output": "The World Health Organization (WHO) recommends that carbohydrates come primarily from whole grains, vegetables, fruits, and pulses. Whole grains include unprocessed maize, millet, oats, wheat, and brown rice. Pulses include lentils, chickpeas, beans, and dried peas. These foods are preferred over refined carbohydrates because they retain their natural fibre, vitamins, and minerals. The reason is that whole food carbohydrate sources digest more slowly, provide sustained energy, and are associated with lower risk of obesity, heart disease, and Type 2 Diabetes."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "What are free sugars and why should I limit them?",
+      "output": "Free sugars include monosaccharides and disaccharides such as sucrose, fructose, and glucose that are added to foods and beverages by the manufacturer, cook, or consumer, as well as sugars naturally present in honey, syrups, fruit juices, and fruit juice concentrates. The World Health Organization (WHO) recommends limiting free sugars to less than 10 percent of total daily energy intake, which is equivalent to about 50 grams or 12 level teaspoons for a person consuming 2000 calories per day. Limiting further to 5 percent or less may provide additional health benefits. The reason for this strict limit is that high free sugar intake is a leading cause of dental caries, obesity, and Type 2 Diabetes."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "How much saturated fat and trans fat should I eat?",
+      "output": "The World Health Organization (WHO) recommends that no more than 10 percent of total daily energy intake should come from saturated fat, and no more than 1 percent from trans fat of any type. Lower intakes may provide additional health benefits. Saturated fat is found in fatty meat, butter, palm and coconut oil, cream, cheese, ghee, and lard. Trans fat includes industrially produced trans fat found in baked and fried foods and pre-packaged snacks, and ruminant trans fat found in meat and dairy from animals like cows, sheep, goats, and camels. The reason these limits exist is that saturated and trans fats raise blood cholesterol levels, which increases the risk of cardiovascular disease and stroke."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "What types of fat are healthy?",
+      "output": "The World Health Organization (WHO) states that unsaturated fat is preferable to saturated and trans fat. Unsaturated fat is found in fish, avocado, nuts, and in sunflower, soybean, canola, and olive oils. Saturated fat and trans fat can be replaced with polyunsaturated fat or monounsaturated fat from plant sources. Saturated fat can also be replaced by carbohydrates from foods containing naturally occurring dietary fibre, such as whole grains, fruits, vegetables, and pulses. Industrially produced trans fats are not part of a healthy diet and should be completely avoided. The reason unsaturated fats are preferred is that they improve blood cholesterol profiles and reduce cardiovascular risk, unlike saturated and trans fats which raise harmful cholesterol levels."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "How much total fat should adults eat per day?",
+      "output": "The World Health Organization (WHO) recommends that adults consume a minimum of 15 percent of daily energy from fat, up to 30 percent of total daily calories. Two fatty acids, linoleic acid and alpha-linolenic acid, can only be obtained from the diet, which is why fat is essential. Limiting total fat to 30 percent or less may help prevent unhealthy weight gain in adults. Children have unique energy requirements for optimal growth and development, so higher total fat intakes may be acceptable for them. The reason fat intake has a recommended range is that too little fat impairs absorption of fat-soluble vitamins and essential fatty acid function, while too much fat contributes to excess calorie intake and weight gain."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "How can I reduce saturated and trans fat in my diet?",
+      "output": "The World Health Organization (WHO) recommends the following strategies: steam or boil instead of frying when cooking; replace butter, lard, and ghee with oils rich in polyunsaturated fat such as soybean, canola (rapeseed), corn, safflower, and sunflower oils; eat reduced-fat dairy foods and lean meats, or trim visible fat from meat; and limit consumption of baked and fried foods and pre-packaged snacks that contain industrially produced trans fat such as doughnuts, cakes, pies, cookies, biscuits, and wafers. The reason these specific strategies are recommended is that they target the main dietary sources of unhealthy fats without requiring a complete overhaul of eating habits."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "How much protein should I eat daily?",
+      "output": "The World Health Organization (WHO) recommends that protein intake of 10 to 15 percent of total daily energy is generally sufficient for adults, which equals approximately 50 to 75 grams for a person of healthy body weight consuming about 2000 calories per day. Protein intake may be greater than 15 percent during adolescence and for athletes, bodybuilders, and others actively building or maintaining significant muscle mass. However, consuming excessive amounts of protein can place a metabolic burden on the body, particularly the kidneys. Protein can come from a mix of animal and plant sources. The reason for the recommended range is that both too little and too much protein cause harm. Too little leads to muscle wasting and poor immune function, while too much taxes the kidneys and may increase the risk of certain conditions."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "Should I eat more plant-based or animal-based protein?",
+      "output": "It depends on context. The World Health Organization (WHO) states that for many adults, switching to more plant-based sources of protein may be preferable to decrease risk of diet-related noncommunicable diseases. However, in other contexts, consumption of animal source foods is still important to favour nutrient intakes, particularly in children and pregnant or lactating women. Protein digestibility and quality should also be considered, especially in childhood and adolescence. The reason for this nuanced guidance is that plant-based proteins generally come with fibre and phytonutrients without the saturated fat found in many animal proteins, but animal proteins provide complete amino acid profiles and key micronutrients like iron, vitamin B12, and zinc that are harder to obtain from plants alone."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "How much salt should I eat per day?",
+      "output": "The World Health Organization (WHO) recommends that adults limit salt intake to less than 5 grams per day, which equals approximately 2 grams of sodium. For children, the maximum amount of sodium is lower and should be estimated based on energy intake. The reason for this strict limit is that high sodium intake is directly associated with increased blood pressure, which is a leading risk factor for cardiovascular disease and stroke. Most people are unaware of how much salt they consume because the majority of dietary salt comes from processed foods such as ready meals, processed meats like bacon, ham, and salami, cheese, and salty snacks, not from the salt added at the table."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "How can I reduce salt intake in my daily diet?",
+      "output": "The World Health Organization (WHO) recommends the following: limit the amount of salt and high-sodium condiments such as soy sauce, fish sauce, and bouillon when cooking and preparing foods; do not keep salt or high-sodium sauces on the table; limit consumption of salty snacks; and choose products with lower sodium content. Potassium can also help mitigate the negative effects of elevated sodium consumption on blood pressure. A potassium intake of at least 3510 milligrams per day for adults may be beneficial, and potassium can be increased by consuming fresh fruits and vegetables. The reason salt reduction is so heavily emphasized is that sodium reduction is one of the most cost-effective public health interventions for preventing cardiovascular disease."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "What are micronutrients and why do they matter?",
+      "output": "Micronutrients are essential vitamins and minerals that the body needs in small amounts for proper growth and health. There are about 30 in total, including 13 vitamins such as A, B-complex, C, D, E, and K, and 16 minerals like iron, iodine, zinc, and calcium. Deficiencies in these nutrients can lead to serious health issues including anaemia, scurvy, cognitive impairment, and neural tube defects. Globally, more than half of children under five and over two-thirds of non-pregnant women of reproductive age are deficient in at least one key micronutrient, typically iron, zinc, vitamin A, or folate. The reason micronutrient deficiency is so widespread is that many diets worldwide rely heavily on starchy staples that are low in vitamins and minerals."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "How can I ensure I get enough vitamins and minerals from my diet?",
+      "output": "The World Health Organization (WHO) recommends eating a wide variety of nutrient-dense foods including fruits, vegetables, whole grains, legumes, nuts, seeds, and lean animal-source foods. Specific examples include beans or lean meats for iron, dark-green leafy vegetables for vitamin A, and iodized salt to avoid iodine deficiency. In countries where micronutrient deficiencies are highly prevalent at 20 percent or higher, the WHO recommends integrating large-scale food fortification into national public health strategies by fortifying widely consumed staples such as flour, rice, oil, salt, or sugar with key micronutrients. The reason dietary diversity is the primary strategy is that no single food contains all essential micronutrients, so eating a variety of foods across and within food groups is the most reliable way to meet nutritional needs."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "What should I feed my baby in the first year of life?",
+      "output": "The World Health Organization (WHO) recommends that infants should be breastfed exclusively during the first 6 months of life. After 6 months, breast milk should be complemented with a variety of adequate, safe, and nutrient-dense foods while continuing breastfeeding until 2 years of age and beyond. Salt and sugars should not be added to complementary foods. Infants and young children aged 6 to 23 months should consume a diverse diet that includes animal source foods such as meat, fish, or eggs, as well as fruits and vegetables. Starchy staple foods should be minimized, and foods high in sugar, salt, and trans fats as well as sweet beverages should be avoided. The reason for this specific guidance is that the first 2 years of life are a critical window for brain development and physical growth, and optimal nutrition during this period reduces the risk of becoming overweight or obese and developing noncommunicable diseases later in life."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "Why is breastfeeding important for infant health?",
+      "output": "The World Health Organization (WHO) emphasizes that breastfeeding fosters healthy growth and improves cognitive development. It also reduces the risk of the child becoming overweight or obese and developing noncommunicable diseases later in life. Exclusive breastfeeding for the first 6 months provides all the nutrients and hydration an infant needs. The reason breast milk is recommended as the primary food is that it contains the ideal balance of nutrients, antibodies, and beneficial bacteria that protect infants from infection and support immune system development in ways that no formula can replicate."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "What can governments do to promote healthy diets?",
+      "output": "The World Health Organization (WHO) recommends that governments create coherence in national policies and investment plans across health, food, agricultural, education, fiscal, and trade sectors. Specific actions include increasing incentives such as subsidies for producers and retailers to grow, use, and sell fresh fruits and vegetables; establishing taxes and reducing incentives for the food industry to decrease production of processed foods high in saturated fat, trans fat, free sugars, and sodium; encouraging reformulation of food products with the goal of eliminating industrially produced trans fat; implementing mandatory instruments to protect children from the harmful impact of food marketing; and establishing standards to ensure healthy, nutritious, safe, and affordable foods in schools and other public institutions. The reason a multisectoral approach is necessary is that diet is shaped by income, food prices, individual preferences, cultural traditions, and environmental factors, so no single policy intervention can drive change alone."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "What role does nutrition labelling play in promoting healthy diets?",
+      "output": "The World Health Organization (WHO) recommends supporting point-of-sale information through nutrition labelling that ensures accurate, standardized, and comprehensible information on nutrient contents in foods, in line with the Codex Alimentarius Commission guidelines. The WHO also recommends implementing interpretive front-of-pack labelling to facilitate consumer understanding. The Codex Alimentarius Commission is the joint food standards body of the Food and Agriculture Organization (FAO) and the World Health Organization (WHO) that sets international food standards. The reason labelling is important is that many people are unaware of how much salt, sugar, saturated fat, or trans fat is in the foods they eat. Clear, easy-to-read labels empower consumers to make informed choices at the point of purchase, which drives market demand for healthier products."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "What foods should I avoid or limit for a healthy diet?",
+      "output": "The World Health Organization (WHO) recommends limiting or avoiding foods high in free sugars such as sweetened beverages, candies, and sugary snacks; foods high in saturated fat such as fatty meat, butter, palm oil, cream, cheese, and ghee; foods containing industrially produced trans fat such as baked and fried foods, frozen pizza, pies, cookies, biscuits, and wafers; and foods high in sodium such as processed meats, ready meals, salty snacks, and foods made with bouillon or stock cubes. Highly processed foods in general should be limited because they are often high in sodium, sugar, and unhealthy fats while being low in dietary fibre, vitamins, and minerals. The reason for this guidance is that these food categories are the primary dietary drivers of obesity, cardiovascular disease, Type 2 Diabetes, and certain cancers."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "What is the role of WHO in improving global diets?",
+      "output": "The World Health Organization (WHO) works to improve diets and nutrition through three core areas based on mandates from the World Health Assembly (WHA) and the United Nations General Assembly (UNGA). First, building evidence through guidelines, standards, and tools, including more than 15 guidelines over the last decade on reducing salt, sugars, and unhealthy fats, eliminating industrially produced trans fat, and supporting breastfeeding. Second, supporting action through initiatives like the REPLACE action package which has helped protect more than 50 percent of the global population from industrial trans fat, and co-leading efforts including the Global Action Plan on Child Wasting and the Acceleration Plan to Stop Obesity. Third, monitoring progress through the Global Database for Food and Nutrition Actions (GIFNA), which tracks more than 3100 food and nutrition policies worldwide. The reason WHO takes this three-pronged approach is that translating science into policy impact requires evidence generation, country-level implementation support, and accountability through data."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "What are lower-sodium salt substitutes and should I use them?",
+      "output": "Lower-sodium salt substitutes, or LSSS, are alternatives to regular table salt in which a proportion of the sodium is typically replaced with potassium. These products can contribute to reducing sodium intake in people not at risk of hyperkalaemia, which means elevated potassium levels in the blood. They can help reduce cardiovascular disease through both lower sodium intake and higher potassium intake. The World Health Organization (WHO) recommends this intervention for settings where health systems have the capacity to detect promptly and manage potential cases of kidney disease. The reason this distinction matters is that while reducing sodium is beneficial for most people, individuals with kidney disease may not be able to safely excrete excess potassium, making LSSS potentially dangerous for them."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "How does the WHO use data to track global dietary progress?",
+      "output": "The World Health Organization (WHO) collaborates with the Food and Agriculture Organization (FAO), the United Nations Children's Fund (UNICEF), and academic partners to strengthen global monitoring of dietary patterns and food policy implementation. The WHO uses low-burden tools and standardized metrics to assess dietary intake at the population level, enabling more frequent and comparable data collection. The WHO also maintains the Global Database for Food and Nutrition Actions (GIFNA), which tracks more than 3100 food and nutrition policies worldwide, helping monitor progress and identify policy gaps. The reason robust data systems are critical is that without consistent measurement, countries cannot know whether their dietary policies are actually improving population health or where resources should be directed."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "Should I use diet drinks or non-sugar sweeteners to cut calories?",
+      "output": "The World Health Organization (WHO) recommends that reducing consumption of free sugars should be accomplished without the use of non-sugar sweeteners. Common non-sugar sweeteners include acesulfame K, aspartame, advantame, cyclamates, neotame, saccharin, sucralose, stevia, and stevia derivatives. The reason the WHO advises against relying on these substitutes is that the evidence does not demonstrate long-term benefits for weight control, and some sweeteners may have adverse metabolic effects. Whole foods and water remain the better choices for reducing sugar intake."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "Does food safety matter for a healthy diet?",
+      "output": "Yes. The World Health Organization (WHO) states that a diet must also be safe to be healthy, meaning free from microbial and chemical contaminants. This means food should be handled, stored, and prepared in ways that prevent bacterial contamination, chemical residues, and other hazards. The reason food safety is included as a requirement alongside the four core dietary principles is that even a nutritionally perfect diet can cause illness or harm if the food is contaminated. Food safety is especially critical for infants, pregnant women, older adults, and people with weakened immune systems."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "Are processed foods always unhealthy?",
+      "output": "Not always, but the World Health Organization (WHO) states that a variety of minimally processed and unprocessed foods low in unhealthy fats, free sugars, and sodium are the foundation of any healthy diet. Diets containing significant amounts of highly processed foods, which are often high in sodium, sugar, or unhealthy fats, are associated with negative health outcomes. The reason this distinction matters is that processing can range from simple freezing or canapping, which preserves nutrients, to industrial formulation that strips fibre and adds excessive salt, sugar, and trans fat. The key is to read labels and choose products with minimal added ingredients."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "Should I switch from red meat to plant-based protein?",
+      "output": "The World Health Organization (WHO) states that for many adults, a shift towards more plant-based sources of protein may bring health benefits, particularly when the shift is away from red meat. Plant-based protein sources include legumes, nuts, seeds, soy products, and whole grains. The reason this specific guidance targets red meat is that high consumption of red meat is associated with increased risk of cardiovascular disease, certain cancers, and other noncommunicable diseases, while plant-based proteins provide fibre, phytonutrients, and lower levels of saturated fat. However, in some contexts, animal source foods remain important for nutrient intake, particularly for children and pregnant or lactating women."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "What is the Codex Alimentarius and why does it matter for food labelling?",
+      "output": "The World Health Organization (WHO) recommends that nutrition labelling should be in line with the Codex Alimentarius Commission guidelines to ensure accurate, standardized, and comprehensible information on nutrient contents in foods. The WHO also recommends implementing interpretive front-of-pack labelling to facilitate consumer understanding. The Codex Alimentarius Commission is the joint food standards body of the Food and Agriculture Organization (FAO) and the WHO that sets international food standards. The reason labelling aligned with Codex standards matters is that it provides a global reference framework that prevents countries from setting contradictory or misleading labelling requirements, which protects consumers regardless of where their food is produced."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on World Health Organization (WHO) evidence-based dietary guidelines. Answer with evidence and explain why.",
+      "input": "What specific WHO initiatives are working to improve global nutrition?",
+      "output": "The World Health Organization (WHO) co-leads several major global efforts to improve nutrition. These include the Global Action Plan on Child Wasting, which aims to reduce child wasting worldwide; the Framework to Accelerate Anaemia Reduction, which addresses iron deficiency and other causes of anaemia; and the Acceleration Plan to Stop Obesity, which supports countries in developing national roadmaps to prevent and manage obesity. The WHO also co-leads the REPLACE action package to eliminate industrial trans fats and maintains the Global Database for Food and Nutrition Actions (GIFNA) tracking more than 3100 food and nutrition policies worldwide. The reason these multiple initiatives exist is that malnutrition takes many forms, from undernutrition and micronutrient deficiency to overweight and obesity, and each form requires targeted, evidence-based interventions."
+    }
+  ]
+}

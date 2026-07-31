@@ -1,0 +1,185 @@
+{
+  "metadata": {
+    "title": "Physical Activity Guidelines for Americans (2nd Edition) - Fine-Tuning Dataset",
+    "description": "Instruction-based Q&A pairs for fine-tuning a fitness chatbot using the U.S. Department of Health and Human Services (HHS) evidence-based physical activity guidelines",
+    "format": "instruction-input-output (Hugging Face SFTTrainer compatible)",
+    "system_prompt": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer every question with the underlying reason or rationale. Spell out every acronym in full before using its abbreviated form on first mention.",
+    "dataset_stats": {
+      "total_pairs": 30,
+      "categories": {
+        "general_physical_activity": 3,
+        "health_benefits": 5,
+        "sedentary_behavior": 3,
+        "preschool_children": 3,
+        "children_and_adolescents": 3,
+        "adults": 4,
+        "older_adults": 3,
+        "pregnancy_and_postpartum": 3,
+        "chronic_conditions_and_disability": 3,
+        "safety_and_risk": 3,
+        "activity_types_and_intensity": 2
+      }
+    },
+    "sources": [
+      {
+        "id": "HHS_PAG_2nd_Edition",
+        "title": "Physical Activity Guidelines for Americans, 2nd edition",
+        "year": 2018,
+        "publisher": "U.S. Department of Health and Human Services",
+        "author": "HHS (U.S. Department of Health and Human Services)"
+      }
+    ]
+  },
+  "qa_pairs": [
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "What is the main purpose of the Physical Activity Guidelines for Americans?",
+      "output": "The Physical Activity Guidelines for Americans is issued by the U.S. Department of Health and Human Services (HHS) to provide science-based guidance to help people ages 3 years and older improve their health through appropriate physical activity. It builds on the 2008 Guidelines by incorporating new evidence about health benefits, demonstrating greater flexibility about how to achieve those benefits, and showing proven ways to help people be more active. The reason this document exists is that about half of all American adults, roughly 117 million people, have one or more preventable chronic diseases, and 80 percent of adults are not meeting the key guidelines for both aerobic and muscle-strengthening activity. This lack of physical activity is linked to approximately 117 billion dollars in annual health care costs and about 10 percent of premature mortality."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "How much physical activity should adults do per week?",
+      "output": "The guidelines recommend that adults should move more and sit less throughout the day. Some physical activity is better than none. For substantial health benefits, adults should do at least 150 minutes to 300 minutes of moderate-intensity aerobic activity per week, or 75 to 150 minutes of vigorous-intensity aerobic activity per week, or an equivalent combination of both. Aerobic activity should be spread throughout the week. Adults should also do muscle-strengthening activities of moderate or greater intensity involving all major muscle groups on 2 or more days per week. Additional health benefits are gained by engaging in physical activity beyond 300 minutes of moderate-intensity activity per week. The reason for this range is that research shows benefits begin at 150 minutes and continue to increase up to 300 minutes, with a steep early slope of benefit even below the 150-minute threshold."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "What is physical activity?",
+      "output": "Physical activity is any bodily movement produced by the contraction of skeletal muscle that increases energy expenditure above a basal level. In the Guidelines, physical activity generally refers to the subset of physical activity that enhances health. Exercise is a form of physical activity that is planned, structured, repetitive, and performed with the goal of improving health or fitness. Although all exercise is physical activity, not all physical activity is exercise. The reason this distinction matters is that many daily activities like walking, taking stairs, gardening, and playing with children count as physical activity even though they are not formal exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "What are the health benefits of regular physical activity?",
+      "output": "For adults and older adults, regular physical activity provides the following benefits: lower risk of all-cause mortality, lower risk of cardiovascular disease including heart disease and stroke, lower risk of hypertension, lower risk of Type 2 Diabetes, lower risk of adverse blood lipid profile, lower risk of cancers of the bladder, breast, colon, endometrium, esophagus, kidney, lung, and stomach, improved cognition, reduced risk of dementia including Alzheimer's disease, improved quality of life, reduced anxiety, reduced risk of depression, improved sleep, slowed or reduced weight gain, weight loss when combined with reduced calorie intake, improved bone health, and improved physical function. For older adults specifically, there is also a lower risk of falls and fall-related injuries. The reason these benefits exist is that physical activity improves cardiovascular function, regulates blood sugar and insulin, reduces inflammation, strengthens bones and muscles, and positively affects brain chemistry."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "What new health benefits were discovered since the 2008 Guidelines?",
+      "output": "The second edition of the Physical Activity Guidelines for Americans identified several new health benefits not included in the 2008 edition: improved bone health and weight status for children ages 3 through 5 years, improved cognitive function for youth ages 6 to 13 years, reduced risk of cancer at a greater number of sites, brain health benefits including possible improved cognitive function, reduced anxiety and depression risk, and improved sleep and quality of life. For pregnant women, there is a reduced risk of excessive weight gain, gestational diabetes, and postpartum depression. For older adults, there is a reduced risk of fall-related injuries. For people with various chronic medical conditions, there is a reduced risk of all-cause and disease-specific mortality, improved physical function, and improved quality of life. The reason these benefits were added is that the evidence base grew substantially since 2008, with more rigorous studies demonstrating wider health effects of physical activity."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "What happens to the body immediately after a single session of physical activity?",
+      "output": "A single session of moderate-to-vigorous physical activity can reduce blood pressure, improve insulin sensitivity, improve sleep, reduce anxiety symptoms, and improve some aspects of cognition on the day it is performed. Most of these improvements become even larger with regular physical activity. Other benefits, such as disease risk reduction and improved physical function, accrue within days to weeks after consistently being more physically active. The reason immediate benefits matter is that they provide real, felt improvements the same day, which can serve as motivation to continue being active."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "How does physical activity affect sleep?",
+      "output": "Strong evidence demonstrates that moderate-to-vigorous physical activity improves the quality of sleep in adults. It does so by reducing the length of time it takes to fall asleep, reducing the time one is awake after going to sleep and before rising in the morning, increasing the time spent in deep sleep, and reducing daytime sleepiness. The reason physical activity improves sleep is that it helps regulate the body's circadian rhythm, reduces stress and anxiety that can interfere with sleep, and increases the body's need for restorative rest."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "What is sedentary behavior and why is it harmful?",
+      "output": "Sedentary behavior refers to any waking behavior characterized by a low level of energy expenditure of 1.5 Metabolic Equivalents of Task (METs) or less while sitting, reclining, or lying. Examples include sitting at a desk, watching television, and riding in a car. Data indicate that children and adults spend approximately 7.7 hours per day, or about 55 percent of their monitored waking time, being sedentary. The 2018 Advisory Committee found a strong relationship between time in sedentary behavior and the risk of all-cause mortality and cardiovascular disease mortality in adults. The reason sedentary behavior is harmful is that prolonged inactivity reduces metabolic function, impairs blood sugar regulation, and decreases cardiovascular health independent of exercise habits."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "Can physical activity cancel out the effects of sitting all day?",
+      "output": "Research from a harmonized meta-analysis of more than one million people shows that high volumes of moderate-to-vigorous physical activity appear to remove the excess risk of all-cause mortality associated with high volumes of sitting. At the greatest volume of moderate-to-vigorous physical activity, the risk is low even for those who sit the most. However, even adults who sit the least still have an elevated risk if they perform no moderate-to-vigorous physical activity. The best available estimate is that about 60 to 75 minutes per day of moderate-intensity activity or 30 to 40 minutes per day of vigorous-intensity activity may be needed to offset the effects of very high sitting time. The reason this is important is that most people would benefit from both increasing physical activity and reducing sitting time."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "Should I break my exercise into short sessions or do one long workout?",
+      "output": "The second edition of the Physical Activity Guidelines for Americans eliminated the previous requirement that physical activity of adults must occur in bouts of at least 10 minutes. The Advisory Committee concluded that bouts of any length contribute to the health benefits associated with moderate-to-vigorous physical activity. All time spent in moderate-to-vigorous intensity physical activity counts toward meeting the key guidelines. The reason this change was made is that newer research shows that even very short bouts of activity throughout the day provide cumulative health benefits, making it easier for people to meet guidelines through small, frequent efforts."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "How much physical activity should preschool-aged children get?",
+      "output": "Preschool-aged children ages 3 through 5 years should be physically active throughout the day to enhance growth and development. Adult caregivers of preschool-aged children should encourage active play that includes a variety of activity types. The reason this guideline differs from older children is that young children develop motor skills through unstructured play rather than structured exercise. The emphasis on variety helps develop a range of movement skills including running, jumping, climbing, and balancing."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "What health benefits does physical activity provide for preschool-aged children?",
+      "output": "Physical activity improves bone health and weight status for children ages 3 through 5 years. This was identified as a new health benefit in the second edition of the Physical Activity Guidelines. The reason these benefits are important at this age is that bone density is rapidly developing during early childhood, and establishing healthy weight status early reduces the risk of obesity and related chronic diseases later in life."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "How much physical activity should children and adolescents ages 6 to 17 get daily?",
+      "output": "Children and adolescents ages 6 through 17 years should do 60 minutes or more of moderate-to-vigorous physical activity daily. Most of the 60 minutes should be moderate-to-vigorous-intensity aerobic activity, with vigorous-intensity aerobic activity on at least 3 days per week. They should also include muscle-strengthening physical activity on at least 3 days per week and bone-strengthening physical activity on at least 3 days per week. The reason for this comprehensive recommendation is that children and adolescents are still growing and developing, so they need not only cardiovascular exercise but also activities that build muscle strength and bone density during this critical growth period."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "What health benefits does physical activity provide for children and adolescents?",
+      "output": "For children and adolescents, regular physical activity provides: improved bone health for ages 3 through 17, improved weight status for ages 3 through 17, improved cardiorespiratory and muscular fitness for ages 6 through 17, improved cardiometabolic health for ages 6 through 17, improved cognition for ages 6 to 13, and reduced risk of depression for ages 6 to 13. The reason these benefits are important is that childhood and adolescence are critical periods for establishing physical activity habits that track into adulthood and for developing the physiological foundations of lifelong health."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "What should parents know about getting their children active?",
+      "output": "It is important to provide young people opportunities and encouragement to participate in physical activities that are appropriate for their age, that are enjoyable, and that offer variety. Children and adolescents should be given choices in activities to foster intrinsic motivation. The reason enjoyment and age-appropriateness are emphasized is that positive early experiences with physical activity build confidence, develop fundamental movement skills, and increase the likelihood of maintaining active lifestyles into adulthood."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "What are the key activity types adults should do?",
+      "output": "The guidelines identify five main types of physical activity. Aerobic activity involves the body's large muscles moving in a rhythmic manner for a sustained period, such as brisk walking, running, or cycling, with three components of intensity, frequency, and duration. Muscle-strengthening activity causes the body's muscles to work against applied force or weight, such as resistance training or body-weight exercises, with components of intensity, frequency, and sets and repetitions. Bone-strengthening activity produces force on bones that promotes bone growth and strength, such as jumping jacks and running. Balance activities improve the ability to resist forces that cause falls, such as standing on one leg. Flexibility activities enhance the ability of a joint to move through its full range of motion through stretching."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "What levels of physical activity are recognized in the Guidelines?",
+      "output": "The Physical Activity Guidelines for Americans classifies adult physical activity into four levels. Inactive means getting no moderate-to-vigorous physical activity beyond basic movement from daily life. Insufficiently active means doing some moderate-to-vigorous activity but less than 150 minutes of moderate-intensity or 75 minutes of vigorous-intensity activity per week. Active means doing the equivalent of 150 to 300 minutes of moderate-intensity activity per week, which meets the key guidelines. Highly active means doing more than 300 minutes of moderate-intensity activity per week. The reason these levels exist is to help people understand where they currently stand and how much additional activity is needed to achieve health benefits."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "How much physical activity should older adults get?",
+      "output": "The key guidelines for adults also apply to older adults. In addition, older adults should do multicomponent physical activity that includes balance training as well as aerobic and muscle-strengthening activities. They should determine their level of effort relative to their level of fitness. Older adults with chronic conditions should understand whether and how their conditions affect their ability to do regular physical activity safely. When older adults cannot do 150 minutes of moderate-intensity aerobic activity per week because of chronic conditions, they should be as physically active as their abilities and conditions allow. The reason multicomponent activity is emphasized for older adults is that falls are a leading cause of injury and loss of independence, and balance training directly addresses this risk."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "What are the health benefits of physical activity specific to older adults?",
+      "output": "For older adults, physical activity provides all the benefits that apply to adults including lower risk of mortality, cardiovascular disease, hypertension, Type 2 Diabetes, and certain cancers. Additionally, older adults gain a lower risk of falls and fall-related injuries, improved physical function, and improved ability to maintain independence. The reason fall prevention is specifically highlighted for older adults is that falls are the leading cause of injury-related death in adults over 65, and physical activity is one of the most effective interventions for reducing fall risk."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "How should an older adult who cannot do 150 minutes of activity per week approach exercise?",
+      "output": "When older adults cannot do 150 minutes of moderate-intensity aerobic activity per week because of chronic conditions, they should be as physically active as their abilities and conditions allow. Older adults should determine their level of effort for physical activity relative to their level of fitness. They should understand whether and how their conditions affect their ability to do regular physical activity safely. The reason for this flexible approach is that even small amounts of physical activity provide health benefits, and inactivity is more harmful than imperfect activity. The key is to start where you are and progress gradually."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "How much physical activity should pregnant and postpartum women do?",
+      "output": "Women should do at least 150 minutes of moderate-intensity aerobic activity per week during pregnancy and the postpartum period. Aerobic activity should be spread throughout the week. Women who habitually engaged in vigorous-intensity aerobic activity or who were physically active before pregnancy can continue these activities during pregnancy and the postpartum period. Women who are pregnant should be under the care of a health care provider who can monitor the progress of the pregnancy. They can consult their provider about whether or how to adjust their physical activity during pregnancy and after the baby is born. The reason physical activity is recommended during pregnancy is that it reduces the risk of excessive weight gain, gestational diabetes, and postpartum depression."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "Can a woman who was active before pregnancy continue exercising while pregnant?",
+      "output": "Yes. Women who habitually engaged in vigorous-intensity aerobic activity or who were physically active before pregnancy can continue these activities during pregnancy and the postpartum period. The reason this is supported is that the body has already adapted to higher intensity exercise, and maintaining fitness during pregnancy supports better outcomes. However, women who are pregnant should be under the care of a health care provider who can monitor the pregnancy and advise on any necessary adjustments."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "What are the health benefits of physical activity during pregnancy?",
+      "output": "Physical activity during pregnancy reduces the risk of excessive weight gain, gestational diabetes, and postpartum depression. The reason these benefits are important is that gestational diabetes increases the risk of complications for both mother and baby, excessive weight gain during pregnancy is associated with higher postpartum weight retention, and postpartum depression affects the health and well-being of both mother and child."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "How much physical activity should adults with chronic conditions or disabilities do?",
+      "output": "Adults with chronic conditions or disabilities who are able should do at least 150 minutes to 300 minutes of moderate-intensity aerobic activity, or 75 to 150 minutes of vigorous-intensity aerobic activity, or an equivalent combination per week. They should also do muscle-strengthening activities of moderate or greater intensity involving all major muscle groups on 2 or more days per week. When adults with chronic conditions or disabilities are not able to meet these guidelines, they should engage in regular physical activity according to their abilities and should avoid inactivity. They should be under the care of a health care provider and can consult a professional about the types and amounts of activity appropriate for their abilities and conditions. The reason this flexible approach is used is that the benefits of physical activity outweigh the risks for most people with chronic conditions, and inactivity is more harmful than appropriately modified activity."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "What health benefits does physical activity provide for people with chronic conditions?",
+      "output": "For people with various chronic medical conditions, physical activity provides a reduced risk of all-cause and disease-specific mortality, improved physical function, and improved quality of life. The reason these benefits matter is that chronic conditions like heart disease, Type 2 Diabetes, hypertension, and certain cancers are among the leading causes of death and disability, and physical activity has been shown to slow or delay the progression of these conditions."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "Can people with disabilities safely exercise?",
+      "output": "Yes. The guidelines state that adults with chronic conditions or disabilities who are able should do regular physical activity. When they are not able to meet the full guidelines, they should engage in regular physical activity according to their abilities and should avoid inactivity. They should be under the care of a health care provider and consult a health care professional or physical activity specialist about the types and amounts of activity appropriate for their abilities and conditions. The reason is that there are no major risks to physical activity for people with disabilities when it is appropriate to their current activity level, health status, and physical function, and the health benefits accrued outweigh the risks."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "How should someone start exercising safely if they have been inactive?",
+      "output": "To do physical activity safely and reduce the risk of injuries and other adverse events, people should understand the risks yet be confident that physical activity can be safe for almost everyone. They should choose types of physical activity appropriate for their current fitness level and health goals, because some activities are safer than others. They should increase physical activity gradually over time to meet key guidelines or health goals. Inactive people should start low and go slow by starting with lower intensity activities and gradually increasing how often and how long activities are done. They should protect themselves by using appropriate gear and sports equipment, choosing safe environments, following rules and policies, and making sensible choices about when, where, and how to be active. The reason the start low and go slow approach is recommended is that the body needs time to adapt to new physical demands, and rushing into intense activity increases the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "Does physical activity prevent chronic disease?",
+      "output": "Yes. Strong scientific evidence shows that regular physical activity reduces the risk of many chronic diseases. Seven of the ten most common chronic diseases are favorably influenced by regular physical activity. These include coronary heart disease, stroke, Type 2 Diabetes, hypertension, and several cancers. People who are physically active for approximately 150 minutes per week have a 33 percent lower risk of all-cause mortality than those who are not physically active. Even low amounts of moderate-to-vigorous intensity physical activity reduce the risk. The reason physical activity is so effective is that it improves cardiovascular function, regulates blood sugar and insulin sensitivity, reduces inflammation, supports healthy body weight, and positively affects brain health."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "What are the components of aerobic physical activity?",
+      "output": "Aerobic physical activity, also called endurance activity or cardio activity, has three components. Intensity refers to how hard a person works, with moderate intensity equivalent to brisk walking and vigorous intensity equivalent to running or jogging. Frequency refers to how often a person does aerobic activity. Duration refers to how long a person does an activity in any one session. Research has shown that the total amount of physical activity, measured in minutes of moderate-intensity activity per week, is more important for achieving health benefits than is any one component. All time spent in moderate-to-vigorous intensity physical activity counts toward meeting the key guidelines."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the U.S. Department of Health and Human Services (HHS) Physical Activity Guidelines for Americans. Answer with evidence and explain why.",
+      "input": "What is the relationship between physical activity and weight management?",
+      "output": "Physical activity and caloric intake both must be considered when trying to control body weight. Strong scientific evidence shows that physical activity helps people maintain a stable weight over time and can reduce the risk of excessive weight gain and the incidence of obesity. People who want to lose a substantial amount of more than 5 percent of body weight and people who are trying to keep a significant amount of weight off may need to do more than 300 minutes of moderate-intensity activity per week. Muscle-strengthening activities help promote weight maintenance and maintain lean body mass during weight loss. Combining both caloric restriction and physical activity tends to be most beneficial for weight loss rather than just one approach alone. The reason physical activity alone may not be sufficient for significant weight loss is that exercise alone does not create a large enough caloric deficit, but it is critical for maintaining weight loss over the long term."
+    }
+  ]
+}

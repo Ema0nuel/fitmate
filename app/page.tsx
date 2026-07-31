@@ -1,64 +1,97 @@
-import Image from "next/image";
+"use client";
 
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useOnboardingStore } from "@/store/onboarding-store";
+import { Button } from "@/components/ui/button";
+
+/**
+ * / — Root page (Landing)
+ *
+ * Routing guard:
+ * - First-time visitors (isOnboardingComplete = false) → redirect to /onboarding
+ * - Returning visitors (isOnboardingComplete = true) → show landing page
+ *
+ * The Zustand store is persisted to localStorage, so "first-time" means
+ * the user has never completed onboarding in this browser.
+ */
 export default function Home() {
+  const router = useRouter();
+  const { isOnboardingComplete, _hasHydrated } = useOnboardingStore();
+
+  // Redirect to onboarding if not completed
+  useEffect(() => {
+    if (_hasHydrated && !isOnboardingComplete) {
+      router.replace("/onboarding");
+    }
+  }, [_hasHydrated, isOnboardingComplete, router]);
+
+  // Don't render until Zustand has hydrated — prevents redirect flash
+  if (!_hasHydrated) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-background">
+        <div className="h-6 w-6 animate-spin rounded-full border-2 border-border border-t-primary" />
+      </div>
+    );
+  }
+
+  // First-time visitor — show nothing while redirecting to /onboarding
+  if (!isOnboardingComplete) {
+    return null;
+  }
+
+  // ─── Returning visitor landing page ───────────────────────
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="flex flex-1 flex-col items-center justify-center bg-background font-sans">
+      <main className="flex w-full max-w-3xl flex-col items-center justify-center gap-8 px-6 py-20">
+        <div className="flex flex-col items-center gap-4 text-center">
+          <div className="flex items-center gap-3">
+            <span className="text-4xl">💪</span>
+            <h1 className="text-4xl font-bold tracking-tight text-foreground">
+              FitMate
+            </h1>
+          </div>
+          <p className="max-w-md text-lg text-muted-foreground">
+            Your AI fitness assistant — trained on WHO, ACE, and HHS guidelines.
+            Ask about exercises, nutrition, or healthy living.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="w-full max-w-lg rounded-2xl border border-border bg-muted p-6">
+          <div className="flex flex-col gap-3">
+            <div className="rounded-xl border border-border bg-background px-4 py-3 text-sm text-muted-foreground">
+              How do I perform a bodyweight squat?
+            </div>
+            <div className="ml-8 rounded-xl border border-primary/20 bg-primary/10 px-4 py-3 text-sm text-foreground">
+              A bodyweight squat targets your quadriceps, hamstrings, and
+              glutes. Stand with feet shoulder-width apart, push your hips back,
+              and lower until your thighs are parallel to the ground...
+            </div>
+          </div>
+          <p className="mt-4 text-center text-xs text-muted-foreground">
+            Chat coming soon
+          </p>
         </div>
+
+        <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
+          <span className="rounded-full border border-border bg-muted px-3 py-1">
+            🏋️ Exercise Guidance
+          </span>
+          <span className="rounded-full border border-border bg-muted px-3 py-1">
+            🥗 Nutrition Advice
+          </span>
+          <span className="rounded-full border border-border bg-muted px-3 py-1">
+            🩺 Evidence-Based
+          </span>
+        </div>
+
+        <Button
+          size="lg"
+          onClick={() => router.push("/chat")}
+          className="mt-4 w-full max-w-xs"
+        >
+          Open Chat
+        </Button>
       </main>
     </div>
   );

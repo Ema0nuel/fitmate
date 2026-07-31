@@ -1,0 +1,1210 @@
+{
+  "metadata": {
+    "title": "ACE Exercise Library - Fitness Chatbot Fine-Tuning Dataset",
+    "description": "Instruction-based Q&A pairs for fine-tuning a fitness chatbot using the American Council on Exercise (ACE) Exercise Library. Covers exercise execution, muscle targeting, modifications, safety tips, and common mistakes across major muscle groups. Sets and reps recommendations are general exercise science guidelines, not sourced from the ACE library.",
+    "format": "instruction-input-output (Hugging Face SFTTrainer compatible)",
+    "system_prompt": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+    "dataset_stats": {
+      "total_pairs": 232,
+      "total_exercises": 29,
+      "questions_per_exercise": 8,
+      "categories": {
+        "Legs": 7,
+        "Shoulders": 3,
+        "Core": 6,
+        "Back": 4,
+        "Full Body": 2,
+        "Arms": 4,
+        "Chest": 3
+      },
+      "difficulty_breakdown": {
+        "Beginner": 7,
+        "Intermediate": 16,
+        "Advanced": 6
+      },
+      "equipment_breakdown": {
+        "No Equipment": 14,
+        "Dumbbells": 4,
+        "Barbell": 3,
+        "Pull-up bar": 1,
+        "Raised Platform/Box (6-12 inches)": 1,
+        "Barbell, Bench": 1,
+        "Bench, Dumbbells": 2,
+        "Kettlebells": 2,
+        "BOSU Trainer": 1
+      }
+    },
+    "sources": [
+      {
+        "id": "ACE_Exercise_Library",
+        "title": "American Council on Exercise (ACE) Exercise Library",
+        "year": 2024,
+        "publisher": "American Council on Exercise",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "description": "Free, publicly available exercise library organized by muscle group, experience level, and equipment. Contains 330+ exercises with detailed instructions, muscle targeting, and modifications."
+      }
+    ]
+  },
+  "qa_pairs": [
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Bodyweight Squat?",
+      "output": "The Bodyweight Squat is a beginner-level exercise that targets Abs, Butt/Hips, Legs – Calves and Shins, Legs – Thighs. It requires No Equipment. To perform it: Stand with feet slightly wider than hip-width apart, toes turned slightly outward. Arms hang by your sides with palms facing inward. Retract and depress the scapulae, pulling shoulders down and back. Tighten core and abdominal muscles in a bracing pattern to stabilize the spine. Hold your chest up and out, tilt your head slightly up while shifting weight back into the heels and pushing hips rearward. Initiate by shifting hips backward and then downward, creating a simultaneous hinge at the hips and knees. As hips lower, knees travel forward slowly, but try to control the amount of forward translation of the tibia. Lower until thighs reach parallel with the floor. Keeping back, chest, and head elevated, exhale and drive the feet into the floor through the heels to extend the hips and knees. The hips and torso need to rise together while keeping heels flat and knees aligned over the second toe."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Bodyweight Squat work?",
+      "output": "The Bodyweight Squat primarily targets the Quadriceps, Gluteus Maximus, Hamstrings. It also engages secondary muscles including the Rectus Abdominis, Transverse Abdominis, Obliques, Gastrocnemius, Soleus, Adductors, Erector Spinae. This exercise is classified as beginner difficulty and requires No Equipment."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Bodyweight Squat?",
+      "output": "When performing the Bodyweight Squat, avoid these common mistakes: Letting knees cave inward past the second toe line; Allowing ankles to collapse in or out; Feet shifting or lifting from the floor; Excessive forward torso rounding during descent; Hips and torso not rising together on ascent; Heels lifting off the floor at bottom. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Bodyweight Squat if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Bodyweight Squat in the following ways: Practice near a wall or chair for balance support; Reduce depth to partial range of motion initially; Elevate heels slightly with a small plate if ankle mobility is limited. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Bodyweight Squat?",
+      "output": "The Bodyweight Squat requires No Equipment. This exercise targets Abs, Butt/Hips, Legs – Calves and Shins, Legs – Thighs and is classified as beginner difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Bodyweight Squat?",
+      "output": "When performing the Bodyweight Squat, follow these safety tips: Maintain a flat back throughout the movement; Monitor that feet, ankles, and knees remain properly aligned; Control the descent — do not drop quickly; Distribute weight evenly between balls of the feet and heels; Stop descending if torso begins to round excessively or heels lift. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Bodyweight Squat a good exercise for strengthening quadriceps?",
+      "output": "Yes, the Bodyweight Squat is an effective exercise for strengthening the Quadriceps, Gluteus Maximus, Hamstrings. It is a beginner-level exercise that requires No Equipment and targets Abs, Butt/Hips, Legs – Calves and Shins, Legs – Thighs. The primary muscles engaged are Quadriceps, Gluteus Maximus, Hamstrings, with secondary engagement of the Rectus Abdominis, Transverse Abdominis, Obliques, Gastrocnemius, Soleus, Adductors, Erector Spinae."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Bodyweight Squat?",
+      "output": "For the Bodyweight Squat, aim for 3 sets of 12-15 repetitions. Rest 45-60 seconds between sets. Focus on depth and controlled tempo. Progress by adding a pause at the bottom or using a weighted vest."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Front Raise?",
+      "output": "The Front Raise is a beginner-level exercise that targets Shoulders. It requires Dumbbells. To perform it: Stand with dumbbells in front of your thighs using a closed, pronated grip (thumbs around the handles and palms facing your thighs). The dumbbells should rest lightly against the front of your thighs with elbows extended or holding a slight bend. You can adopt a split-stance for stability or place your feet slightly wider than hip-width. Tighten your trunk by activating your core muscles. Depress and retract your scapulae (pull your shoulders down and back), holding this throughout. Exhale as you slowly lift the dumbbells forward. Your elbows and upper arms should rise together, staying slightly ahead of your forearms and dumbbells. Once your arms pass the 60-70 degree mark (approaching shoulder height), gently rotate them upward so the inside edge of the dumbbells points slightly up. Continue until your arms are shoulder-level and roughly parallel to the floor. Maintain an upright torso with no low-back arching and keep wrists in a neutral position. Inhale and slowly lower the dumbbells back down, keeping elbows slightly extended."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Front Raise work?",
+      "output": "The Front Raise primarily targets the Anterior Deltoid, Medial Deltoid. It also engages secondary muscles including the Rectus Abdominis, Transverse Abdominis, Lower Trapezius, Rhomboids. This exercise is classified as beginner difficulty and requires Dumbbells."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Front Raise?",
+      "output": "When performing the Front Raise, avoid these common mistakes: Arching the lower back; Bending the wrists — keep them neutral; Swinging the weight instead of controlled movement; Allowing shoulders to shrug up toward ears; Moving too quickly through the movement. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Front Raise if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Front Raise in the following ways: Use lighter dumbbells for beginners; Adopt a split-stance for added stability; The exercise is already beginner-level. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Front Raise?",
+      "output": "The Front Raise requires Dumbbells. This exercise targets Shoulders and is classified as beginner difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Front Raise?",
+      "output": "When performing the Front Raise, follow these safety tips: The slight external rotation at 60-70 degrees may reduce potential impingement in the shoulder joint; Maintain scapular depression and retraction throughout; Keep the torso erect — do not lean backward; Control the tempo during both lifting and lowering phases. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Front Raise a good exercise for strengthening anterior deltoid?",
+      "output": "Yes, the Front Raise is an effective exercise for strengthening the Anterior Deltoid, Medial Deltoid. It is a beginner-level exercise that requires Dumbbells and targets Shoulders. The primary muscles engaged are Anterior Deltoid, Medial Deltoid, with secondary engagement of the Rectus Abdominis, Transverse Abdominis, Lower Trapezius, Rhomboids."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Front Raise?",
+      "output": "For the Front Raise, aim for 3 sets of 10-12 repetitions. Rest 30-45 seconds between sets. Use light weight and strict form. Control the lowering phase — do not let gravity do the work."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Front Plank?",
+      "output": "The Front Plank is an intermediate-level exercise that targets Abs, Back. It requires No Equipment. To perform it: Lie prone (face down) on an exercise mat with elbows close to your sides and positioned directly under the shoulders. Palms should face down with hands pointing forward. Engage the quadriceps to straighten the legs and pull the toes toward the shins (dorsiflexion). Brace the core and abdominal muscles to create a rigid torso. Lift the entire body off the floor while keeping the torso and legs rigid and straight. The body should form one continuous line from head to heels. Remain in this position for 5+ seconds or a prescribed duration, maintaining continuous breathing throughout. With the torso stiff and knees extended, slowly lower the body back to the mat, then relax."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Front Plank work?",
+      "output": "The Front Plank primarily targets the Rectus Abdominis, Transverse Abdominis, Obliques, Erector Spinae, Multifidus. It also engages secondary muscles including the Quadriceps, Hip Flexors, Glutes, Deltoids, Serratus Anterior. This exercise is classified as intermediate difficulty and requires No Equipment."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Front Plank?",
+      "output": "When performing the Front Plank, avoid these common mistakes: Sagging or arching in the lower back; Hiking the hips upward creating a pike position; Bending the knees instead of keeping legs extended; Shrugging the shoulders — keep them positioned directly over elbows; Holding the breath during the hold. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Front Plank if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Front Plank in the following ways: Knee plank — resting on the knees instead of toes to reduce load; Reduced hold time — start with 10-15 seconds and build up; Incline plank — placing forearms on an elevated surface like a bench. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Front Plank?",
+      "output": "The Front Plank requires No Equipment. This exercise targets Abs, Back and is classified as intermediate difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Front Plank?",
+      "output": "When performing the Front Plank, follow these safety tips: If you experience low back pain, stop the exercise immediately and consult with your doctor; Maintain a stiff, neutral torso throughout — no arching or rounding; Continue breathing rather than holding your breath; A mat is recommended for comfort. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Front Plank a good exercise for strengthening rectus abdominis?",
+      "output": "Yes, the Front Plank is an effective exercise for strengthening the Rectus Abdominis, Transverse Abdominis, Obliques, Erector Spinae, Multifidus. It is an intermediate-level exercise that requires No Equipment and targets Abs, Back. The primary muscles engaged are Rectus Abdominis, Transverse Abdominis, Obliques, Erector Spinae, Multifidus, with secondary engagement of the Quadriceps, Hip Flexors, Glutes, Deltoids, Serratus Anterior."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Front Plank?",
+      "output": "For the Front Plank, aim for 3 sets of 20-30 second holds. Rest 30-45 seconds between sets. Gradually increase hold time to 45-60 seconds as core strength improves. Focus on breathing throughout."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Cat-Cow?",
+      "output": "The Cat-Cow is a beginner-level exercise that targets Back, Chest. It requires No Equipment. To perform it: Kneel on a mat or floor with knees and feet hip-width apart. Feet should be dorsiflexed (toes pointing toward your body). Lean forward to place hands on the mat directly under the shoulders at shoulder-width, palms facing forward. Adjust so knees sit under hips and hands sit under shoulders. Gently stiffen your core and abdominal muscles to position your spine in a neutral position. Gently exhale and contract your abdominal muscles, pushing your spine upwards towards the ceiling. Hold for 10-15 seconds. Let your head drop toward the chest, keeping it aligned with the spine. Relax and let gravity pull the stomach toward the floor, increasing the low-back arch. Allow your shoulder blades to fall together (move toward the spine). Hold 10-15 seconds, then return to the starting position."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Cat-Cow work?",
+      "output": "The Cat-Cow primarily targets the Erector Spinae, Rectus Abdominis. It also engages secondary muscles including the Trapezius, Rhomboids, Serratus Anterior. This exercise is classified as beginner difficulty and requires No Equipment."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Cat-Cow?",
+      "output": "When performing the Cat-Cow, avoid these common mistakes: Allowing the spine to sag or arch without core engagement in neutral starting position; Failing to reposition hands and knees into proper alignment; Holding the breath instead of exhaling during the Cat phase. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Cat-Cow if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Cat-Cow in the following ways: This exercise is already beginner-level with no equipment needed; Hold times of 10-15 seconds can be shortened if discomfort arises; Practicing on a padded exercise mat is recommended for knee comfort. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Cat-Cow?",
+      "output": "The Cat-Cow requires No Equipment. This exercise targets Back, Chest and is classified as beginner difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Cat-Cow?",
+      "output": "When performing the Cat-Cow, follow these safety tips: Ensure proper quadruped alignment before beginning movement to protect the spine; Stiffen the core before initiating spinal movement to maintain control; Move slowly and deliberately through both phases rather than rushing; Keep the neck in alignment with the spine during the Cat phase. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Cat-Cow a good exercise for strengthening erector spinae?",
+      "output": "Yes, the Cat-Cow is an effective exercise for strengthening the Erector Spinae, Rectus Abdominis. It is a beginner-level exercise that requires No Equipment and targets Back, Chest. The primary muscles engaged are Erector Spinae, Rectus Abdominis, with secondary engagement of the Trapezius, Rhomboids, Serratus Anterior."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Cat-Cow?",
+      "output": "For the Cat-Cow, aim for 2-3 sets of 8-10 slow cycles. Rest 15-20 seconds between sets. Move slowly and deliberately, coordinating with your breath. This is a mobility drill, not a strength exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Downward-Facing Dog?",
+      "output": "The Downward-Facing Dog is an intermediate-level exercise that targets Arms, Back, Butt/Hips, Full Body/Integrated, Legs – Calves and Shins, Legs – Thighs. It requires No Equipment. To perform it: Begin by kneeling on a mat or floor with feet together behind you. Bend forward to place palms flat on the mat, hands shoulder-width apart with your fingers facing forward. Lift into a push-up position with shoulders positioned directly over your hands. Reposition feet for full body extension. Stiffen your torso by contracting your core and abdominal muscles. Maintain a rigid torso with arms and legs fully extended. Exhale and shift your weight backwards by pushing your hips backwards and upwards. Keep head aligned with the spine, moving it between the shoulders. Attempt to push heels toward the floor. Continue until your body forms an inverted-V, keeping arms and legs extended with a neutral spine. A slight knee bend is acceptable if needed. Inhale and return to the push-up starting position, maintaining the alignment of all your body segments."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Downward-Facing Dog work?",
+      "output": "The Downward-Facing Dog primarily targets the Latissimus Dorsi, Deltoids, Hamstrings, Gastrocnemius. It also engages secondary muscles including the Triceps, Rhomboids, Trapezius, Glutes, Soleus, Erector Spinae. This exercise is classified as intermediate difficulty and requires No Equipment."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Downward-Facing Dog?",
+      "output": "When performing the Downward-Facing Dog, avoid these common mistakes: Arching the low back; Breaking head/neck alignment — head should move with the spine; Rounding the spine during the inverted-V; Locking the knees painfully — a slight bend is permitted; Not engaging the core. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Downward-Facing Dog if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Downward-Facing Dog in the following ways: Allow a slight bend in the knees if required to achieve the inverted-V position; Reposition feet as needed for different body proportions; No equipment is needed, making it accessible anywhere. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Downward-Facing Dog?",
+      "output": "The Downward-Facing Dog requires No Equipment. This exercise targets Arms, Back, Butt/Hips, Full Body/Integrated, Legs – Calves and Shins, Legs – Thighs and is classified as intermediate difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Downward-Facing Dog?",
+      "output": "When performing the Downward-Facing Dog, follow these safety tips: Engage the core throughout to protect the low back; Maintain full arm extension for structural stability; Move slowly through each phase rather than rushing; Rated Intermediate — beginners should approach gradually. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Downward-Facing Dog a good exercise for strengthening latissimus dorsi?",
+      "output": "Yes, the Downward-Facing Dog is an effective exercise for strengthening the Latissimus Dorsi, Deltoids, Hamstrings, Gastrocnemius. It is an intermediate-level exercise that requires No Equipment and targets Arms, Back, Butt/Hips, Full Body/Integrated, Legs – Calves and Shins, Legs – Thighs. The primary muscles engaged are Latissimus Dorsi, Deltoids, Hamstrings, Gastrocnemius, with secondary engagement of the Triceps, Rhomboids, Trapezius, Glutes, Soleus, Erector Spinae."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Downward-Facing Dog?",
+      "output": "For the Downward-Facing Dog, aim for Hold for 30-60 seconds, 2-3 repetitions. Rest 15-20 seconds between holds. Focus on pressing the heels toward the floor and creating a straight line from wrists to hips."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Child's Pose?",
+      "output": "The Child's Pose is a beginner-level exercise that targets Abs, Back, Butt/Hips, Legs – Thighs. It requires No Equipment. To perform it: Kneel with knees positioned directly beneath hips. Feet should be plantar flexed (toes pointing behind you) with the big toes touching. Widen the knees outward toward the edges of the mat. Brace the abdominal muscles to stabilize the spine. Depress and retract the scapulae — pulling shoulders down and back — without arching the lower back. Lean forward slowly, placing hands on the ground directly under the shoulders with fingers pointing forward. Inhale. With hands planted, exhale and hinge at the hips, bringing glutes toward heels. Maintain connection between glutes and heels while extending through the back and arms. Pull shoulders down and back, keeping them away from the ears. Let the chest rest between the thighs and the forehead rest on the floor. Inhale to lengthen the spine; exhale to fold deeper into the pose, widening the knees as needed. Hold for 5-10 slow, deep breaths (30 seconds to 1 minute)."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Child's Pose work?",
+      "output": "The Child's Pose primarily targets the Latissimus Dorsi, Erector Spinae. It also engages secondary muscles including the Rectus Abdominis, Transverse Abdominis, Obliques, Glutes, Hip Flexors, Quadriceps, Adductors. This exercise is classified as beginner difficulty and requires No Equipment."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Child's Pose?",
+      "output": "When performing the Child's Pose, avoid these common mistakes: Arching the low back during initial setup; Allowing shoulders to creep up toward the ears; Lifting glutes off the heels during the hold; Losing spinal stability by failing to brace abdominals. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Child's Pose if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Child's Pose in the following ways: Widen the knees as needed during the hold to make the pose more comfortable; Arm variation: extend arms alongside the body with palms facing upward for a less active version; Breathing slowly and gradually deepening into the pose allows for a progressive, gentle stretch. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Child's Pose?",
+      "output": "The Child's Pose requires No Equipment. This exercise targets Abs, Back, Butt/Hips, Legs – Thighs and is classified as beginner difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Child's Pose?",
+      "output": "When performing the Child's Pose, follow these safety tips: Brace the abdominals before moving to protect the spine; Depress and retract the scapulae without compensating by arching the lower back; Control all movements slowly — no sudden or jerking motions; Use the breath as a guide: inhale to create length, exhale to deepen. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Child's Pose a good exercise for strengthening latissimus dorsi?",
+      "output": "Yes, the Child's Pose is an effective exercise for strengthening the Latissimus Dorsi, Erector Spinae. It is a beginner-level exercise that requires No Equipment and targets Abs, Back, Butt/Hips, Legs – Thighs. The primary muscles engaged are Latissimus Dorsi, Erector Spinae, with secondary engagement of the Rectus Abdominis, Transverse Abdominis, Obliques, Glutes, Hip Flexors, Quadriceps, Adductors."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Child's Pose?",
+      "output": "For the Child's Pose, aim for Hold for 30-60 seconds, 2-3 repetitions. Rest 10-15 seconds between holds. This is a recovery and stretching pose. Use it between sets or at the end of a workout."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Hammer Curl?",
+      "output": "The Hammer Curl is an intermediate-level exercise that targets Arms. It requires Dumbbells. To perform it: Stand holding dumbbells with a closed, neutral grip (thumbs around the handles with your palms facing your body). Place the dumbbells alongside your thighs with elbows fully extended. Assume a split-stance to stabilize your body. Stiffen the torso by contracting your abdominal/core muscles. Depress and retract your scapulae (pull your shoulders down and back). Head and neck should align with the spine. Exhale and slowly bend one or both elbows simultaneously until the dumbbell(s) near the front of the shoulder. Keep the torso erect without arching the lower back. Do not move elbows forward during the curl. Maintain a neutral wrist position (wrist straight without any bend). Avoid shrugging the shoulders throughout the movement. Inhale and gently lower the dumbbells back down until the elbow(s) fully extend."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Hammer Curl work?",
+      "output": "The Hammer Curl primarily targets the Biceps Brachii, Brachialis, Brachioradialis. It also engages secondary muscles including the Rectus Abdominis, Transverse Abdominis. This exercise is classified as intermediate difficulty and requires Dumbbells."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Hammer Curl?",
+      "output": "When performing the Hammer Curl, avoid these common mistakes: Arching the lower back — torso must remain erect; Moving elbows forward during the curl — elbows should stay fixed; Shrugging the shoulders — shoulders must stay depressed and retracted; Wrist bending — wrists should remain straight; Breaking neutral grip — palms should face the body throughout. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Hammer Curl if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Hammer Curl in the following ways: Perform alternating arm curls rather than both arms simultaneously; Some people show structural differences at the elbow that prevent holding dumbbells against the sides — choose a comfortable position that keeps wrists aligned straight. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Hammer Curl?",
+      "output": "The Hammer Curl requires Dumbbells. This exercise targets Arms and is classified as intermediate difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Hammer Curl?",
+      "output": "When performing the Hammer Curl, follow these safety tips: Core should be braced throughout to protect the spine; Scapulae must be depressed and retracted to protect the shoulder girdle; Use a split-stance to provide a stable base of support; Head and neck alignment with the spine is important for cervical safety. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Hammer Curl a good exercise for strengthening biceps brachii?",
+      "output": "Yes, the Hammer Curl is an effective exercise for strengthening the Biceps Brachii, Brachialis, Brachioradialis. It is an intermediate-level exercise that requires Dumbbells and targets Arms. The primary muscles engaged are Biceps Brachii, Brachialis, Brachioradialis, with secondary engagement of the Rectus Abdominis, Transverse Abdominis."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Hammer Curl?",
+      "output": "For the Hammer Curl, aim for 3 sets of 10-12 repetitions per arm. Rest 30-45 seconds between sets. Alternate arms or curl both simultaneously. Focus on the eccentric (lowering) phase for maximum muscle engagement."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Bent-Over Row?",
+      "output": "The Bent-Over Row is an advanced-level exercise that targets Arms, Back, Shoulders. It requires Barbell. To perform it: Stand holding a barbell with an overhand (pronated) grip. Hinge forward at the hips with a slight knee bend and a straight back. Arms hang fully extended toward the floor. Grip a barbell with palms down so that the wrists, elbows, and shoulders align in a straight line. Lift the bar from the rack and bend forward at the hips, maintaining a straight back with a slight bend in the knees. Lower the bar toward the floor until the elbows are fully straightened. Pull the bar toward the belly button while keeping the back flat. Slowly lower the bar back to the starting position and repeat."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Bent-Over Row work?",
+      "output": "The Bent-Over Row primarily targets the Latissimus Dorsi, Rhomboids, Trapezius, Posterior Deltoid. It also engages secondary muscles including the Biceps Brachii, Erector Spinae, Rectus Abdominis. This exercise is classified as advanced difficulty and requires Barbell."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Bent-Over Row?",
+      "output": "When performing the Bent-Over Row, avoid these common mistakes: Rounding the back during the movement; Using momentum or swinging the bar; Standing too upright — reducing the hip hinge angle; Pulling with the arms rather than the back muscles. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Bent-Over Row if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Bent-Over Row in the following ways: Beginners should substitute with dumbbell rows, machine rows, or reduce load significantly; Practice the hip hinge pattern without weight first. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Bent-Over Row?",
+      "output": "The Bent-Over Row requires Barbell. This exercise targets Arms, Back, Shoulders and is classified as advanced difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Bent-Over Row?",
+      "output": "When performing the Bent-Over Row, follow these safety tips: Maintain a neutral spine throughout; Avoid jerking the weight; Keep the core engaged; Ensure knees remain slightly bent to protect the lower back. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Bent-Over Row a good exercise for strengthening latissimus dorsi?",
+      "output": "Yes, the Bent-Over Row is an effective exercise for strengthening the Latissimus Dorsi, Rhomboids, Trapezius, Posterior Deltoid. It is an advanced-level exercise that requires Barbell and targets Arms, Back, Shoulders. The primary muscles engaged are Latissimus Dorsi, Rhomboids, Trapezius, Posterior Deltoid, with secondary engagement of the Biceps Brachii, Erector Spinae, Rectus Abdominis."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Bent-Over Row?",
+      "output": "For the Bent-Over Row, aim for 3 sets of 8-10 repetitions. Rest 60-90 seconds between sets. This is a compound movement. Use a weight that challenges your last 2-3 reps while maintaining strict form."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Chin-ups?",
+      "output": "The Chin-ups is an intermediate-level exercise that targets Arms, Back. It requires Pull-up bar. To perform it: Stand beneath the bar and grip it overhead with palms facing you (supinated grip). Lift or jump to grasp the bar firmly with a full grip position (thumbs wrapped around the handles). Cross one leg over the other for lower-body stability, then brace the core. Keep wrists neutral and depress and retract your scapulae (pull shoulders back and down). Slowly exhale and pull your body upwards by flexing (bending) your elbows. Drive elbows down toward the floor, keeping them in front of the body. Attempt to keep your body aligned vertically to the floor and avoid swinging. Pull until your chin is level with the bar or your hands. Pause briefly, then lower back to full arm extension overhead. Repeat."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Chin-ups work?",
+      "output": "The Chin-ups primarily targets the Latissimus Dorsi, Rhomboids, Biceps Brachii, Trapezius. It also engages secondary muscles including the Rectus Abdominis, Transverse Abdominis. This exercise is classified as intermediate difficulty and requires Pull-up bar."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Chin-ups?",
+      "output": "When performing the Chin-ups, avoid these common mistakes: Swinging the body during the pull — maintain vertical alignment; Compromising the shoulder — follow proper scapular positioning; Loss of neutral wrist position; Failing to depress and retract the scapulae. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Chin-ups if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Chin-ups in the following ways: The difficulty can be increased with resistance added by wearing a weight belt; Beginners may use assisted chin-up machines or resistance bands for support; Start with negative (eccentric) chin-ups to build foundational strength. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Chin-ups?",
+      "output": "The Chin-ups requires Pull-up bar. This exercise targets Arms, Back and is classified as intermediate difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Chin-ups?",
+      "output": "When performing the Chin-ups, follow these safety tips: Perform without compromise to the shoulder; Maintain depressed/retracted scapulae throughout; Keep wrists neutral; Avoid momentum or swinging; Use a full grip with thumbs wrapped. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Chin-ups a good exercise for strengthening latissimus dorsi?",
+      "output": "Yes, the Chin-ups is an effective exercise for strengthening the Latissimus Dorsi, Rhomboids, Biceps Brachii, Trapezius. It is an intermediate-level exercise that requires Pull-up bar and targets Arms, Back. The primary muscles engaged are Latissimus Dorsi, Rhomboids, Biceps Brachii, Trapezius, with secondary engagement of the Rectus Abdominis, Transverse Abdominis."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Chin-ups?",
+      "output": "For the Chin-ups, aim for 3 sets of 6-8 repetitions (or to near failure). Rest 90-120 seconds between sets. If you cannot complete 6 reps, use an assisted chin-up machine or resistance bands. Focus on full range of motion."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Contralateral Limb Raises?",
+      "output": "The Contralateral Limb Raises is a beginner-level exercise that targets Back, Butt/Hips, Shoulders. It requires No Equipment. To perform it: Lie face-down on a mat with legs extended and ankles slightly plantarflexed (toes pointed away from shins). Arms should be extended overhead with palms facing each other. The head should be relaxed and aligned with the spine. Exhale while contracting the abdominal/core muscles to stabilize the spine. Slowly raise one arm a few inches off the floor, keeping it extended. Avoid any rotation in the arm. Maintain head and torso position — do not arch the back or lift the head. Hold briefly. Inhale and gently lower the arm back. For the variation: simultaneously raise one leg and the opposite arm a few inches off the floor. Both limbs should stay extended with no rotation. Keep the head and torso stable, avoid arching the back, hold briefly, then return."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Contralateral Limb Raises work?",
+      "output": "The Contralateral Limb Raises primarily targets the Erector Spinae, Gluteus Maximus, Posterior Deltoid. It also engages secondary muscles including the Transverse Abdominis, Multifidus. This exercise is classified as beginner difficulty and requires No Equipment."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Contralateral Limb Raises?",
+      "output": "When performing the Contralateral Limb Raises, avoid these common mistakes: Arching the low back during any phase; Raising the head away from neutral spine alignment; Rotating the arm or leg during the lift; Movement in the hips or low back when lowering the limb. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Contralateral Limb Raises if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Contralateral Limb Raises in the following ways: Start with the arm-only raise before progressing to leg raises or the contralateral version; The exercise is beginner-level with no equipment required. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Contralateral Limb Raises?",
+      "output": "The Contralateral Limb Raises requires No Equipment. This exercise targets Back, Butt/Hips, Shoulders and is classified as beginner difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Contralateral Limb Raises?",
+      "output": "When performing the Contralateral Limb Raises, follow these safety tips: Engage the core before initiating each lift to protect the spine; Move slowly and with control — no speed or momentum needed; Breathe properly: exhale on the lift, inhale on the return. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Contralateral Limb Raises a good exercise for strengthening erector spinae?",
+      "output": "Yes, the Contralateral Limb Raises is an effective exercise for strengthening the Erector Spinae, Gluteus Maximus, Posterior Deltoid. It is a beginner-level exercise that requires No Equipment and targets Back, Butt/Hips, Shoulders. The primary muscles engaged are Erector Spinae, Gluteus Maximus, Posterior Deltoid, with secondary engagement of the Transverse Abdominis, Multifidus."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Contralateral Limb Raises?",
+      "output": "For the Contralateral Limb Raises, aim for 3 sets of 10-12 repetitions per side. Rest 20-30 seconds between sets. Move slowly and hold each repetition for 2-3 seconds. This is a core stability exercise, not a power movement."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Forward Lunge?",
+      "output": "The Forward Lunge is an intermediate-level exercise that targets Abs, Butt/Hips, Legs – Thighs. It requires No Equipment. To perform it: Stand with feet together. Depress and retract your scapulae (pull your shoulders down and back) without arching your low back. Engage your core muscles to brace and stiffen the spine. Lift one foot off the floor while stabilizing on the standing leg. Avoid any sideways tilting or swaying in your upper body and keep the stance foot stationary. The swing leg should initiate with a heel strike, gradually transferring body weight onto the forward foot planted firmly on the floor. Focus more on dropping your hips towards the floor rather than driving your hips forward. Lower until the front thigh is parallel to the floor with the shin in a slight forward lean. Simultaneously, bend forward at your hips, maintaining a flat back. Push off with your front leg, activating both your quads and glutes to return to the upright starting position."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Forward Lunge work?",
+      "output": "The Forward Lunge primarily targets the Quadriceps, Gluteus Maximus. It also engages secondary muscles including the Hamstrings, Gluteus Medius, Gluteus Minimus, Rectus Abdominis, Transverse Abdominis. This exercise is classified as intermediate difficulty and requires No Equipment."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Forward Lunge?",
+      "output": "When performing the Forward Lunge, avoid these common mistakes: Sideways tilting or swaying of the upper body; Moving the stance/supporting foot during the movement; Driving hips forward instead of dropping them down; Excessive forward tibial translation (knee drifting too far past the foot); Arching the low back. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Forward Lunge if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Forward Lunge in the following ways: Learn how to perform single-leg stands on the ground first; Lower only to a comfortable position if full depth is not yet achievable. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Forward Lunge?",
+      "output": "The Forward Lunge requires No Equipment. This exercise targets Abs, Butt/Hips, Legs – Thighs and is classified as intermediate difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Forward Lunge?",
+      "output": "When performing the Forward Lunge, follow these safety tips: Maintain scapular depression and retraction throughout; Brace the core to stabilize the spine; Keep a flat back during the hip hinge portion. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Forward Lunge a good exercise for strengthening quadriceps?",
+      "output": "Yes, the Forward Lunge is an effective exercise for strengthening the Quadriceps, Gluteus Maximus. It is an intermediate-level exercise that requires No Equipment and targets Abs, Butt/Hips, Legs – Thighs. The primary muscles engaged are Quadriceps, Gluteus Maximus, with secondary engagement of the Hamstrings, Gluteus Medius, Gluteus Minimus, Rectus Abdominis, Transverse Abdominis."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Forward Lunge?",
+      "output": "For the Forward Lunge, aim for 3 sets of 10-12 repetitions per leg. Rest 45-60 seconds between sets. Alternate legs or complete all reps on one side before switching. Focus on dropping the hips straight down."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Back Squat?",
+      "output": "The Back Squat is an advanced-level exercise that targets Butt/Hips, Legs – Thighs. It requires Barbell. To perform it: Place the barbell in a rack at just below shoulder height. Dip under the bar, positioning it behind the neck across the upper back. Hands grip the bar wider than shoulder-width apart. Lift the chest up and squeeze the shoulder blades together to maintain a straight back throughout. Stand up to lift the bar off the rack, then step backward. Position feet a little wider than shoulder-width apart. Sit back into hips and keep the back straight and the chest up. Squat down so the hips are below the knees. From the bottom, press feet into the ground and push hips forward to return to standing."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Back Squat work?",
+      "output": "The Back Squat primarily targets the Gluteus Maximus, Quadriceps, Hamstrings. It also engages secondary muscles including the Adductors, Erector Spinae, Rectus Abdominis, Transverse Abdominis. This exercise is classified as advanced difficulty and requires Barbell."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Back Squat?",
+      "output": "When performing the Back Squat, avoid these common mistakes: Allowing the back to round during the movement; Not squatting deep enough (hips should descend below knee level); Feet placed too narrow or too wide; Failing to maintain chest elevation and shoulder blade retraction. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Back Squat if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Back Squat in the following ways: Practice with bodyweight squats or goblet squats first; Use a lighter barbell or PVC pipe to learn form; Reduce squat depth until sufficient mobility is developed. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Back Squat?",
+      "output": "The Back Squat requires Barbell. This exercise targets Butt/Hips, Legs – Thighs and is classified as advanced difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Back Squat?",
+      "output": "When performing the Back Squat, follow these safety tips: Use a proper squat rack for safe bar loading/unloading; Maintain a straight back and upright chest throughout every rep; Squeeze shoulder blades together to stabilize the bar on the back; Ensure adequate hip mobility to achieve proper depth safely. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Back Squat a good exercise for strengthening gluteus maximus?",
+      "output": "Yes, the Back Squat is an effective exercise for strengthening the Gluteus Maximus, Quadriceps, Hamstrings. It is an advanced-level exercise that requires Barbell and targets Butt/Hips, Legs – Thighs. The primary muscles engaged are Gluteus Maximus, Quadriceps, Hamstrings, with secondary engagement of the Adductors, Erector Spinae, Rectus Abdominis, Transverse Abdominis."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Back Squat?",
+      "output": "For the Back Squat, aim for 4 sets of 6-8 repetitions. Rest 90-120 seconds between sets. This is a heavy compound lift. Warm up thoroughly, start with lighter weights, and increase progressively."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Box Jumps?",
+      "output": "The Box Jumps is an intermediate-level exercise that targets Butt/Hips, Legs – Calves and Shins, Legs – Thighs. It requires Raised Platform/Box (6-12 inches). To perform it: Place a 6-12 inch platform on a non-slip surface 3-6 inches in front of your feet. Stand with feet hip-width apart or narrower, arms at your sides. Depress and retract scapulae without arching the low back. Brace the core to stiffen the spine. Begin by shifting hips backward, then lower into a hinge-like movement at the knees. Lower until heels are about to lift off the floor. Maintain a flat back by bending forward at the hips. After only a very brief pause at the bottom, explode upward, swinging arms forward and jumping onto the box. Achieve triple extension (ankles, knees, and hips extending simultaneously). Land softly on the mid-foot, rolling back toward the heels for a flat, level foot. Push hips backward and drop them to absorb force. Avoid locking knees and quads. Land with trunk slightly forward, head aligned with spine, back rigid/flat. Keep core engaged to protect the spine."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Box Jumps work?",
+      "output": "The Box Jumps primarily targets the Gluteus Maximus, Quadriceps, Gastrocnemius. It also engages secondary muscles including the Hamstrings, Soleus, Rectus Abdominis. This exercise is classified as intermediate difficulty and requires Raised Platform/Box (6-12 inches)."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Box Jumps?",
+      "output": "When performing the Box Jumps, avoid these common mistakes: Excessive forward movement of lower extremities during landing; Locking knees and quads on landing; Not absorbing landing forces by pushing hips back; Losing core engagement or spinal alignment on landing. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Box Jumps if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Box Jumps in the following ways: Master squat jumps first before attempting box jumps; Progress by increasing the height of the platform gradually; Start with a lower box height than you think you need. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Box Jumps?",
+      "output": "The Box Jumps requires Raised Platform/Box (6-12 inches). This exercise targets Butt/Hips, Legs – Calves and Shins, Legs – Thighs and is classified as intermediate difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Box Jumps?",
+      "output": "When performing the Box Jumps, follow these safety tips: Place the box on a non-slip surface; The box height should not exceed your vertical jump height; Land softly and quietly to minimize impact forces; Engage core muscles throughout to protect the spine. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Box Jumps a good exercise for strengthening gluteus maximus?",
+      "output": "Yes, the Box Jumps is an effective exercise for strengthening the Gluteus Maximus, Quadriceps, Gastrocnemius. It is an intermediate-level exercise that requires Raised Platform/Box (6-12 inches) and targets Butt/Hips, Legs – Calves and Shins, Legs – Thighs. The primary muscles engaged are Gluteus Maximus, Quadriceps, Gastrocnemius, with secondary engagement of the Hamstrings, Soleus, Rectus Abdominis."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Box Jumps?",
+      "output": "For the Box Jumps, aim for 3-4 sets of 5-8 jumps. Rest 2-3 minutes between sets. Quality over quantity — each jump should be explosive. Step down from the box rather than jumping down to protect your joints."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Lying Barbell Triceps Extensions?",
+      "output": "The Lying Barbell Triceps Extensions is an intermediate-level exercise that targets Arms. It requires Barbell, Bench. To perform it: Hold a barbell using a closed, pronated grip (palms facing your feet and thumbs wrapped around the bar). Lie on your back on a flat bench with feet flat on the floor. Press the barbell off the chest and fully extend the elbows so the barbell is positioned directly above the face, palms facing your feet. Maintain a neutral wrist position (no flexion or extension at the wrist). Inhale and slowly bend the elbows, lowering the bar in a controlled fashion toward the forehead or slightly behind the head. The upper arms should remain vertical to the floor as the elbows bend. Continue lowering until it sits just above your forehead or until you notice the upper arms begin to drift backwards. Exhale and slowly return to the starting position with the elbows fully extended."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Lying Barbell Triceps Extensions work?",
+      "output": "The Lying Barbell Triceps Extensions primarily targets the Triceps Brachii. It also engages secondary muscles including the Forearm Extensors, Anterior Deltoid. This exercise is classified as intermediate difficulty and requires Barbell, Bench."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Lying Barbell Triceps Extensions?",
+      "output": "When performing the Lying Barbell Triceps Extensions, avoid these common mistakes: Drifting upper arms backward — shifts tension away from the triceps; Wrist flexion or extension — keep wrists straight; Flaring elbows outward — keep elbows shoulder-width apart; Uncontrolled or rapid lowering of the bar. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Lying Barbell Triceps Extensions if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Lying Barbell Triceps Extensions in the following ways: Use an EZ-curl bar instead of a straight barbell for more comfortable wrist alignment; Perform with dumbbells for a more natural grip; Use lighter weight or no weight while mastering the motor pattern; Reduce the range of motion by not lowering as far behind the head. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Lying Barbell Triceps Extensions?",
+      "output": "The Lying Barbell Triceps Extensions requires Barbell, Bench. This exercise targets Arms and is classified as intermediate difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Lying Barbell Triceps Extensions?",
+      "output": "When performing the Lying Barbell Triceps Extensions, follow these safety tips: Keep feet firmly placed on the floor for stability; Do not allow the barbell to contact the forehead; Use a spotter when working with heavier loads; If upper arms begin to drift backward, the range of motion has gone too far — return upward immediately. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Lying Barbell Triceps Extensions a good exercise for strengthening triceps brachii?",
+      "output": "Yes, the Lying Barbell Triceps Extensions is an effective exercise for strengthening the Triceps Brachii. It is an intermediate-level exercise that requires Barbell, Bench and targets Arms. The primary muscles engaged are Triceps Brachii, with secondary engagement of the Forearm Extensors, Anterior Deltoid."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Lying Barbell Triceps Extensions?",
+      "output": "For the Lying Barbell Triceps Extensions, aim for 3 sets of 10-12 repetitions. Rest 45-60 seconds between sets. Keep elbows pointed toward the ceiling and upper arms stationary. Only the forearms should move."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Close-Grip Bench Press?",
+      "output": "The Close-Grip Bench Press is an intermediate-level exercise that targets Arms, Chest. It requires Barbell. To perform it: Lie face up on a barbell bench, then reach up and grip the bar with the hands directly in line with the shoulders and the elbows pointed towards the feet. Unrack the bar and bring it towards the chest by bending the elbows and keeping them close to the ribs. Push the feet into the floor, and press the hips into the bench as the bar is pushed away from the chest to return to the starting position."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Close-Grip Bench Press work?",
+      "output": "The Close-Grip Bench Press primarily targets the Triceps Brachii, Pectoralis Major. It also engages secondary muscles including the Anterior Deltoid, Serratus Anterior. This exercise is classified as intermediate difficulty and requires Barbell."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Close-Grip Bench Press?",
+      "output": "When performing the Close-Grip Bench Press, avoid these common mistakes: Flaring elbows outward — keep them close to the ribs to emphasize triceps; Inconsistent grip width — maintain shoulder-width grip throughout; Arching the lower back excessively; Not pressing through the full range of motion. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Close-Grip Bench Press if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Close-Grip Bench Press in the following ways: Start with lighter weight to master the narrow grip pattern; Use a spotter for safety, especially when learning; Practice with dumbbells first to learn proper elbow positioning. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Close-Grip Bench Press?",
+      "output": "The Close-Grip Bench Press requires Barbell. This exercise targets Arms, Chest and is classified as intermediate difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Close-Grip Bench Press?",
+      "output": "When performing the Close-Grip Bench Press, follow these safety tips: Keep feet firmly on the floor and hips pressed into the bench; Maintain a stable, tight grip on the bar throughout; Control the descent — do not drop the bar to the chest; Use a spotter when working with heavier loads. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Close-Grip Bench Press a good exercise for strengthening triceps brachii?",
+      "output": "Yes, the Close-Grip Bench Press is an effective exercise for strengthening the Triceps Brachii, Pectoralis Major. It is an intermediate-level exercise that requires Barbell and targets Arms, Chest. The primary muscles engaged are Triceps Brachii, Pectoralis Major, with secondary engagement of the Anterior Deltoid, Serratus Anterior."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Close-Grip Bench Press?",
+      "output": "For the Close-Grip Bench Press, aim for 3 sets of 8-10 repetitions. Rest 60-90 seconds between sets. Use a shoulder-width grip to emphasize triceps. Keep elbows close to the ribs throughout the movement."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Lying Chest Fly?",
+      "output": "The Lying Chest Fly is an intermediate-level exercise that targets Chest, Shoulders. It requires Bench, Dumbbells. To perform it: Lie on your back on a flat bench, grasping two dumbbells. Feet should rest firmly on the floor or on a raised platform so you can maintain a neutral spine. Depress and retract your scapulae (pull shoulders down and back) to make firm contact with the bench. Grasp each dumbbell with a closed, pronated grip (palms facing forward, thumbs wrapped around the handle). Press dumbbells to a shoulder-width position with elbows extended. Externally rotate the arms (rotate your elbows to face outward and palms to face inward), slightly flexing the elbows, but maintaining a neutral wrist position. Inhale and slowly lower the dumbbells in unison in a wide arc until they lie level with your shoulders or chest. Keep the dumbbells parallel, maintain slightly flexed elbows, a neutral wrist, and full body contact with the bench/floor. Exhale and slowly raise the dumbbells upward in a wide arc back to your starting position, keeping the elbows slightly flexed, wrists neutral."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Lying Chest Fly work?",
+      "output": "The Lying Chest Fly primarily targets the Pectoralis Major. It also engages secondary muscles including the Anterior Deltoid, Medial Deltoid. This exercise is classified as intermediate difficulty and requires Bench, Dumbbells."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Lying Chest Fly?",
+      "output": "When performing the Lying Chest Fly, avoid these common mistakes: Allowing the elbows to straighten fully during the movement — keep a slight bend; Lifting feet, head, or shoulders off the bench; Excessive wrist flexion or extension; Lowering the dumbbells below shoulder level — stresses the shoulder joint; Not maintaining scapular retraction. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Lying Chest Fly if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Lying Chest Fly in the following ways: Use lighter dumbbells to master the arc pattern before progressing in load; Have a spotter assist with handing off the dumbbells; A raised platform for the feet can help maintain a neutral spine. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Lying Chest Fly?",
+      "output": "The Lying Chest Fly requires Bench, Dumbbells. This exercise targets Chest, Shoulders and is classified as intermediate difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Lying Chest Fly?",
+      "output": "When performing the Lying Chest Fly, follow these safety tips: A spotter is recommended; Maintain control throughout — avoid letting dumbbells drop or drift erratically; Avoid hyperextending or flexing the wrists; Keep the movement in a wide arc, not a press. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Lying Chest Fly a good exercise for strengthening pectoralis major?",
+      "output": "Yes, the Lying Chest Fly is an effective exercise for strengthening the Pectoralis Major. It is an intermediate-level exercise that requires Bench, Dumbbells and targets Chest, Shoulders. The primary muscles engaged are Pectoralis Major, with secondary engagement of the Anterior Deltoid, Medial Deltoid."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Lying Chest Fly?",
+      "output": "For the Lying Chest Fly, aim for 3 sets of 10-12 repetitions. Rest 45-60 seconds between sets. Maintain a slight elbow bend throughout — do not straighten the arms completely. Feel the stretch in your chest."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Lying Pullovers?",
+      "output": "The Lying Pullovers is an intermediate-level exercise that targets Chest. It requires Bench, Dumbbells. To perform it: Lie face up on a bench with feet resting comfortably on the floor. Straighten the arms above the chest while holding one dumbbell in each hand with the palms facing each other. Keeping the elbows straight, slowly stretch the arms up overhead in an arc motion until they are behind/above the head. Once the arms reach the overhead position, slowly pull the weights back up along the same arc to the original starting position above the chest. Repeat for the desired number of repetitions."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Lying Pullovers work?",
+      "output": "The Lying Pullovers primarily targets the Pectoralis Major, Latissimus Dorsi. It also engages secondary muscles including the Serratus Anterior, Triceps. This exercise is classified as intermediate difficulty and requires Bench, Dumbbells."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Lying Pullovers?",
+      "output": "When performing the Lying Pullovers, avoid these common mistakes: Bending the elbows during the movement — keep elbows straight; Using excessive weight beyond control; Allowing the back to arch excessively off the bench. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Lying Pullovers if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Lying Pullovers in the following ways: Use lighter dumbbells; Reduce the range of motion — not extending arms fully overhead; Perform the exercise on a stability ball instead of a flat bench. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Lying Pullovers?",
+      "output": "The Lying Pullovers requires Bench, Dumbbells. This exercise targets Chest and is classified as intermediate difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Lying Pullovers?",
+      "output": "When performing the Lying Pullovers, follow these safety tips: Maintain a neutral spine throughout the movement; Avoid lowering the weights beyond a comfortable shoulder range; Keep the core engaged to protect the lower back; Use a weight that allows full control during both phases. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Lying Pullovers a good exercise for strengthening pectoralis major?",
+      "output": "Yes, the Lying Pullovers is an effective exercise for strengthening the Pectoralis Major, Latissimus Dorsi. It is an intermediate-level exercise that requires Bench, Dumbbells and targets Chest. The primary muscles engaged are Pectoralis Major, Latissimus Dorsi, with secondary engagement of the Serratus Anterior, Triceps."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Lying Pullovers?",
+      "output": "For the Lying Pullovers, aim for 3 sets of 10-12 repetitions. Rest 45-60 seconds between sets. Keep elbows straight throughout the movement. Control the stretch as you lower the weights overhead."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Overhead Triceps Stretch?",
+      "output": "The Overhead Triceps Stretch is a beginner-level exercise that targets Arms. It requires No Equipment. To perform it: Stand with feet positioned hip-width apart. Roll shoulders down and back (depress and retract the scapulae). Raise the right arm toward the ceiling while keeping the shoulder depressed (away from the ears). Bend at the elbow so the right hand drops toward the middle of the back with the palm facing the back. Raise the left hand overhead and place fingers on the right arm just above the elbow, applying gentle pressure to deepen the stretch. Maintain the stretch for 15-30 seconds per repetition, performing 2-4 repetitions total. Try to stretch a little deeper each repetition. Repeat on the other side."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Overhead Triceps Stretch work?",
+      "output": "The Overhead Triceps Stretch primarily targets the Triceps Brachii. It also engages secondary muscles including the Latissimus Dorsi, Teres Major. This exercise is classified as beginner difficulty and requires No Equipment."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Overhead Triceps Stretch?",
+      "output": "When performing the Overhead Triceps Stretch, avoid these common mistakes: Letting the shoulder rise toward the ear during the reach; Using excessive force with the assisting hand; Skipping the shoulder roll before beginning; Holding the breath during the stretch. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Overhead Triceps Stretch if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Overhead Triceps Stretch in the following ways: Reduce hold time if 15-30 seconds is too challenging; Use less pressure from the assisting hand; Perform fewer repetitions (starting with 2 instead of 4); Already requires no equipment — highly accessible. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Overhead Triceps Stretch?",
+      "output": "The Overhead Triceps Stretch requires No Equipment. This exercise targets Arms and is classified as beginner difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Overhead Triceps Stretch?",
+      "output": "When performing the Overhead Triceps Stretch, follow these safety tips: Keep the shoulder down, away from the ears, throughout the movement; Apply only light pressure with the assisting hand — do not force the stretch; Maintain proper scapular positioning (depressed and retracted); Ensure feet are stable at hip-width apart for balance. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Overhead Triceps Stretch a good exercise for strengthening triceps brachii?",
+      "output": "Yes, the Overhead Triceps Stretch is an effective exercise for strengthening the Triceps Brachii. It is a beginner-level exercise that requires No Equipment and targets Arms. The primary muscles engaged are Triceps Brachii, with secondary engagement of the Latissimus Dorsi, Teres Major."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Overhead Triceps Stretch?",
+      "output": "For the Overhead Triceps Stretch, aim for 2-4 repetitions per arm, holding 15-30 seconds each. Rest 10-15 seconds between holds. This is a static stretch — hold gently without forcing. Do not bounce. Stretch until you feel mild tension, not pain."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Diagonal Raise?",
+      "output": "The Diagonal Raise is an intermediate-level exercise that targets Shoulders. It requires Dumbbells. To perform it: Stand with the feet hip-width apart, hold one dumbbell in the left hand with the left arm down straight and place the left palm in front of the right thigh. Press the feet into the ground, keep the hips straight and the back tall. Raise the left arm across the body and out to the left side so that the weight is brought up to shoulder-height and the arm is kept straight. Lower slowly and repeat."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Diagonal Raise work?",
+      "output": "The Diagonal Raise primarily targets the Medial Deltoid, Anterior Deltoid. It also engages secondary muscles including the Trapezius, Serratus Anterior. This exercise is classified as intermediate difficulty and requires Dumbbells."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Diagonal Raise?",
+      "output": "When performing the Diagonal Raise, avoid these common mistakes: Swinging the weight instead of controlled movement; Allowing the torso to rotate during the lift; Raising the weight above shoulder height; Not keeping the arm straight throughout. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Diagonal Raise if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Diagonal Raise in the following ways: Use lighter dumbbells for beginners; Perform the exercise in front of a mirror for visual feedback. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Diagonal Raise?",
+      "output": "The Diagonal Raise requires Dumbbells. This exercise targets Shoulders and is classified as intermediate difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Diagonal Raise?",
+      "output": "When performing the Diagonal Raise, follow these safety tips: Keep the core engaged to prevent torso rotation; Control the tempo during both lifting and lowering phases; Stop at shoulder height — do not raise above it. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Diagonal Raise a good exercise for strengthening medial deltoid?",
+      "output": "Yes, the Diagonal Raise is an effective exercise for strengthening the Medial Deltoid, Anterior Deltoid. It is an intermediate-level exercise that requires Dumbbells and targets Shoulders. The primary muscles engaged are Medial Deltoid, Anterior Deltoid, with secondary engagement of the Trapezius, Serratus Anterior."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Diagonal Raise?",
+      "output": "For the Diagonal Raise, aim for 3 sets of 10-12 repetitions per arm. Rest 30-45 seconds between sets. Use light weight and focus on controlled movement through the full range of motion."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Dirty Dog?",
+      "output": "The Dirty Dog is a beginner-level exercise that targets Abs, Butt/Hips. It requires No Equipment. To perform it: Kneel on a mat with knees and feet hip-width apart, feet dorsiflexed (toes pointing toward your body). Lean forward and place hands on the mat directly under shoulders, hands facing forward. Ensure knees are directly under hips and hands directly under shoulders. Engage your core muscles to keep the spine in neutral alignment. Exhale and lift one knee off the floor. While keeping the knee bent, slowly externally rotate it outwards and upwards. Minimize trunk rotation. Hold the position briefly while keeping a stable trunk and head aligned with the spine. Slowly lower the knee back toward the floor and pause. Repeat with the opposite leg."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Dirty Dog work?",
+      "output": "The Dirty Dog primarily targets the Rectus Abdominis, Transverse Abdominis, Gluteus Medius, Gluteus Minimus. It also engages secondary muscles including the External Obliques, Hip External Rotators. This exercise is classified as beginner difficulty and requires No Equipment."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Dirty Dog?",
+      "output": "When performing the Dirty Dog, avoid these common mistakes: Allowing the trunk to rotate excessively during the knee lift; Letting the spine sag or arch rather than staying neutral; Lifting the knee without proper control; Not mastering the bird-dog exercise before attempting this variation. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Dirty Dog if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Dirty Dog in the following ways: Master the traditional bird-dog first as a prerequisite; Use an exercise mat for comfort and grip; Move slowly and hold positions briefly to build control. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Dirty Dog?",
+      "output": "The Dirty Dog requires No Equipment. This exercise targets Abs, Butt/Hips and is classified as beginner difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Dirty Dog?",
+      "output": "When performing the Dirty Dog, follow these safety tips: Maintain neutral spine throughout; Keep the head level with the spine at all times; Exhale during the exertion (lifting) phase; Move slowly and with control to minimize trunk rotation. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Dirty Dog a good exercise for strengthening rectus abdominis?",
+      "output": "Yes, the Dirty Dog is an effective exercise for strengthening the Rectus Abdominis, Transverse Abdominis, Gluteus Medius, Gluteus Minimus. It is a beginner-level exercise that requires No Equipment and targets Abs, Butt/Hips. The primary muscles engaged are Rectus Abdominis, Transverse Abdominis, Gluteus Medius, Gluteus Minimus, with secondary engagement of the External Obliques, Hip External Rotators."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Dirty Dog?",
+      "output": "For the Dirty Dog, aim for 3 sets of 8-10 repetitions per side. Rest 20-30 seconds between sets. Move slowly and hold the top position for 2-3 seconds. Minimize trunk rotation throughout."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Inchworms?",
+      "output": "The Inchworms is an advanced-level exercise that targets Abs, Arms, Back, Chest, Full Body/Integrated, Shoulders. It requires No Equipment. To perform it: Stand with feet together or slightly apart. Engage your core by bracing the abdominal muscles to stabilize the spine. Exhale and hip hinge forward from the hips, keeping knees extended but not locked. Lower your torso while extending arms forward until hands reach the floor. Walk hands forward in 6-12 inch steps without moving the feet (heels will rise). Continue until reaching a full push-up/plank position where spine, hips, and head are level with the floor. Perform a full push-up, lowering chest and hips simultaneously to the floor. Allow your elbows to flare outwards during the lowering phase. Lower until chest or chin touches the floor. Press back up through the arms to full elbow extension. Then walk feet forward toward hands in 6-12 inch steps (hands stay planted) until feet are close to the hands, maintaining a flat spine. Repeat for 10-15 yards."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Inchworms work?",
+      "output": "The Inchworms primarily targets the Rectus Abdominis, Deltoids, Pectoralis Major, Latissimus Dorsi. It also engages secondary muscles including the Triceps, Erector Spinae, Glutes, Hamstrings. This exercise is classified as advanced difficulty and requires No Equipment."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Inchworms?",
+      "output": "When performing the Inchworms, avoid these common mistakes: Allowing the low back to sag during the push-up phase; Letting hips hike upward; Reaching too far forward with the arms — places unnecessary stress on the shoulders; Rounding the low back at any point. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Inchworms if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Inchworms in the following ways: Reduce the walk-out distance; Omit the push-up initially; Perform smaller range-of-motion push-ups; Reduce repetition distance. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Inchworms?",
+      "output": "The Inchworms requires No Equipment. This exercise targets Abs, Arms, Back, Chest, Full Body/Integrated, Shoulders and is classified as advanced difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Inchworms?",
+      "output": "When performing the Inchworms, follow these safety tips: Monitor the position of your spine throughout the exercise; Keep the spine flat and avoid rounding the lower back; Use smaller steps to help maintain correct body alignment; Keep the head aligned with the spine during push-ups. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Inchworms a good exercise for strengthening rectus abdominis?",
+      "output": "Yes, the Inchworms is an effective exercise for strengthening the Rectus Abdominis, Deltoids, Pectoralis Major, Latissimus Dorsi. It is an advanced-level exercise that requires No Equipment and targets Abs, Arms, Back, Chest, Full Body/Integrated, Shoulders. The primary muscles engaged are Rectus Abdominis, Deltoids, Pectoralis Major, Latissimus Dorsi, with secondary engagement of the Triceps, Erector Spinae, Glutes, Hamstrings."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Inchworms?",
+      "output": "For the Inchworms, aim for 3 sets of 8-12 repetitions (walking 10-15 yards). Rest 30-45 seconds between sets. Move slowly and deliberately. Focus on maintaining a flat back throughout each phase of the movement."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Glute Bridge Single-Leg Progression?",
+      "output": "The Glute Bridge Single-Leg Progression is an intermediate-level exercise that targets Back, Butt/Hips, Legs – Thighs. It requires No Equipment. To perform it: Lie on your back on a mat in a bent-knee position, feet flat on the floor, arms at your sides with palms facing the ceiling. Start with feet hip-width apart, toes pointing away. Lift the left leg and place both hands on the back of that thigh, gently pulling the left knee toward your chest. Slide the right foot inward toward your body's center. Gently contract your abdominal muscles to flatten your low back into the floor. Maintain this abdominal engagement throughout the movement. Exhale while holding the abdominal contraction and supporting your left thigh. Press the right foot into the ground and lift into hip extension by squeezing the right glute. Press your right heel down for added stability. Avoid lifting the hips too high — excessive hip height generally increases the amount of hyperextension (arching) in your low back. Inhale and slowly lower back to the starting position. Repeat for a set number of reps, then alternate legs."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Glute Bridge Single-Leg Progression work?",
+      "output": "The Glute Bridge Single-Leg Progression primarily targets the Gluteus Maximus. It also engages secondary muscles including the Hamstrings, Erector Spinae, Rectus Abdominis, Transverse Abdominis. This exercise is classified as intermediate difficulty and requires No Equipment."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Glute Bridge Single-Leg Progression?",
+      "output": "When performing the Glute Bridge Single-Leg Progression, avoid these common mistakes: Pushing the hips too high — causes excessive low back arching; Failing to maintain abdominal contraction throughout; Not keeping the abdominal wall engaged to prevent lumbar hyperextension; Neglecting to press the heel firmly into the floor for stability. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Glute Bridge Single-Leg Progression if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Glute Bridge Single-Leg Progression in the following ways: Start with the standard double-leg glute bridge before progressing to single-leg; Use hands on the lifted thigh for additional support; For an added challenge targeting the anterior tibialis, lift the toes of the working foot off the floor. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Glute Bridge Single-Leg Progression?",
+      "output": "The Glute Bridge Single-Leg Progression requires No Equipment. This exercise targets Back, Butt/Hips, Legs – Thighs and is classified as intermediate difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Glute Bridge Single-Leg Progression?",
+      "output": "When performing the Glute Bridge Single-Leg Progression, follow these safety tips: Maintain core stiffness throughout all phases to protect the lower back; Control the lowering phase rather than dropping quickly; Do not push the hips too high — stop when you feel the low back beginning to arch. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Glute Bridge Single-Leg Progression a good exercise for strengthening gluteus maximus?",
+      "output": "Yes, the Glute Bridge Single-Leg Progression is an effective exercise for strengthening the Gluteus Maximus. It is an intermediate-level exercise that requires No Equipment and targets Back, Butt/Hips, Legs – Thighs. The primary muscles engaged are Gluteus Maximus, with secondary engagement of the Hamstrings, Erector Spinae, Rectus Abdominis, Transverse Abdominis."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Glute Bridge Single-Leg Progression?",
+      "output": "For the Glute Bridge Single-Leg Progression, aim for 3 sets of 10-12 repetitions per leg. Rest 30-45 seconds between sets. Squeeze the glute at the top of each rep and hold for 1-2 seconds. Do not push the hips too high."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Front Squat?",
+      "output": "The Front Squat is an intermediate-level exercise that targets Back, Butt/Hips, Full Body/Integrated, Legs – Thighs. It requires Dumbbells. To perform it: Stand with feet slightly wider than hip-width apart, toes pointed outward or turned slightly out. Hold a dumbbell in each hand at your sides, palms facing inward. Depress and retract your scapulae (pull shoulders down and back). Stiffen your core and abdominal muscles to stabilize your spine. Curl the dumbbells up to rest on the front edge of your shoulders or just in front of them. Keep your chest up and out, tilt your head slightly upward, and shift your weight onto your heels. Begin the descent by shifting your hips backward, then downward, creating a hinge at the knees. As hips lower, the knees will shift forward gradually. Try to control the amount of forward translation of the tibia. Keep your back flat. Continue lowering until thighs are parallel (or nearly parallel) with the floor. While maintaining back, chest, and head-up position, exhale and extend the hips and knees by driving your feet into the floor through your heels. The hips and torso must rise together."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Front Squat work?",
+      "output": "The Front Squat primarily targets the Quadriceps, Gluteus Maximus. It also engages secondary muscles including the Hamstrings, Adductors, Erector Spinae, Rectus Abdominis, Transverse Abdominis. This exercise is classified as intermediate difficulty and requires Dumbbells."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Front Squat?",
+      "output": "When performing the Front Squat, avoid these common mistakes: Holding the tibia too vertical — forces torso too far forward; Excess arching in the low back; Ankles collapsing inward or outward; Knees drifting out of alignment over the second toe; Heels lifting off the floor; Torso rounding forward. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Front Squat if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Front Squat in the following ways: Reduce range of motion — stop before heels lift or torso rounds; Use lighter dumbbells to master form; Practice without weight first — focus on hip hinge and shin angle; Use a mirror for visual feedback on technique. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Front Squat?",
+      "output": "The Front Squat requires Dumbbells. This exercise targets Back, Butt/Hips, Full Body/Integrated, Legs – Thighs and is classified as intermediate difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Front Squat?",
+      "output": "When performing the Front Squat, follow these safety tips: Technique is very important in this lift — prioritize form over load; If adjusting torso position, do so from the hips and not through the low back; Stop the descent if heels lift, torso rounds, or form deteriorates; Monitor feet, ankles, and knees to ensure proper alignment. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Front Squat a good exercise for strengthening quadriceps?",
+      "output": "Yes, the Front Squat is an effective exercise for strengthening the Quadriceps, Gluteus Maximus. It is an intermediate-level exercise that requires Dumbbells and targets Back, Butt/Hips, Full Body/Integrated, Legs – Thighs. The primary muscles engaged are Quadriceps, Gluteus Maximus, with secondary engagement of the Hamstrings, Adductors, Erector Spinae, Rectus Abdominis, Transverse Abdominis."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Front Squat?",
+      "output": "For the Front Squat, aim for 3-4 sets of 6-10 repetitions. Rest 90-120 seconds between sets. This is a demanding compound lift. Prioritize upright torso position over weight. Drop the dumbbells safely if you lose balance."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Bottom-up Press?",
+      "output": "The Bottom-up Press is an advanced-level exercise that targets Chest, Full Body/Integrated, Shoulders. It requires Kettlebells. To perform it: Stand with feet hip-width apart, with the right foot placed slightly ahead of the left. Hold a kettlebell in the right hand in a bottom-up orientation. Grip the top of the handle so the bell portion faces upward. Keep a strong grip to maintain balance of the kettlebell. Push the right foot into the ground to shift the weight of the body forward while simultaneously pressing the right arm straight overhead to full extension. Pull the right elbow back down to the rib cage to lower the weight. Repeat for desired reps, then switch sides."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Bottom-up Press work?",
+      "output": "The Bottom-up Press primarily targets the Pectoralis Major, Anterior Deltoid, Medial Deltoid. It also engages secondary muscles including the Triceps, Core Stabilizers, Rotator Cuff. This exercise is classified as advanced difficulty and requires Kettlebells."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Bottom-up Press?",
+      "output": "When performing the Bottom-up Press, avoid these common mistakes: Weak grip — losing grip tension causes the inverted kettlebell to fall; Failing to shift weight forward — reduces power transfer and core engagement; Incomplete lockout — not fully pressing overhead; Allowing the elbow to flare outward on the descent. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Bottom-up Press if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Bottom-up Press in the following ways: Use a lighter kettlebell or a dumbbell in the same bottom-up orientation; Perform the movement seated to reduce balance demands; Practice a standard kettlebell overhead press before progressing to the bottom-up variation; Eliminate the forward weight shift and press from a static stance. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Bottom-up Press?",
+      "output": "The Bottom-up Press requires Kettlebells. This exercise targets Chest, Full Body/Integrated, Shoulders and is classified as advanced difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Bottom-up Press?",
+      "output": "When performing the Bottom-up Press, follow these safety tips: Maintain a strong, consistent grip throughout — the single most critical safety factor; Ensure clear overhead space before performing the press; Engage the core to stabilize the spine during the weight shift; Start with a conservative weight to develop bottom-up stability. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Bottom-up Press a good exercise for strengthening pectoralis major?",
+      "output": "Yes, the Bottom-up Press is an effective exercise for strengthening the Pectoralis Major, Anterior Deltoid, Medial Deltoid. It is an advanced-level exercise that requires Kettlebells and targets Chest, Full Body/Integrated, Shoulders. The primary muscles engaged are Pectoralis Major, Anterior Deltoid, Medial Deltoid, with secondary engagement of the Triceps, Core Stabilizers, Rotator Cuff."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Bottom-up Press?",
+      "output": "For the Bottom-up Press, aim for 3 sets of 6-8 repetitions per arm. Rest 60-90 seconds between sets. Grip tension is critical — if the kettlebell starts to tip, stop the set. Start lighter than you think you need."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a CKC Parascapular Exercises?",
+      "output": "The CKC Parascapular Exercises is an intermediate-level exercise that targets Chest, Shoulders. It requires No Equipment. To perform it: Kneel on a mat with knees and feet hip-width apart, feet dorsiflexed. Lean forward and place hands on the mat directly under shoulders, shoulder-width apart, fingers forward. Ensure knees are directly under your hips and hands are directly under your shoulders. Brace abdominals to hold the spine neutral. Slide the right hand forward 6-12 inches past the shoulder. Internally rotate both arms so fingertips turn inward. Hold 5-10 seconds, perform 2-4 repetitions. Switch hand positions and repeat. Progression: Assume a full push-up with arms extended, shoulders over elbows. Depress and retract your scapulae. Maintain flat back. Slide one hand forward 6-12 inches, internally rotate both arms, hold 5-10 seconds for 2-4 reps per side."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the CKC Parascapular Exercises work?",
+      "output": "The CKC Parascapular Exercises primarily targets the Serratus Anterior, Trapezius, Rhomboids. It also engages secondary muscles including the Pectoralis Major, Deltoids, Rectus Abdominis. This exercise is classified as intermediate difficulty and requires No Equipment."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the CKC Parascapular Exercises?",
+      "output": "When performing the CKC Parascapular Exercises, avoid these common mistakes: Allowing the low back to sag or arch excessively; Not bracing the core sufficiently before moving; Shoulders rising toward the ears; Bending at the knees in the push-up progression. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the CKC Parascapular Exercises if I am a beginner?",
+      "output": "If you are a beginner, you can modify the CKC Parascapular Exercises in the following ways: Beginner/Regression: Perform from the kneeling (quadruped) position rather than full push-up; Progress gradually — master the kneeling version before advancing to full push-up. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the CKC Parascapular Exercises?",
+      "output": "The CKC Parascapular Exercises requires No Equipment. This exercise targets Chest, Shoulders and is classified as intermediate difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the CKC Parascapular Exercises?",
+      "output": "When performing the CKC Parascapular Exercises, follow these safety tips: Stiffen abdominal muscles to position your spine in a neutral position before any movement; Maintain controlled breathing throughout holds; Ensure hands are positioned directly under shoulders to protect wrist and shoulder joints. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the CKC Parascapular Exercises a good exercise for strengthening serratus anterior?",
+      "output": "Yes, the CKC Parascapular Exercises is an effective exercise for strengthening the Serratus Anterior, Trapezius, Rhomboids. It is an intermediate-level exercise that requires No Equipment and targets Chest, Shoulders. The primary muscles engaged are Serratus Anterior, Trapezius, Rhomboids, with secondary engagement of the Pectoralis Major, Deltoids, Rectus Abdominis."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the CKC Parascapular Exercises?",
+      "output": "For the CKC Parascapular Exercises, aim for 2-4 repetitions per side, holding 5-10 seconds each. Rest 15-20 seconds between reps. This is a closed kinetic chain stability drill. Focus on maintaining scapular control throughout each hold."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Cycled Split-Squat Jump?",
+      "output": "The Cycled Split-Squat Jump is an intermediate-level exercise that targets Butt/Hips, Legs – Calves and Shins, Legs – Thighs. It requires No Equipment. To perform it: Begin in an athletic ready stance with feet hip-width apart, right leg forward and left leg back. Both arms are bent at the elbows — left arm forward, right arm back. Lean forward hinging at the hips while keeping weight in the thighs. Depress and retract the scapulae without arching the low back, and engage abdominal/core muscles to brace and stiffen the spine. Sink weight back into the hips, then explosively push both feet into the floor, driving hips forward. Achieve triple extension (pushing and extending your ankles, knees and hips simultaneously) in both legs. While airborne, keep feet level with each other and parallel to the floor. While in the air, cycle the legs by bringing the left leg forward and the right leg back. Simultaneously cycle the arms in opposition. Land with the left leg in front and right leg behind. Attempt to land softly and quietly on the mid-foot, rolling backwards quickly towards the heels. Push hips backward and drop them downward to absorb impact forces."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Cycled Split-Squat Jump work?",
+      "output": "The Cycled Split-Squat Jump primarily targets the Gluteus Maximus, Quadriceps, Gastrocnemius. It also engages secondary muscles including the Hamstrings, Soleus, Tibialis Anterior, Adductors, Rectus Abdominis. This exercise is classified as intermediate difficulty and requires No Equipment."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Cycled Split-Squat Jump?",
+      "output": "When performing the Cycled Split-Squat Jump, avoid these common mistakes: Excessive forward knee movement during landing — places additional stresses upon the knees; Locking out knees or quads on landing; Arching the low back during the starting position; Not bracing the core; Landing flat-footed or on toes rather than mid-foot; Rigid or tense landing — not absorbing force through the hips. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Cycled Split-Squat Jump if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Cycled Split-Squat Jump in the following ways: Start by practicing the squat and landing mechanics without any jumping; Perform only single repetitions with a full reset between each jump; Limit jump height — focus on landing quality over explosive power; Gradually progress to consecutive jumps only after mastery of single-rep form. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Cycled Split-Squat Jump?",
+      "output": "The Cycled Split-Squat Jump requires No Equipment. This exercise targets Butt/Hips, Legs – Calves and Shins, Legs – Thighs and is classified as intermediate difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Cycled Split-Squat Jump?",
+      "output": "When performing the Cycled Split-Squat Jump, follow these safety tips: First learn how to squat and land before attempting to jump; Master the hip-hinge mechanism before introducing any jumping; Begin with small jumps and emphasize your landing mechanics; Keep abdominal and core muscles engaged throughout to protect the spine. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Cycled Split-Squat Jump a good exercise for strengthening gluteus maximus?",
+      "output": "Yes, the Cycled Split-Squat Jump is an effective exercise for strengthening the Gluteus Maximus, Quadriceps, Gastrocnemius. It is an intermediate-level exercise that requires No Equipment and targets Butt/Hips, Legs – Calves and Shins, Legs – Thighs. The primary muscles engaged are Gluteus Maximus, Quadriceps, Gastrocnemius, with secondary engagement of the Hamstrings, Soleus, Tibialis Anterior, Adductors, Rectus Abdominis."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Cycled Split-Squat Jump?",
+      "output": "For the Cycled Split-Squat Jump, aim for 3-4 sets of 5-8 jumps per side. Rest 2-3 minutes between sets. Land softly and absorb impact through the hips. Each jump should be maximal effort with full recovery between reps."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a High Plank T-Spine Rotation?",
+      "output": "The High Plank T-Spine Rotation is an advanced-level exercise that targets Abs, Shoulders. It requires No Equipment. To perform it: Assume a push-up position with hands directly beneath the shoulders, legs extended straight behind the body, roughly hip-width apart. From the push-up position, squeeze the thighs and glutes while pressing the right arm firmly into the floor. Simultaneously lift the left hand upward and rotate the hips and shoulders, directing the left arm toward the ceiling. Lower the left arm back down, press the left hand into the floor, and rotate the hips and shoulders to the opposite side. Lift the right hand into the air as you rotate. Alternate sides and repeat for the desired number of repetitions."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the High Plank T-Spine Rotation work?",
+      "output": "The High Plank T-Spine Rotation primarily targets the Obliques, Rectus Abdominis, Deltoids. It also engages secondary muscles including the Transverse Abdominis, Glutes, Pectoralis Major, Erector Spinae. This exercise is classified as advanced difficulty and requires No Equipment."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the High Plank T-Spine Rotation?",
+      "output": "When performing the High Plank T-Spine Rotation, avoid these common mistakes: Allowing hips to sag rather than keeping the body in a straight plank line; Failing to engage the glutes and thighs during rotation; Placing hands too far forward or back rather than under the shoulders; Rushing through the rotation without control. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the High Plank T-Spine Rotation if I am a beginner?",
+      "output": "If you are a beginner, you can modify the High Plank T-Spine Rotation in the following ways: Start with a standard plank before attempting rotations; Reduce the range of rotation initially; Perform from knees if full plank is too challenging. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the High Plank T-Spine Rotation?",
+      "output": "The High Plank T-Spine Rotation requires No Equipment. This exercise targets Abs, Shoulders and is classified as advanced difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the High Plank T-Spine Rotation?",
+      "output": "When performing the High Plank T-Spine Rotation, follow these safety tips: Maintain a rigid plank position throughout; Engage the core before initiating rotation; Move slowly and with control through each rotation; Rated Advanced — master intermediate plank variations first. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the High Plank T-Spine Rotation a good exercise for strengthening obliques?",
+      "output": "Yes, the High Plank T-Spine Rotation is an effective exercise for strengthening the Obliques, Rectus Abdominis, Deltoids. It is an advanced-level exercise that requires No Equipment and targets Abs, Shoulders. The primary muscles engaged are Obliques, Rectus Abdominis, Deltoids, with secondary engagement of the Transverse Abdominis, Glutes, Pectoralis Major, Erector Spinae."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the High Plank T-Spine Rotation?",
+      "output": "For the High Plank T-Spine Rotation, aim for 3 sets of 8-10 repetitions per side. Rest 30-45 seconds between sets. Rotate slowly and with control. Each rotation should take 2-3 seconds. Do not rush through the movement."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Decline Plank?",
+      "output": "The Decline Plank is a beginner-level exercise that targets Abs. It requires BOSU Trainer. To perform it: Position feet close together on top of the BOSU dome. Place the elbows on the ground underneath the shoulders with the hands in fists. Squeeze the muscles of the stomach and glute. Keep the body in a straight line from head to heels. Hold this position for the desired amount of time."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Decline Plank work?",
+      "output": "The Decline Plank primarily targets the Rectus Abdominis, Transverse Abdominis. It also engages secondary muscles including the Obliques, Erector Spinae, Glutes, Deltoids. This exercise is classified as intermediate difficulty and requires BOSU Trainer."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Decline Plank?",
+      "output": "When performing the Decline Plank, avoid these common mistakes: Allowing the hips to sag or pike upward; Placing elbows too far forward; Failing to engage the glutes; Holding the breath. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Decline Plank if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Decline Plank in the following ways: Start with a standard flat-ground plank if the BOSU dome is too challenging; Reduce hold time for beginners. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Decline Plank?",
+      "output": "The Decline Plank requires BOSU Trainer. This exercise targets Abs and is classified as intermediate difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Decline Plank?",
+      "output": "When performing the Decline Plank, follow these safety tips: Maintain core and glute engagement throughout; Keep the body in a straight line; If you experience low back discomfort, stop and consult a professional. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Decline Plank a good exercise for strengthening rectus abdominis?",
+      "output": "Yes, the Decline Plank is an effective exercise for strengthening the Rectus Abdominis, Transverse Abdominis. It is a beginner-level exercise that requires BOSU Trainer and targets Abs. The primary muscles engaged are Rectus Abdominis, Transverse Abdominis, with secondary engagement of the Obliques, Erector Spinae, Glutes, Deltoids."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Decline Plank?",
+      "output": "For the Decline Plank, aim for 3 sets of 15-30 second holds. Rest 30-45 seconds between sets. The BOSU dome adds instability — start with shorter holds and increase duration as you adapt."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How do I perform a Halo?",
+      "output": "The Halo is an advanced-level exercise that targets Back, Butt/Hips, Chest, Full Body/Integrated, Legs – Thighs, Shoulders. It requires Kettlebells. To perform it: Stand with feet approximately shoulder-width apart. Hold a kettlebell by the horns in front of the chest. Keep the back straight while moving the kettlebell from in front of the chest to over the right shoulder, reaching across with the left arm. Continue the motion around and behind the head to bring it back to the chest by passing it over the left shoulder. Repeat for the desired number of reps, then switch directions."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What muscles does the Halo work?",
+      "output": "The Halo primarily targets the Deltoids, Trapezius, Rhomboids. It also engages secondary muscles including the Pectoralis Major, Glutes, Quadriceps, Rectus Abdominis. This exercise is classified as advanced difficulty and requires Kettlebells."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What are the common mistakes to avoid when doing the Halo?",
+      "output": "When performing the Halo, avoid these common mistakes: Rounding the back during the movement; Using excessive weight — this is a mobility and stability exercise; Moving too quickly without control; Failing to engage the core throughout. These errors can reduce the effectiveness of the exercise and increase the risk of injury."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How can I modify the Halo if I am a beginner?",
+      "output": "If you are a beginner, you can modify the Halo in the following ways: Use a lighter kettlebell or a dumbbell; Perform with a medicine ball initially to master the movement pattern; Reduce the range of motion if shoulder mobility is limited. These modifications help reduce the difficulty while still providing the benefits of the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What equipment do I need for the Halo?",
+      "output": "The Halo requires Kettlebells. This exercise targets Back, Butt/Hips, Chest, Full Body/Integrated, Legs – Thighs, Shoulders and is classified as advanced difficulty."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "What safety tips should I follow when doing the Halo?",
+      "output": "When performing the Halo, follow these safety tips: Keep the back straight throughout the movement; Engage the core to stabilize the spine; Start with a light weight to master the circular pattern; Ensure adequate overhead clearance before performing. Following these guidelines helps prevent injury and ensures you get the most benefit from the exercise."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "Is the Halo a good exercise for strengthening deltoids?",
+      "output": "Yes, the Halo is an effective exercise for strengthening the Deltoids, Trapezius, Rhomboids. It is an advanced-level exercise that requires Kettlebells and targets Back, Butt/Hips, Chest, Full Body/Integrated, Legs – Thighs, Shoulders. The primary muscles engaged are Deltoids, Trapezius, Rhomboids, with secondary engagement of the Pectoralis Major, Glutes, Quadriceps, Rectus Abdominis."
+    },
+    {
+      "instruction": "You are a fitness chatbot assistant trained on the American Council on Exercise (ACE) Exercise Library. Answer every question with clear, actionable guidance. Explain the why behind every instruction. Spell out every acronym in full before using its abbreviated form on first mention.",
+      "input": "How many sets and reps should I do for the Halo?",
+      "output": "For the Halo, aim for 2-3 sets of 8-10 circles per direction. Rest 15-20 seconds between sets. Move the kettlebell in a controlled circle around the head. Keep the core tight and the back straight throughout."
+    }
+  ]
+}
