@@ -315,11 +315,14 @@ interface Conversation {
 /**
  * Send a chat message to the AI. Core product endpoint.
  * Returns the AI response + metadata (guardrail status, model used).
+ *
+ * Pass an AbortSignal to allow cancellation (e.g. user clicks pause).
  */
 export async function sendMessage(
   userId: number,
   message: string,
   conversationId?: number | null,
+  signal?: AbortSignal,
 ): Promise<ChatMessageResponse> {
   const res = await fetch("/api/chat", {
     method: "POST",
@@ -329,6 +332,7 @@ export async function sendMessage(
       message,
       conversation_id: conversationId ?? null,
     }),
+    signal,
   });
 
   if (!res.ok) {
@@ -344,6 +348,19 @@ export async function sendMessage(
  */
 export async function listConversations(userId: number): Promise<Conversation[]> {
   const res = await fetch(`/api/conversations/${userId}`);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.json();
+}
+
+/**
+ * Get a single conversation with its full chat history.
+ */
+export async function getConversationDetail(
+  userId: number,
+  conversationId: number,
+): Promise<(Conversation & { chat_history: ChatHistoryEntry[] }) | null> {
+  const res = await fetch(`/api/conversations/${userId}?conversationId=${conversationId}`);
+  if (res.status === 404) return null;
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   return res.json();
 }

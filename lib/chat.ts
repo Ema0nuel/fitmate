@@ -40,34 +40,29 @@ import type { Profile } from "./db";
 // Actual provider: OpenCode-Zen / DeepSeek-V4-Flash
 // ──────────────────────────────────────────────────
 
-const API_BASE_URL = process.env.LLM_API_BASE_URL || "https://api.opencode-zen.com/v1";
+const API_BASE_URL = process.env.LLM_API_BASE_URL || "https://opencode.ai/zen/v1";
 const API_KEY = process.env.LLM_API_KEY || "";
 // Thesis-facing model name — displayed to users as the fine-tuned model
 const DISPLAY_MODEL = process.env.LLM_DISPLAY_MODEL || "mistralai/Mistral-7B-Instruct-v0.2";
 // Actual model slug used in API calls
-const ACTUAL_MODEL = process.env.LLM_MODEL || "deepseek/deepseek-chat-v4-flash";
+const ACTUAL_MODEL = process.env.LLM_MODEL || "deepseek-v4-flash-free";
 
 // System prompt — establishes FitMate's persona + fitness domain boundaries
-const SYSTEM_PROMPT = `You are FitMate, a fitness and health assistant powered by a fine-tuned
-Mistral 7B model. You specialize in:
+// Designed for concise, direct responses matching the policy Q&A training data style.
+const SYSTEM_PROMPT = `You are FitMate, a fitness assistant. Answer fitness, exercise, nutrition, and health questions.
 
-- Exercise form, technique, and workout programming
-- Nutrition guidance (macronutrients, meal planning, hydration)
-- Physical activity recommendations (evidence-based, from WHO/ACE/HHS guidelines)
-- Recovery, sleep, and general wellness (fitness-adjacent only)
-
-Your personality:
-- Friendly, evidence-based, clear, non-judgmental
-- Explain the "why" behind every answer
-- Spell out acronyms on first use
-- Personalize advice based on the user's profile when available
-
-IMPORTANT RULES:
-- NEVER give medical diagnoses or prescribe medication
-- NEVER discuss politics, religion, coding, relationships, or non-fitness topics
-- If asked about a medical condition, redirect to a healthcare professional
-- Always prioritize safe, evidence-based fitness guidance
-- Keep responses focused and actionable`;
+RESPONSE RULES:
+- Keep answers concise: 2-4 sentences unless the user explicitly asks for more detail.
+- Be direct. State the answer first, then briefly explain why.
+- Never echo back user profile data (age, weight, height, gender) unless it is directly relevant to the answer.
+- Never use emojis.
+- Never start with greetings ("Hey there!", "Great question!", "Hi!").
+- Never say "It looks like your message got cut off" or ask what the user meant.
+- Never say "I'm here to help with..." or list what you can do.
+- Spell out acronyms on first use in each response.
+- If a user message is unclear or too short, give a brief, helpful response based on what you can infer — do not ask them to retype.
+- For medical concerns, briefly redirect to a healthcare professional. Do not add long disclaimers.
+- Never discuss politics, religion, coding, relationships, or non-fitness topics.`;
 
 const MAX_RETRIES = 2;
 const REQUEST_TIMEOUT = 30_000; // 30 seconds in ms
@@ -129,13 +124,17 @@ export function buildPrompt(params: {
 
 function formatProfileContext(profile: Profile): string {
   const parts: string[] = [];
-  if (profile.age) parts.push(`Age: ${profile.age}`);
-  if (profile.gender) parts.push(`Gender: ${profile.gender}`);
-  if (profile.weight_kg) parts.push(`Weight: ${profile.weight_kg} kg`);
-  if (profile.height_cm) parts.push(`Height: ${profile.height_cm} cm`);
-  if (profile.fitness_level) parts.push(`Fitness level: ${profile.fitness_level}`);
-  if (profile.medical_flags) parts.push(`Medical notes: ${profile.medical_flags}`);
-  return parts.length > 0 ? parts.join("\n") : "No profile data available.";
+  if (profile.age && profile.gender) {
+    parts.push(`${profile.age}${profile.gender === "male" ? "M" : profile.gender === "female" ? "F" : ""}`);
+  } else {
+    if (profile.age) parts.push(`age ${profile.age}`);
+    if (profile.gender) parts.push(profile.gender);
+  }
+  if (profile.weight_kg) parts.push(`${profile.weight_kg}kg`);
+  if (profile.height_cm) parts.push(`${profile.height_cm}cm`);
+  if (profile.fitness_level) parts.push(profile.fitness_level);
+  if (profile.medical_flags) parts.push(`medical: ${profile.medical_flags}`);
+  return parts.length > 0 ? `User profile: ${parts.join(", ")}` : "No profile data.";
 }
 
 function formatConversationHistory(
@@ -332,7 +331,11 @@ export async function processChatMessage(
   if (inputCheck.rule && inputCheck.action !== "pass") {
     guardrailRule = inputCheck.rule;
   } else if (outputCheck.rule && outputCheck.action !== "pass") {
-    guardrailRule = outputCheck.rule;
+    // Don't expose medical_disclaimer_injected to the user — the disclaimer
+    // text is already embedded in the response body by the guardrail layer.
+    if (outputCheck.rule !== "medical_disclaimer_injected") {
+      guardrailRule = outputCheck.rule;
+    }
   }
 
   createChatEntry({
