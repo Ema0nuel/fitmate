@@ -1,54 +1,36 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { useOnboardingStore } from "@/store/onboarding-store";
 import { useChatStore } from "@/store/chat-store";
-import { listConversations } from "@/lib/api";
-import { getOrCreateUuid } from "@/lib/conversation-mapping";
 import { cn } from "@/lib/utils";
 import {
   User,
   MessageSquarePlus,
-  MessageSquare,
   Clock,
-  Settings,
   RotateCcw,
 } from "lucide-react";
 
 /**
  * ProfileDropdown — Radix DropdownMenu triggered by user initials button.
  *
- * Shows user info (name, quick stats, goals) and actions:
- * - New Chat: clears messages, starts fresh
- * - Reset Onboarding: debug/dev action to restart onboarding
+ * Clean action menu with 4 items:
+ *   1. My Profile — navigates to /profile
+ *   2. New Chat — clears messages, navigates to /chat
+ *   3. History — navigates to /history
+ *   4. Reset Onboarding — clears store, redirects to /onboarding
  */
 export default function ProfileDropdown() {
   const router = useRouter();
-  const { profile, userId, resetOnboarding } = useOnboardingStore();
+  const { profile, resetOnboarding } = useOnboardingStore();
   const { clearMessages } = useChatStore();
-  const [conversations, setConversations] = useState<
-    { id: number; title: string | null; created_at: string | null }[]
-  >([]);
-  const [historyLoaded, setHistoryLoaded] = useState(false);
 
   const initial = profile.name ? profile.name.charAt(0).toUpperCase() : "?";
 
-  // Load conversation history when dropdown opens
-  const handleOpenChange = (open: boolean) => {
-    if (open && !historyLoaded && userId) {
-      listConversations(userId)
-        .then((convos) => {
-          setConversations(convos);
-          setHistoryLoaded(true);
-        })
-        .catch(() => {});
-    }
-  };
-
   const handleNewChat = () => {
     clearMessages();
+    router.push("/chat");
   };
 
   const handleResetOnboarding = () => {
@@ -67,7 +49,7 @@ export default function ProfileDropdown() {
   if (profile.height_cm) statParts.push(`${profile.height_cm}cm`);
 
   return (
-    <DropdownMenu.Root onOpenChange={handleOpenChange}>
+    <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
         <button
           className={cn(
@@ -87,7 +69,7 @@ export default function ProfileDropdown() {
           align="end"
           sideOffset={8}
           className={cn(
-            "z-50 w-64 p-1.5",
+            "z-50 w-56 p-1.5",
             "bg-background border border-border rounded-xl",
             "shadow-[0_8px_24px_rgba(0,0,0,0.12)]",
             "animate-in fade-in-0 zoom-in-95 data-[side=bottom]:slide-in-from-top-2",
@@ -115,49 +97,18 @@ export default function ProfileDropdown() {
 
           <DropdownMenu.Separator className="h-px bg-border mx-1 my-1" />
 
-          {/* Profile */}
+          {/* My Profile */}
           <DropdownMenu.Item
             className={cn(
               "flex items-center gap-2.5 px-3 py-2 text-sm rounded-lg cursor-pointer",
               "text-foreground outline-none",
               "hover:bg-muted transition-colors"
             )}
+            onSelect={() => router.push("/profile")}
           >
             <User className="h-4 w-4 text-muted-foreground" />
             <span>My Profile</span>
           </DropdownMenu.Item>
-
-          {/* History */}
-          <DropdownMenu.Label className="flex items-center gap-2.5 px-3 py-1.5 text-xs font-medium text-muted-foreground">
-            <Clock className="h-3.5 w-3.5" />
-            <span>Recent Conversations</span>
-          </DropdownMenu.Label>
-
-          {conversations.length === 0 && (
-            <div className="px-3 py-2 text-xs text-muted-foreground/60">
-              {historyLoaded ? "No conversations yet" : "Loading..."}
-            </div>
-          )}
-
-          {conversations.slice(0, 5).map((conv) => (
-            <DropdownMenu.Item
-              key={conv.id}
-              className={cn(
-                "flex items-center gap-2.5 px-3 py-2 text-sm rounded-lg cursor-pointer",
-                "text-foreground outline-none",
-                "hover:bg-muted transition-colors"
-              )}
-              onSelect={() => {
-                const uuid = getOrCreateUuid(conv.id);
-                router.push(`/chat/${uuid}`);
-              }}
-            >
-              <MessageSquare className="h-4 w-4 text-muted-foreground shrink-0" />
-              <span className="truncate">
-                {conv.title || "New Conversation"}
-              </span>
-            </DropdownMenu.Item>
-          ))}
 
           {/* New Chat */}
           <DropdownMenu.Item
@@ -172,16 +123,17 @@ export default function ProfileDropdown() {
             <span>New Chat</span>
           </DropdownMenu.Item>
 
-          {/* Settings */}
+          {/* History */}
           <DropdownMenu.Item
             className={cn(
               "flex items-center gap-2.5 px-3 py-2 text-sm rounded-lg cursor-pointer",
               "text-foreground outline-none",
               "hover:bg-muted transition-colors"
             )}
+            onSelect={() => router.push("/history")}
           >
-            <Settings className="h-4 w-4 text-muted-foreground" />
-            <span>Settings</span>
+            <Clock className="h-4 w-4 text-muted-foreground" />
+            <span>History</span>
           </DropdownMenu.Item>
 
           <DropdownMenu.Separator className="h-px bg-border mx-1 my-1" />
