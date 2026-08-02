@@ -70,7 +70,7 @@ export async function POST(req: Request) {
       model_used: DISPLAY_MODEL,
     });
   } catch (err) {
-    console.error("[chat] error:", err);
+    console.error("[chat] error:", err instanceof Error ? err.message : String(err));
     return errorResponse("Failed to process chat", 500);
   }
 }
