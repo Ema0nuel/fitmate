@@ -1,50 +1,76 @@
 /**
- * POST /api/chat — Send a message, get an AI response
+ * POST /api/chat — Stateless LLM Proxy
  *
- * This is the core endpoint. It will call processChatMessage() from lib/chat.ts
- * once Phase 4 is complete. For now, it returns a placeholder.
+ * Receives the user's message + context (profile, conversation history)
+ * in the request body. Builds a prompt, calls the LLM, runs guardrails,
+ * and returns the response. No database — the client owns all state.
+ *
+ * Chapter Three Section 3.5.2 flowchart:
+ *   (4) User message + context → this endpoint
+ *   (5) Prompt engineering layer constructs final prompt
+ *   (6) Fine-tuned model generates draft response
+ *   (7) Guardrail layer validates response
+ *   (8) Final response → client stores in localStorage
  */
 
-import { ensureDb, errorResponse, createdResponse, parseBody } from "../utils";
-import { getUser } from "@/lib/db";
+import { buildPrompt, callLLM, DISPLAY_MODEL, checkUserInput, checkBotResponse } from "@/lib/chat";
+import { errorResponse, createdResponse, parseBody } from "../utils";
 
 export async function POST(req: Request) {
-  ensureDb();
   try {
     const body = await parseBody<{
-      user_id: number;
       message: string;
+      profile?: {
+        age?: number | null;
+        gender?: string | null;
+        weight_kg?: number | null;
+        height_cm?: number | null;
+        fitness_level?: string | null;
+        medical_flags?: string | null;
+      } | null;
+      conversation_history?: Array<{ user_input: string; bot_response: string }>;
       conversation_id?: number | null;
     }>(req);
 
-    if (!body.user_id || !body.message) {
-      return errorResponse("user_id and message are required", 400);
+    if (!body.message || body.message.trim().length === 0) {
+      return errorResponse("message is required", 400);
     }
 
-    const user = getUser(body.user_id);
-    if (!user) return errorResponse("User not found. Complete onboarding first.", 404);
-
-    // Phase 4 will replace this with the full chat pipeline
-    // For now, return a stub so the frontend can connect
-    const { processChatMessage } = await import("@/lib/chat");
-    const result = await processChatMessage(
-      body.user_id,
-      body.message,
-      body.conversation_id ?? null,
-    );
-
-    if (result.error === "user_not_found") {
-      return errorResponse("User not found. Complete onboarding first.", 404);
+    // ── Step 1: Input guardrails ──────────────────
+    const inputCheck = checkUserInput(body.message);
+    if (!inputCheck.passed) {
+      return createdResponse({
+        response: inputCheck.message,
+        conversation_id: body.conversation_id ?? null,
+        guardrail_triggered: true,
+        guardrail_rule: inputCheck.rule,
+        model_used: null,
+      });
     }
+
+    // ── Step 2: Build prompt from client-provided context ──
+    const messages = buildPrompt({
+      userMessage: body.message,
+      profile: body.profile,
+      conversationHistory: body.conversation_history,
+    });
+
+    // ── Step 3: Call LLM ─────────────────────────
+    const botResponse = await callLLM(messages);
+
+    // ── Step 4: Output guardrails ─────────────────
+    const outputCheck = checkBotResponse(botResponse);
+    const guardedResponse = outputCheck.passed ? botResponse : outputCheck.message;
 
     return createdResponse({
-      response: result.response,
-      conversation_id: result.conversation_id,
-      guardrail_triggered: result.guardrail_triggered,
-      guardrail_rule: result.guardrail_rule,
-      model_used: result.model_used,
+      response: guardedResponse,
+      conversation_id: body.conversation_id ?? null,
+      guardrail_triggered: !outputCheck.passed,
+      guardrail_rule: !outputCheck.passed ? outputCheck.rule : null,
+      model_used: DISPLAY_MODEL,
     });
   } catch (err) {
-    return errorResponse(err instanceof Error ? err.message : "Failed to process chat", 500);
+    console.error("[chat] error:", err);
+    return errorResponse("Failed to process chat", 500);
   }
 }

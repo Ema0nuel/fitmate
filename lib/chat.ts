@@ -1,54 +1,37 @@
 /**
- * FitMate — Chat Orchestration Module
+ * FitMate — Chat Module (Stateless)
+ *
+ * Provides prompt engineering, LLM API call, and guardrail integration.
+ * No database dependencies — all context is passed in as parameters.
  *
  * Chapter Three Section 3.5.2 flowchart:
- *   (1) User submits question
- *   (2) Backend receives and pre-processes request
- *   (3) Query converted to embedding vector (future RAG)
- *   (4) Vector DB retrieves knowledge (future RAG)
  *   (5) Prompt engineering layer constructs final prompt
  *   (6) Fine-tuned model generates draft response
  *   (7) Guardrail layer validates response
- *   (8) Response returned to user
- *   (9) Conversation and progress data stored
  *
- * This module implements steps (1), (2), (5), (6), (7), (8), (9).
- * Steps (3) and (4) are the RAG layer — not yet implemented.
- *
- * Ported from backend/chat.py (Python async → TypeScript)
+ * Used by: app/api/chat/route.ts (the stateless LLM proxy)
  */
 
-import {
-  checkUserInput,
-  checkBotResponse,
-  type GuardrailResult,
-} from "./guardrails";
-import {
-  getUser,
-  getProfile,
-  createConversation,
-  getConversation,
-  listChatHistory,
-  getConversationMemory,
-  createChatEntry,
-} from "./db";
-import type { Profile } from "./db";
+import { checkUserInput, checkBotResponse } from "./guardrails";
+
+export { checkUserInput, checkBotResponse };
 
 // ──────────────────────────────────────────────────
 // Configuration — OpenCode-Zen API
-// Chapter Three thesis names this "mistralai/Mistral-7B-Instruct-v0.2"
-// Actual provider: OpenCode-Zen / DeepSeek-V4-Flash
 // ──────────────────────────────────────────────────
 
 const API_BASE_URL = process.env.LLM_API_BASE_URL || "https://opencode.ai/zen/v1";
 const API_KEY = process.env.LLM_API_KEY || "";
-// Thesis-facing model name — displayed to users as the fine-tuned model
-const DISPLAY_MODEL = process.env.LLM_DISPLAY_MODEL || "mistralai/Mistral-7B-Instruct-v0.2";
-// Actual model slug used in API calls
+export const DISPLAY_MODEL = process.env.LLM_DISPLAY_MODEL || "mistralai/Mistral-7B-Instruct-v0.2";
 const ACTUAL_MODEL = process.env.LLM_MODEL || "deepseek-v4-flash-free";
 
-// System prompt — establishes FitMate's persona + fitness domain boundaries
-// Designed for concise, direct responses matching the policy Q&A training data style.
+const MAX_RETRIES = 2;
+const REQUEST_TIMEOUT = 30_000;
+
+// ──────────────────────────────────────────────────
+// System prompt
+// ──────────────────────────────────────────────────
+
 const SYSTEM_PROMPT = `You are FitMate, a fitness assistant. Answer fitness, exercise, nutrition, and health questions.
 
 RESPONSE RULES:
@@ -64,25 +47,32 @@ RESPONSE RULES:
 - For medical concerns, briefly redirect to a healthcare professional. Do not add long disclaimers.
 - Never discuss politics, religion, coding, relationships, or non-fitness topics.`;
 
-const MAX_RETRIES = 2;
-const REQUEST_TIMEOUT = 30_000; // 30 seconds in ms
+// ──────────────────────────────────────────────────
+// Profile type — minimal interface for prompt building
+// (matches the profile object sent from the client)
+// ──────────────────────────────────────────────────
+
+export interface PromptProfile {
+  age?: number | null;
+  gender?: string | null;
+  weight_kg?: number | null;
+  height_cm?: number | null;
+  fitness_level?: string | null;
+  medical_flags?: string | null;
+}
 
 // ──────────────────────────────────────────────────
 // Prompt Engineering Layer
-// Chapter Three: "assembles the final instruction
-// sent to the LLM by combining the user's question,
-// retrieved knowledge, the user's stored profile,
-// and a summary of prior conversation"
 // ──────────────────────────────────────────────────
 
-interface Message {
+export interface Message {
   role: "system" | "user" | "assistant";
   content: string;
 }
 
 export function buildPrompt(params: {
   userMessage: string;
-  profile?: Profile | null;
+  profile?: PromptProfile | null;
   conversationHistory?: Array<{ user_input: string; bot_response: string }>;
   memorySummary?: string | null;
 }): Message[] {
@@ -122,7 +112,7 @@ export function buildPrompt(params: {
   return messages;
 }
 
-function formatProfileContext(profile: Profile): string {
+export function formatProfileContext(profile: PromptProfile): string {
   const parts: string[] = [];
   if (profile.age && profile.gender) {
     parts.push(`${profile.age}${profile.gender === "male" ? "M" : profile.gender === "female" ? "F" : ""}`);
@@ -137,11 +127,11 @@ function formatProfileContext(profile: Profile): string {
   return parts.length > 0 ? `User profile: ${parts.join(", ")}` : "No profile data.";
 }
 
-function formatConversationHistory(
+export function formatConversationHistory(
   history: Array<{ user_input: string; bot_response: string }>,
 ): string {
   const lines: string[] = [];
-  const last10 = history.slice(0, 10).reverse(); // Last 10, oldest first
+  const last10 = history.slice(0, 10).reverse();
   for (const entry of last10) {
     lines.push(`User: ${entry.user_input}`);
     lines.push(`FitMate: ${entry.bot_response}`);
@@ -151,10 +141,9 @@ function formatConversationHistory(
 
 // ──────────────────────────────────────────────────
 // LLM API call — OpenCode-Zen (OpenAI-compatible)
-// Uses native fetch (no httpx needed in Node.js)
 // ──────────────────────────────────────────────────
 
-async function callLLM(messages: Message[]): Promise<string> {
+export async function callLLM(messages: Message[]): Promise<string> {
   if (!API_KEY) {
     return (
       "I'm FitMate, your fitness assistant! The AI model is not yet " +
@@ -218,142 +207,4 @@ async function callLLM(messages: Message[]): Promise<string> {
   }
 
   return "I'm unable to generate a response right now. Please try again.";
-}
-
-// ──────────────────────────────────────────────────
-// Main chat orchestration — the full pipeline
-// ──────────────────────────────────────────────────
-
-interface ChatResult {
-  response: string;
-  conversation_id: number | null;
-  guardrail_triggered: boolean;
-  guardrail_rule: string | null;
-  model_used: string | null;
-  error?: string;
-}
-
-export async function processChatMessage(
-  userId: number,
-  message: string,
-  conversationId: number | null = null,
-): Promise<ChatResult> {
-  const startTime = Date.now();
-
-  // Step 1: Validate user exists
-  const user = getUser(userId);
-  if (!user) {
-    return {
-      response: "User not found. Please complete onboarding first.",
-      conversation_id: null,
-      guardrail_triggered: false,
-      guardrail_rule: null,
-      model_used: null,
-      error: "user_not_found",
-    };
-  }
-
-  // Step 2: Create conversation if none provided
-  let activeConversationId: number;
-  if (conversationId === null) {
-    const conv = createConversation(userId);
-    activeConversationId = conv.id;
-  } else {
-    const conv = getConversation(conversationId);
-    if (!conv || conv.user_id !== userId) {
-      const newConv = createConversation(userId);
-      activeConversationId = newConv.id;
-    } else {
-      activeConversationId = conversationId;
-    }
-  }
-
-  // Step 3: Input guardrail check
-  const inputCheck: GuardrailResult = checkUserInput(message);
-  if (!inputCheck.passed) {
-    // Guardrail blocked the input — log it and return refusal
-    createChatEntry({
-      user_id: userId,
-      user_input: message,
-      bot_response: inputCheck.message || "Message blocked by guardrails.",
-      conversation_id: activeConversationId,
-      model_used: null,
-      guardrail_triggered: true,
-      guardrail_rule: inputCheck.rule,
-    });
-
-    return {
-      response: inputCheck.message || "I can't help with that topic.",
-      conversation_id: activeConversationId,
-      guardrail_triggered: true,
-      guardrail_rule: inputCheck.rule,
-      model_used: null,
-    };
-  }
-
-  // Step 4: Retrieve user profile for personalization
-  const profile = getProfile(userId);
-
-  // Step 5: Retrieve recent conversation history
-  const history = listChatHistory(userId, activeConversationId, 10);
-
-  // Step 6: Retrieve conversation memory (compressed context from prior sessions)
-  const memory = getConversationMemory(activeConversationId);
-  const memorySummary = memory?.summary ?? null;
-
-  // Step 7: Build prompt
-  const messages = buildPrompt({
-    userMessage: message,
-    profile,
-    conversationHistory: history,
-    memorySummary,
-  });
-
-  // Step 8: Call LLM
-  let botResponseText = await callLLM(messages);
-
-  // Step 9: Output guardrail check
-  const outputCheck: GuardrailResult = checkBotResponse(botResponseText);
-  if (!outputCheck.passed) {
-    // Guardrail blocked the output — use the refusal message
-    botResponseText = outputCheck.message || "I can't provide that response.";
-  } else if (outputCheck.action === "disclaimer" && outputCheck.message) {
-    // Medical disclaimer was injected
-    botResponseText = outputCheck.message;
-  }
-
-  // Step 10: Save the exchange
-  const elapsedMs = Date.now() - startTime;
-  const guardrailTriggered =
-    inputCheck.action !== "pass" || outputCheck.action !== "pass";
-
-  let guardrailRule: string | null = null;
-  if (inputCheck.rule && inputCheck.action !== "pass") {
-    guardrailRule = inputCheck.rule;
-  } else if (outputCheck.rule && outputCheck.action !== "pass") {
-    // Don't expose medical_disclaimer_injected to the user — the disclaimer
-    // text is already embedded in the response body by the guardrail layer.
-    if (outputCheck.rule !== "medical_disclaimer_injected") {
-      guardrailRule = outputCheck.rule;
-    }
-  }
-
-  createChatEntry({
-    user_id: userId,
-    user_input: message,
-    bot_response: botResponseText,
-    conversation_id: activeConversationId,
-    model_used: DISPLAY_MODEL,
-    guardrail_triggered: guardrailTriggered,
-    guardrail_rule: guardrailRule,
-    response_time_ms: elapsedMs,
-  });
-
-  return {
-    response: botResponseText,
-    conversation_id: activeConversationId,
-    guardrail_triggered: guardrailTriggered,
-    guardrail_rule: guardrailRule,
-    model_used: DISPLAY_MODEL,
-  };
 }

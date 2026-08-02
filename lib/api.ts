@@ -1,19 +1,39 @@
 /**
- * FitMate — API Client
+ * FitMate — API Client (localStorage-backed)
  *
- * Thin wrapper around fetch for same-origin Next.js API routes.
- * All routes are served from the same server — no CORS, no cross-origin.
+ * Client-side data layer backed by localStorage.
+ * All CRUD operations are local — no server round-trips.
  *
- * Maps to Chapter Three Section 3.5.4 database entities.
+ * The only server call is sendMessage → /api/chat (LLM proxy),
+ * because the API key must stay server-side.
+ *
+ * Function signatures match the original fetch-based API so
+ * no frontend components need to change.
  *
  * Onboarding flow:
- *   1. POST /api/users        → creates user (name), returns user_id
- *   2. POST /api/profiles     → creates profile (body stats, fitness level)
- *   3. POST /api/goals        → creates each fitness goal
+ *   1. completeOnboarding() → atomic: creates user + profile + goals in localStorage
+ *   2. Chat → sendMessage() → fetch /api/chat with profile + history in body
  */
 
+import {
+  lsCreateUser,
+  lsGetUser,
+  lsCreateProfile,
+  lsGetProfile,
+  lsUpdateProfile,
+  lsCreateGoal,
+  lsGetGoals,
+  lsCreateConversation,
+  lsListConversations,
+  lsGetConversationDetail,
+  lsDeleteConversation,
+  lsCreateChatEntry,
+  lsListChatHistory,
+  lsSetupUser,
+} from "./local-store";
+
 // ═══════════════════════════════════════════════════
-// Types — aligned with backend Pydantic models
+// Types — unchanged from original API
 // ═══════════════════════════════════════════════════
 
 interface UserResponse {
@@ -58,43 +78,22 @@ interface OnboardingCompleteResult {
 // User endpoints
 // ═══════════════════════════════════════════════════
 
-/**
- * Create a new user. Called first during onboarding.
- * Backend returns the user_id needed for subsequent profile/goal creation.
- */
 export async function createUser(name: string): Promise<UserResponse> {
-  const res = await fetch(`/api/users`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name }),
-  });
-
-  if (!res.ok) {
-    const error = await res.json().catch(() => ({ detail: "Failed to create user" }));
-    throw new Error(error.detail || `HTTP ${res.status}`);
+  if (!name || name.trim().length === 0) {
+    throw new Error("Name is required");
   }
-
-  return res.json();
+  const user = lsCreateUser(name.trim());
+  return user;
 }
 
-/**
- * Fetch a user by ID.
- */
 export async function getUser(userId: number): Promise<UserResponse | null> {
-  const res = await fetch(`/api/users/${userId}`);
-  if (res.status === 404) return null;
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.json();
+  return lsGetUser(userId);
 }
 
 // ═══════════════════════════════════════════════════
 // Profile endpoints
 // ═══════════════════════════════════════════════════
 
-/**
- * Create a user profile after onboarding.
- * Requires a valid user_id from createUser.
- */
 export async function createProfile(payload: {
   user_id: number;
   age?: number | null;
@@ -105,33 +104,14 @@ export async function createProfile(payload: {
   medical_flags?: string | null;
   onboarding_complete: boolean;
 }): Promise<ProfileResponse> {
-  const res = await fetch(`/api/profiles`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  });
-
-  if (!res.ok) {
-    const error = await res.json().catch(() => ({ detail: "Failed to create profile" }));
-    throw new Error(error.detail || `HTTP ${res.status}`);
-  }
-
-  return res.json();
+  const profile = lsCreateProfile(payload);
+  return profile;
 }
 
-/**
- * Fetch a profile by user ID.
- */
 export async function getProfile(userId: number): Promise<ProfileResponse | null> {
-  const res = await fetch(`/api/profiles/${userId}`);
-  if (res.status === 404) return null;
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.json();
+  return lsGetProfile(userId);
 }
 
-/**
- * Update a profile. Partial updates supported.
- */
 export async function updateProfile(
   userId: number,
   payload: Partial<{
@@ -142,29 +122,17 @@ export async function updateProfile(
     fitness_level: string | null;
     medical_flags: string | null;
     onboarding_complete: boolean;
-  }>
+  }>,
 ): Promise<ProfileResponse> {
-  const res = await fetch(`/api/profiles/${userId}`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  });
-
-  if (!res.ok) {
-    const error = await res.json().catch(() => ({ detail: "Failed to update profile" }));
-    throw new Error(error.detail || `HTTP ${res.status}`);
-  }
-
-  return res.json();
+  const profile = lsUpdateProfile(userId, payload);
+  if (!profile) throw new Error("Profile not found");
+  return profile;
 }
 
 // ═══════════════════════════════════════════════════
 // Fitness Goals endpoints
 // ═══════════════════════════════════════════════════
 
-/**
- * Create a fitness goal for a user.
- */
 export async function createGoal(payload: {
   user_id: number;
   goal_type: string;
@@ -174,42 +142,20 @@ export async function createGoal(payload: {
   target_date?: string | null;
   status?: string;
 }): Promise<FitnessGoalResponse> {
-  const res = await fetch(`/api/goals`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ status: "active", ...payload }),
+  return lsCreateGoal({
+    ...payload,
+    status: payload.status ?? "active",
   });
-
-  if (!res.ok) {
-    const error = await res.json().catch(() => ({ detail: "Failed to create goal" }));
-    throw new Error(error.detail || `HTTP ${res.status}`);
-  }
-
-  return res.json();
 }
 
-/**
- * List fitness goals for a user.
- */
 export async function listGoals(userId: number): Promise<FitnessGoalResponse[]> {
-  const res = await fetch(`/api/goals/${userId}`);
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.json();
+  return lsGetGoals(userId);
 }
 
 // ═══════════════════════════════════════════════════
-// Onboarding — Complete flow
+// Onboarding — Complete flow (atomic localStorage write)
 // ═══════════════════════════════════════════════════
 
-/**
- * Complete the full onboarding flow:
- *   1. Create user (name)
- *   2. Create profile (body stats + fitness level + medical)
- *   3. Create each fitness goal
- *
- * Returns all created entities for store hydration.
- * If any step fails, throws with context about which step failed.
- */
 export async function completeOnboarding(data: {
   name: string;
   age?: number | null;
@@ -220,67 +166,88 @@ export async function completeOnboarding(data: {
   medical_flags?: string;
   goals: string[];
 }): Promise<OnboardingCompleteResult> {
-  // Step 1: Create user
-  let user: UserResponse;
-  try {
-    user = await createUser(data.name);
-  } catch (err) {
-    throw new Error(`Failed to create user: ${err instanceof Error ? err.message : "Unknown error"}`);
-  }
-
-  // Step 2: Create profile
-  let profile: ProfileResponse;
-  try {
-    profile = await createProfile({
-      user_id: user.id,
-      age: data.age,
-      gender: data.gender,
-      weight_kg: data.weight_kg,
-      height_cm: data.height_cm,
-      fitness_level: data.fitness_level,
-      medical_flags: data.medical_flags || null,
-      onboarding_complete: true,
-    });
-  } catch (err) {
-    throw new Error(`Failed to create profile: ${err instanceof Error ? err.message : "Unknown error"}`);
-  }
-
-  // Step 3: Create goals (best-effort — don't fail onboarding if goals fail)
-  const goals: FitnessGoalResponse[] = [];
-  for (const goalType of data.goals) {
-    try {
-      const goal = await createGoal({
-        user_id: user.id,
-        goal_type: goalType,
-        description: goalType.replace(/_/g, " "),
-      });
-      goals.push(goal);
-    } catch (err) {
-      console.warn(`Failed to create goal "${goalType}":`, err);
-    }
-  }
-
-  return { user, profile, goals };
+  const result = lsSetupUser(data);
+  return {
+    user: result.user,
+    profile: result.profile,
+    goals: result.goals,
+  };
 }
 
 // ═══════════════════════════════════════════════════
-// Health check
+// Health check — always returns true (no server needed)
 // ═══════════════════════════════════════════════════
 
-/**
- * Check backend health.
- */
 export async function checkHealth(): Promise<boolean> {
-  try {
-    const res = await fetch(`/api/health`);
-    return res.ok;
-  } catch {
-    return false;
-  }
+  return true;
 }
 
 // ═══════════════════════════════════════════════════
-// Chat endpoints
+// Conversation endpoints
+// ═══════════════════════════════════════════════════
+
+interface Conversation {
+  id: number;
+  user_id: number;
+  title: string | null;
+  created_at: string | null;
+  first_message?: string | null;
+}
+
+interface ChatHistoryEntry {
+  id: number | string;
+  user_id: number;
+  conversation_id: number | null;
+  user_input: string;
+  bot_response: string;
+  model_used: string | null;
+  guardrail_triggered: boolean;
+  guardrail_rule: string | null;
+  response_time_ms: number | null;
+  created_at: string | null;
+}
+
+export async function listConversations(userId: number): Promise<Conversation[]> {
+  return lsListConversations(userId);
+}
+
+export async function getConversationDetail(
+  userId: number,
+  conversationId: number,
+): Promise<(Conversation & { chat_history: ChatHistoryEntry[] }) | null> {
+  return lsGetConversationDetail(userId, conversationId);
+}
+
+export async function deleteConversation(
+  userId: number,
+  conversationId: number,
+): Promise<boolean> {
+  return lsDeleteConversation(conversationId);
+}
+
+// ═══════════════════════════════════════════════════
+// Chat History — reads from localStorage
+// ═══════════════════════════════════════════════════
+
+export async function getChatHistory(
+  userId: number,
+  conversationId?: number | null,
+  limit?: number,
+): Promise<ChatHistoryEntry[]> {
+  return lsListChatHistory(userId, conversationId, limit ?? 50);
+}
+
+// ═══════════════════════════════════════════════════
+// Onboarding status
+// ═══════════════════════════════════════════════════
+
+export async function getOnboardingStatus(userId: number): Promise<{ onboarding_complete: boolean }> {
+  const profile = lsGetProfile(userId);
+  return { onboarding_complete: profile?.onboarding_complete ?? false };
+}
+
+// ═══════════════════════════════════════════════════
+// Chat — the ONLY server call (LLM proxy)
 // ═══════════════════════════════════════════════════
 
 interface ChatMessageResponse {
@@ -292,32 +259,12 @@ interface ChatMessageResponse {
   error?: string;
 }
 
-interface ChatHistoryEntry {
-  id: number;
-  user_id: number;
-  conversation_id: number;
-  user_input: string;
-  bot_response: string;
-  model_used: string | null;
-  guardrail_triggered: boolean;
-  guardrail_rule: string | null;
-  response_time_ms: number | null;
-  created_at: string | null;
-}
-
-interface Conversation {
-  id: number;
-  user_id: number;
-  title: string | null;
-  created_at: string | null;
-  first_message?: string | null;
-}
-
 /**
  * Send a chat message to the AI. Core product endpoint.
- * Returns the AI response + metadata (guardrail status, model used).
  *
- * Pass an AbortSignal to allow cancellation (e.g. user clicks pause).
+ * Sends the user's profile + recent conversation history in the request body
+ * so the server can build the LLM prompt without a database.
+ * The server is a stateless LLM proxy.
  */
 export async function sendMessage(
   userId: number,
@@ -325,12 +272,23 @@ export async function sendMessage(
   conversationId?: number | null,
   signal?: AbortSignal,
 ): Promise<ChatMessageResponse> {
+  // Get profile and history from localStorage
+  const profile = lsGetProfile(userId);
+  const history = lsListChatHistory(userId, conversationId ?? null, 10);
+
+  // Format history for the LLM prompt
+  const conversation_history = history.map((h) => ({
+    user_input: h.user_input,
+    bot_response: h.bot_response,
+  }));
+
   const res = await fetch("/api/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      user_id: userId,
       message,
+      profile,
+      conversation_history,
       conversation_id: conversationId ?? null,
     }),
     signal,
@@ -341,71 +299,26 @@ export async function sendMessage(
     throw new Error(error.detail || `HTTP ${res.status}`);
   }
 
-  return res.json();
-}
+  const result: ChatMessageResponse = await res.json();
 
-/**
- * List conversations for a user (chat history overview).
- */
-export async function listConversations(userId: number): Promise<Conversation[]> {
-  const res = await fetch(`/api/conversations/${userId}`);
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.json();
-}
+  // Create a new conversation if none existed
+  let activeConvId = conversationId ?? result.conversation_id;
+  if (!activeConvId) {
+    const conv = lsCreateConversation(userId);
+    activeConvId = conv.id;
+    result.conversation_id = conv.id;
+  }
 
-/**
- * Delete a conversation and its related data.
- */
-export async function deleteConversation(
-  userId: number,
-  conversationId: number,
-): Promise<boolean> {
-  const res = await fetch(
-    `/api/conversations/${userId}?conversationId=${conversationId}`,
-    { method: "DELETE" }
-  );
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const data = await res.json();
-  return data.deleted;
-}
+  // Store the exchange in localStorage
+  lsCreateChatEntry({
+    user_id: userId,
+    conversation_id: activeConvId,
+    user_input: message,
+    bot_response: result.response,
+    model_used: result.model_used,
+    guardrail_triggered: result.guardrail_triggered,
+    guardrail_rule: result.guardrail_rule,
+  });
 
-/**
- * Get a single conversation with its full chat history.
- */
-export async function getConversationDetail(
-  userId: number,
-  conversationId: number,
-): Promise<(Conversation & { chat_history: ChatHistoryEntry[] }) | null> {
-  const res = await fetch(`/api/conversations/${userId}?conversationId=${conversationId}`);
-  if (res.status === 404) return null;
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.json();
-}
-
-/**
- * Get chat history for a user within a conversation.
- */
-export async function getChatHistory(
-  userId: number,
-  conversationId?: number | null,
-  limit?: number,
-): Promise<ChatHistoryEntry[]> {
-  const params = new URLSearchParams();
-  if (conversationId != null) params.set("conversation_id", String(conversationId));
-  if (limit != null) params.set("limit", String(limit));
-
-  const query = params.toString() ? `?${params.toString()}` : "";
-  const res = await fetch(`/api/conversations/${userId}/chat-history${query}`);
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.json();
-}
-
-/**
- * Get onboarding status for a user.
- */
-export async function getOnboardingStatus(userId: number): Promise<{ onboarding_complete: boolean }> {
-  const res = await fetch(`/api/onboarding/status?user_id=${userId}`);
-  if (res.status === 404) return { onboarding_complete: false };
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.json();
+  return result;
 }
