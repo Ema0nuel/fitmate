@@ -1,0 +1,28 @@
+# Ignore Python backend — runs on a separate server (not deployed to Vercel)
+backend/
+
+# Ignore local databases
+*.db
+*.db-shm
+*.db-wal
+
+# Ignore documentation and config files
+CLAUDE.md
+CONTEXT.md
+PRODUCT.md
+DESIGN.md
+AGENTS.md
+instructions/
+surface-briefs/
+.impeccable/
+.claude/
+.codex/
+docs/
+skills-lock.json
+
+# Ignore training data
+policy/
+
+# Ignore Python artifacts
+__pycache__/
+*.pyc
