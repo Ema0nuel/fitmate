@@ -63,3 +63,6 @@ DESIGN.md
 surface-briefs/
 .codex/
 docs/superpowers/
+
+.vercel
+.env*
