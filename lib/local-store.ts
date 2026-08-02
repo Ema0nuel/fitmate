@@ -6,10 +6,16 @@
  * All data lives in the browser's localStorage.
  *
  * Storage format: single key "fitmate-data" with a structured JSON object.
- * Auto-generates numeric IDs via counter + Date.now().
+ * Auto-generates numeric IDs via counter.
  *
  * Trade-off: data is per-browser (no cross-device sync).
  * Acceptable for a thesis demo.
+ *
+ * SECURITY NOTE: localStorage is NOT encrypted and is accessible to any
+ * JavaScript running on the same origin. Do not store production health
+ * data (PHI/PII) in localStorage in a real deployment — use a server-side
+ * database with proper authentication. This is acceptable only for a
+ * single-user thesis demo where the user is the sole data owner.
  */
 
 // ═══════════════════════════════════════════════════
@@ -127,6 +133,7 @@ function readData(): FitMateData {
 
 function writeData(data: FitMateData): void {
   if (typeof window === "undefined") return;
+  enforceQuota(data);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
 
@@ -137,6 +144,43 @@ function nextId(data: FitMateData, counter: keyof FitMateData["_counters"]): num
 }
 
 // ═══════════════════════════════════════════════════
+// Input validation — length limits to prevent storage exhaustion
+// ═══════════════════════════════════════════════════
+
+const LIMITS = {
+  name: 100,
+  message: 10_000,
+  title: 200,
+  description: 500,
+  goalType: 100,
+  medicalFlags: 2_000,
+} as const;
+
+function clamp(value: string, max: number, label: string): string {
+  if (value.length > max) {
+    console.warn(`[local-store] ${label} truncated from ${value.length} to ${max} chars`);
+    return value.slice(0, max);
+  }
+  return value;
+}
+
+// Storage quota guard — evict oldest chat entries if approaching limit
+const STORAGE_QUOTA_BYTES = 4 * 1024 * 1024; // 4MB (localStorage typically has 5MB)
+
+function enforceQuota(data: FitMateData): void {
+  const serialized = JSON.stringify(data);
+  if (serialized.length < STORAGE_QUOTA_BYTES) return;
+
+  // Evict oldest 20% of chat history
+  const evictCount = Math.max(1, Math.floor(data.chatHistory.length * 0.2));
+  data.chatHistory.sort(
+    (a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime(),
+  );
+  data.chatHistory.splice(0, evictCount);
+  console.warn(`[local-store] Storage quota exceeded — evicted ${evictCount} chat entries`);
+}
+
+// ═══════════════════════════════════════════════════
 // 1. USERS
 // ═══════════════════════════════════════════════════
 
@@ -144,7 +188,7 @@ export function lsCreateUser(name: string): LocalUser {
   const data = readData();
   const user: LocalUser = {
     id: nextId(data, "userId"),
-    name,
+    name: clamp(name, LIMITS.name, "name"),
     created_at: new Date().toISOString(),
   };
   data.users.push(user);
@@ -180,7 +224,7 @@ export function lsCreateProfile(params: {
     weight_kg: params.weight_kg ?? null,
     height_cm: params.height_cm ?? null,
     fitness_level: params.fitness_level ?? null,
-    medical_flags: params.medical_flags ?? null,
+    medical_flags: params.medical_flags ? clamp(params.medical_flags, LIMITS.medicalFlags, "medical_flags") : null,
     onboarding_complete: params.onboarding_complete ?? false,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
@@ -253,11 +297,11 @@ export function lsCreateGoal(params: {
   const goal: LocalGoal = {
     id: nextId(data, "goalId"),
     user_id: params.user_id,
-    goal_type: params.goal_type,
+    goal_type: clamp(params.goal_type, LIMITS.goalType, "goal_type"),
     target_value: params.target_value ?? null,
     target_unit: params.target_unit ?? null,
     target_date: params.target_date ?? null,
-    description: params.description ?? null,
+    description: params.description ? clamp(params.description, LIMITS.description, "description") : null,
     status: params.status ?? "active",
     created_at: new Date().toISOString(),
   };
@@ -372,11 +416,11 @@ export function lsCreateChatEntry(params: {
 }): LocalChatEntry {
   const data = readData();
   const entry: LocalChatEntry = {
-    id: `chat-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+    id: `chat-${crypto.randomUUID()}`,
     user_id: params.user_id,
     conversation_id: params.conversation_id ?? null,
-    user_input: params.user_input,
-    bot_response: params.bot_response,
+    user_input: clamp(params.user_input, LIMITS.message, "user_input"),
+    bot_response: clamp(params.bot_response, LIMITS.message, "bot_response"),
     model_used: params.model_used ?? null,
     guardrail_triggered: params.guardrail_triggered ?? false,
     guardrail_rule: params.guardrail_rule ?? null,
