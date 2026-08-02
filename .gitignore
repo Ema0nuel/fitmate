@@ -24,6 +24,16 @@
 .DS_Store
 *.pem
 
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# SQLite databases
+*.db
+*.db-shm
+*.db-wal
+
 # debug
 npm-debug.log*
 yarn-debug.log*
