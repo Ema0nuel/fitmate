@@ -166,15 +166,15 @@ export default function FitMateChat() {
 
       {/* Content area */}
       <div className="flex-1 flex flex-col relative overflow-hidden">
-        <AnimatePresence mode="wait">
+        <AnimatePresence initial={false}>
           {!hasMessages ? (
             /* ── State A: Welcome — centered ──────── */
             <motion.div
               key="welcome"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.15 }}
               className="flex-1 flex flex-col items-center justify-center"
             >
               <ChatWelcome name={profile.name} />
@@ -198,7 +198,7 @@ export default function FitMateChat() {
               key="chat"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.15 }}
               className="flex-1 flex flex-col min-h-0"
             >
               {/* Messages scroll area */}

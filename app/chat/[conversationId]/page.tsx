@@ -55,7 +55,7 @@ export default function ConversationPage() {
 
     async function load() {
       try {
-        const detail = await getConversationDetail(userId!, conversationId);
+        const detail = await getConversationDetail(userId!, conversationId!);
         if (cancelled) return;
 
         if (!detail) {
@@ -83,7 +83,7 @@ export default function ConversationPage() {
           ]
         );
 
-        loadMessages(chatMessages, conversationId);
+        loadMessages(chatMessages, conversationId!);
         setLoading(false);
       } catch {
         if (!cancelled) {

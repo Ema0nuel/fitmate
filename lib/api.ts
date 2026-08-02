@@ -310,6 +310,7 @@ interface Conversation {
   user_id: number;
   title: string | null;
   created_at: string | null;
+  first_message?: string | null;
 }
 
 /**
@@ -350,6 +351,22 @@ export async function listConversations(userId: number): Promise<Conversation[]>
   const res = await fetch(`/api/conversations/${userId}`);
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   return res.json();
+}
+
+/**
+ * Delete a conversation and its related data.
+ */
+export async function deleteConversation(
+  userId: number,
+  conversationId: number,
+): Promise<boolean> {
+  const res = await fetch(
+    `/api/conversations/${userId}?conversationId=${conversationId}`,
+    { method: "DELETE" }
+  );
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const data = await res.json();
+  return data.deleted;
 }
 
 /**

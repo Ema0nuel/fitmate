@@ -43,7 +43,7 @@ next-env.d.ts
 #Instruction files
 CLAUDE.md 
 CONTEXT.md
-/instructions/**
+instructions/
 .agents/
 .claude/
 skills-lock.json
@@ -52,3 +52,4 @@ PRODUCT.md
 DESIGN.md
 surface-briefs/
 .codex/
+docs/superpowers/

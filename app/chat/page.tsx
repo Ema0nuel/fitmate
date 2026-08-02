@@ -3,17 +3,19 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useOnboardingStore } from "@/store/onboarding-store";
+import { useChatStore } from "@/store/chat-store";
 import FitMateChat from "@/components/chat/fitmate-chat";
 
 /**
- * /chat — New conversation page
+ * /chat — Empty-state landing page
  *
- * Same as / — shows the chat interface for a fresh conversation.
- * After the first message, fitmate-chat.tsx redirects to /chat/[conversationId].
+ * The canonical "logged-in home." Always starts fresh — clears any
+ * stale messages from localStorage on mount.
  */
 export default function ChatPage() {
   const router = useRouter();
   const { userId, _hasHydrated } = useOnboardingStore();
+  const clearMessages = useChatStore((s) => s.clearMessages);
 
   // Redirect to onboarding if user never completed it
   useEffect(() => {
@@ -22,7 +24,13 @@ export default function ChatPage() {
     }
   }, [_hasHydrated, userId, router]);
 
-  // Wait for hydration
+  // Always start fresh — /chat is the new-conversation page
+  useEffect(() => {
+    if (_hasHydrated && userId) {
+      clearMessages();
+    }
+  }, [_hasHydrated, userId, clearMessages]);
+
   if (!_hasHydrated) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-background">
@@ -31,10 +39,7 @@ export default function ChatPage() {
     );
   }
 
-  // Not completed onboarding — redirecting
-  if (!userId) {
-    return null;
-  }
+  if (!userId) return null;
 
   return <FitMateChat />;
 }

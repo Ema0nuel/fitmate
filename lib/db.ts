@@ -254,6 +254,8 @@ export interface Conversation {
   user_id: number;
   title: string | null;
   created_at: string;
+  /** First user message in the conversation (for history preview). Only populated by listConversations. */
+  first_message?: string | null;
 }
 
 export interface WorkoutPlan {
@@ -548,8 +550,19 @@ export function getConversation(conversationId: number): Conversation | undefine
 
 export function listConversations(userId: number): Conversation[] {
   return getDb().prepare(
-    "SELECT * FROM conversations WHERE user_id = ? ORDER BY created_at DESC"
+    `SELECT c.*,
+      (SELECT user_input FROM chat_history
+       WHERE conversation_id = c.id
+       ORDER BY created_at ASC LIMIT 1) as first_message
+     FROM conversations c
+     WHERE c.user_id = ?
+     ORDER BY c.created_at DESC`
   ).all(userId) as Conversation[];
+}
+
+export function deleteConversation(conversationId: number): boolean {
+  const result = getDb().prepare("DELETE FROM conversations WHERE id = ?").run(conversationId);
+  return result.changes > 0;
 }
 
 export function updateConversationTitle(conversationId: number, title: string): Conversation | undefined {
