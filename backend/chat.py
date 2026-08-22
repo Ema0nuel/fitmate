@@ -40,7 +40,7 @@ API_KEY = os.getenv("LLM_API_KEY", "")
 # Thesis-facing model name — displayed to users as the fine-tuned model
 DISPLAY_MODEL = os.getenv("LLM_DISPLAY_MODEL", "mistralai/Mistral-7B-Instruct-v0.2")
 # Actual model slug used in API calls
-ACTUAL_MODEL = os.getenv("LLM_MODEL", "deepseek/deepseek-chat-v4-flash")
+ACTUAL_MODEL = os.getenv("LLM_MODEL", "nemotron-3-ultra-free")
 
 # System prompt — establishes FitMate's persona + fitness domain boundaries
 SYSTEM_PROMPT = """You are FitMate, a fitness and health assistant powered by a fine-tuned

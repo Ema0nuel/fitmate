@@ -23,7 +23,7 @@ export { checkUserInput, checkBotResponse };
 const API_BASE_URL = process.env.LLM_API_BASE_URL || "https://opencode.ai/zen/v1";
 const API_KEY = process.env.LLM_API_KEY || "";
 export const DISPLAY_MODEL = process.env.LLM_DISPLAY_MODEL || "mistralai/Mistral-7B-Instruct-v0.2";
-const ACTUAL_MODEL = process.env.LLM_MODEL || "deepseek-v4-flash-free";
+const ACTUAL_MODEL = process.env.LLM_MODEL || "nemotron-3-ultra-free";
 
 const MAX_RETRIES = 2;
 const REQUEST_TIMEOUT = 30_000;
