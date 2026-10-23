@@ -13,7 +13,13 @@
  *   (8) Final response → client stores in localStorage
  */
 
-import { buildPrompt, callLLM, DISPLAY_MODEL, checkUserInput, checkBotResponse } from "@/lib/chat";
+import {
+  buildPrompt,
+  callLLMWithMetadata,
+  LLMServiceError,
+  checkUserInput,
+  checkBotResponse,
+} from "@/lib/chat";
 import { errorResponse, createdResponse, parseBody } from "../utils";
 
 export async function POST(req: Request) {
@@ -56,21 +62,33 @@ export async function POST(req: Request) {
     });
 
     // ── Step 3: Call LLM ─────────────────────────
-    const botResponse = await callLLM(messages);
+    const completion = await callLLMWithMetadata(messages);
 
     // ── Step 4: Output guardrails ─────────────────
-    const outputCheck = checkBotResponse(botResponse);
-    const guardedResponse = outputCheck.passed ? botResponse : outputCheck.message;
+    const outputCheck = checkBotResponse(completion.content);
+    const guardedResponse = outputCheck.passed
+      ? completion.content
+      : outputCheck.message;
 
     return createdResponse({
       response: guardedResponse,
       conversation_id: body.conversation_id ?? null,
       guardrail_triggered: !outputCheck.passed,
       guardrail_rule: !outputCheck.passed ? outputCheck.rule : null,
-      model_used: DISPLAY_MODEL,
+      model_used: completion.model,
     });
   } catch (err) {
     console.error("[chat] error:", err instanceof Error ? err.message : String(err));
+
+    if (err instanceof LLMServiceError) {
+      const detail = err.status === 503
+        ? "AI service is not configured."
+        : err.status === 504
+          ? "AI service timed out. Please try again."
+          : "AI service is temporarily unavailable.";
+      return errorResponse(detail, err.status);
+    }
+
     return errorResponse("Failed to process chat", 500);
   }
 }

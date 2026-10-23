@@ -56,10 +56,10 @@ This document describes every component of the FitMate system, what each file an
                │ httpx → OpenAI-compatible API
                ▼
 ┌──────────────────────────────────────────────────────┐
-│  LLM Inference Service (OpenCode-Zen API)             │
-│  Displayed model: Mistral 7B Instruct (thesis)       │
-│  Actual model: DeepSeek-V4-Flash                      │
-│  Endpoint: /v1/chat/completions                       │
+│  LLM Inference Service (OpenRouter API)                │
+│  Requested model: openrouter/free                      │
+│  Reported model: resolved provider model ID            │
+│  Endpoint: /v1/chat/completions                        │
 └──────────────────────────────────────────────────────┘
 ```
 
@@ -297,14 +297,14 @@ This document describes every component of the FitMate system, what each file an
   - **Progress:** `createProgressEntry`, `listProgressEntries`, `getProgressEntry`, `updateProgressEntry`, `deleteProgressEntry`
 - **TypeScript interfaces:** `User`, `Profile`, `FitnessGoal`, `Conversation`, `WorkoutPlan`, `WorkoutExercise`, `NutritionEntry`, `ChatHistoryEntry`, `ConversationMemory`, `ProgressEntry`, `Exercise`
 
-### `lib/chat.ts` — Chat Orchestration (Node.js)
-- **Purpose:** Full chat pipeline implementing Chapter Three Section 3.5.2
-- **Steps implemented:** (1) validate user, (2) create/get conversation, (3) input guardrail, (4) retrieve profile, (5) retrieve history, (6) retrieve memory, (7) build prompt, (8) call LLM, (9) output guardrail, (10) save exchange
+### `lib/chat.ts` — Stateless LLM Client (Node.js)
+- **Purpose:** Prompt construction, server-side OpenRouter requests, and guardrail exports
+- **Steps implemented:** Build the prompt from client-provided profile and conversation context, call OpenRouter, validate the provider response, and return response content with resolved model metadata
 - **Functions:**
   - `buildPrompt(params)` — Constructs LLM message array: system prompt → profile context → memory summary → conversation history (last 10) → user message
-  - `callLLM(messages)` — Async fetch to OpenCode-Zen API with retry (2 attempts) and 30s timeout
-  - `processChatMessage(userId, message, conversationId?)` — Main pipeline orchestrating all 10 steps
-- **Configuration:** `LLM_API_BASE_URL`, `LLM_API_KEY`, `LLM_MODEL` (actual slug), `LLM_DISPLAY_MODEL` (thesis-facing name)
+  - `callLLMWithMetadata(messages)` — Server-side OpenRouter request with retries, timeout, response validation, and resolved model metadata
+  - `callLLM(messages)` — Text-only wrapper for callers that do not need model metadata
+- **Configuration:** `OPENROUTER_API_KEY` (preferred), `LLM_API_KEY` (compatibility), `LLM_API_BASE_URL`, `LLM_MODEL`
 - **System prompt:** Defines FitMate persona — concise, direct, fitness-only, no emojis, no greetings
 
 ### `lib/guardrails.ts` — Content Safety Filter (Node.js)
@@ -469,7 +469,7 @@ This document describes every component of the FitMate system, what each file an
   - `build_prompt()` — Constructs LLM message array
   - `_format_profile_context()` — Formats user profile for prompt
   - `_format_conversation_history()` — Formats last 10 exchanges
-  - `call_llm()` — Async HTTP POST to OpenCode-Zen API via `httpx`
+  - `call_llm()` — Async HTTP POST to OpenRouter via `httpx`
   - `process_chat_message()` — Main 10-step pipeline
 
 ### `backend/guardrails.py` — Content Safety Filter
@@ -588,9 +588,9 @@ Per Chapter Three Section 3.5.2 flowchart:
 ### LLM Configuration
 | Parameter | Value |
 |---|---|
-| Display Model | `mistralai/Mistral-7B-Instruct-v0.2` (thesis name) |
-| Actual Model | `deepseek/deepseek-chat-v4-flash` |
-| API Endpoint | OpenCode-Zen `/v1/chat/completions` |
+| Requested Model | `openrouter/free` |
+| Reported Model | Resolved OpenRouter model ID from each completion |
+| API Endpoint | OpenRouter `/api/v1/chat/completions` |
 | Max Tokens | 1024 |
 | Temperature | 0.7 |
 | Top P | 0.9 |
