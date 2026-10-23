@@ -12,21 +12,37 @@
  * Used by: app/api/chat/route.ts (the stateless LLM proxy)
  */
 
+import "server-only";
+
 import { checkUserInput, checkBotResponse } from "./guardrails";
 
 export { checkUserInput, checkBotResponse };
 
 // ──────────────────────────────────────────────────
-// Configuration — OpenCode-Zen API
+// Configuration — OpenRouter API (OpenAI-compatible)
 // ──────────────────────────────────────────────────
 
-const API_BASE_URL = process.env.LLM_API_BASE_URL || "https://opencode.ai/zen/v1";
-const API_KEY = process.env.LLM_API_KEY || "";
-export const DISPLAY_MODEL = process.env.LLM_DISPLAY_MODEL || "mistralai/Mistral-7B-Instruct-v0.2";
-const ACTUAL_MODEL = process.env.LLM_MODEL || "nemotron-3-ultra-free";
+const API_BASE_URL = process.env.LLM_API_BASE_URL || "https://openrouter.ai/api/v1";
+const API_KEY = process.env.OPENROUTER_API_KEY || process.env.LLM_API_KEY || "";
+const ACTUAL_MODEL = process.env.LLM_MODEL || "openrouter/free";
 
 const MAX_RETRIES = 2;
 const REQUEST_TIMEOUT = 30_000;
+
+export interface LLMCompletion {
+  content: string;
+  model: string;
+}
+
+export class LLMServiceError extends Error {
+  constructor(
+    message: string,
+    public readonly status: 502 | 503 | 504,
+  ) {
+    super(message);
+    this.name = "LLMServiceError";
+  }
+}
 
 // ──────────────────────────────────────────────────
 // System prompt
@@ -140,18 +156,12 @@ export function formatConversationHistory(
 }
 
 // ──────────────────────────────────────────────────
-// LLM API call — OpenCode-Zen (OpenAI-compatible)
+// LLM API call — OpenRouter (OpenAI-compatible)
 // ──────────────────────────────────────────────────
 
-export async function callLLM(messages: Message[]): Promise<string> {
+export async function callLLMWithMetadata(messages: Message[]): Promise<LLMCompletion> {
   if (!API_KEY) {
-    return (
-      "I'm FitMate, your fitness assistant! The AI model is not yet " +
-      "configured. Please set the LLM_API_KEY environment variable to " +
-      "connect to the inference service. In the meantime, I can tell you " +
-      "that I'm designed to help with exercise, nutrition, and fitness " +
-      "questions based on WHO, ACE, and HHS guidelines."
-    );
+    throw new LLMServiceError("OpenRouter API key is missing.", 503);
   }
 
   const payload = {
@@ -163,48 +173,73 @@ export async function callLLM(messages: Message[]): Promise<string> {
   };
 
   for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
-    try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT);
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT);
 
+    try {
       const response = await fetch(`${API_BASE_URL}/chat/completions`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${API_KEY}`,
           "Content-Type": "application/json",
+          "HTTP-Referer": process.env.OPENROUTER_HTTP_REFERER || "http://localhost:3000",
+          "X-Title": process.env.OPENROUTER_X_TITLE || "FitMate",
         },
         body: JSON.stringify(payload),
         signal: controller.signal,
       });
 
-      clearTimeout(timeoutId);
-
       if (!response.ok) {
-        if (attempt < MAX_RETRIES - 1) continue;
-        return (
-          `I'm experiencing a technical issue with the AI service ` +
-          `(HTTP ${response.status}). Please try again shortly.`
+        const isTransient = response.status === 429 || response.status >= 500;
+        if (isTransient && attempt < MAX_RETRIES - 1) continue;
+        throw new LLMServiceError(
+          `OpenRouter request failed with HTTP ${response.status}.`,
+          502,
         );
       }
 
-      const data = await response.json();
-      return data.choices[0].message.content;
+      let data: {
+        model?: unknown;
+        choices?: Array<{ message?: { content?: unknown } }>;
+      };
+      try {
+        data = await response.json();
+      } catch {
+        throw new LLMServiceError("OpenRouter returned invalid JSON.", 502);
+      }
+
+      const content = data.choices?.[0]?.message?.content;
+      if (typeof content !== "string" || content.trim().length === 0) {
+        throw new LLMServiceError("OpenRouter returned an empty response.", 502);
+      }
+
+      return {
+        content,
+        model: typeof data.model === "string" && data.model.trim()
+          ? data.model
+          : ACTUAL_MODEL,
+      };
     } catch (err) {
+      if (err instanceof LLMServiceError) throw err;
+
+      const isTimeout = err instanceof Error && err.name === "AbortError";
       if (attempt < MAX_RETRIES - 1) continue;
 
-      if (err instanceof DOMException && err.name === "AbortError") {
-        return (
-          "I'm sorry, the AI service timed out. Please try again. " +
-          "If this persists, the inference service may be temporarily unavailable."
-        );
-      }
-
-      return (
-        "I'm experiencing a technical issue connecting to the AI service. " +
-        "Please try again shortly."
+      throw new LLMServiceError(
+        isTimeout
+          ? "OpenRouter request timed out."
+          : "OpenRouter request failed.",
+        isTimeout ? 504 : 502,
       );
+    } finally {
+      clearTimeout(timeoutId);
     }
   }
 
-  return "I'm unable to generate a response right now. Please try again.";
+  throw new LLMServiceError("OpenRouter request failed.", 502);
+}
+
+export async function callLLM(messages: Message[]): Promise<string> {
+  const completion = await callLLMWithMetadata(messages);
+  return completion.content;
 }

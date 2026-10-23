@@ -9,6 +9,16 @@ npm install
 npm run dev
 ```
 
+Create a local `.env` file before starting the app:
+
+```dotenv
+OPENROUTER_API_KEY=your_openrouter_key
+LLM_API_BASE_URL=https://openrouter.ai/api/v1
+LLM_MODEL=openrouter/free
+OPENROUTER_HTTP_REFERER=http://localhost:3000
+OPENROUTER_X_TITLE=FitMate
+```
+
 - App: http://localhost:3000
 - API routes: http://localhost:3000/api/*
 
@@ -19,7 +29,8 @@ npm run dev
 | Frontend | Next.js 16, React 19, TypeScript, Tailwind CSS |
 | Backend | Next.js API Routes (TypeScript) |
 | Database | SQLite via better-sqlite3 |
-| Model | Mistral 7B (QLoRA fine-tuned) via OpenCode-Zen API |
+| Model runtime | OpenRouter Free Models Router via a server-side Next.js API route |
+| Model reporting | The resolved OpenRouter model ID is stored with each response |
 | Guardrails | Rule-based regex domain enforcement |
 
 ## Project Docs
